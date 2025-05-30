@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://mgmvw8t683w4"]
+
+[ext_resource type="Script" uid="uid://cdy5hrp44nkpv" path="res://scripts/input_response.gd" id="1_qa54y"]
+[ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_brd57"]
+
+[node name="InputResponse" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+script = ExtResource("1_qa54y")
+
+[node name="InputHistory" type="RichTextLabel" parent="."]
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+
+[node name="Response" parent="." instance=ExtResource("2_brd57")]
+unique_name_in_owner = true
+layout_mode = 2
+seconds_per_step = 0.08

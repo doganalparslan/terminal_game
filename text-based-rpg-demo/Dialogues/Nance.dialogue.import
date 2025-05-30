@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bj8qjlh3qgbua"
+path="res://.godot/imported/Nance.dialogue-2014e63ef16ce0d8920a63b51903b1f8.tres"
+
+[deps]
+
+source_file="res://Dialogues/Nance.dialogue"
+dest_files=["res://.godot/imported/Nance.dialogue-2014e63ef16ce0d8920a63b51903b1f8.tres"]
+
+[params]
+
+defaults=true

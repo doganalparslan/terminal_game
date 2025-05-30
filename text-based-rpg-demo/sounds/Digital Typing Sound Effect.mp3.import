@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://6sgctd2xl4iu"
+path="res://.godot/imported/Digital Typing Sound Effect.mp3-c6fbe5a4deaa5e0a027f683060276b54.mp3str"
+
+[deps]
+
+source_file="res://sounds/Digital Typing Sound Effect.mp3"
+dest_files=["res://.godot/imported/Digital Typing Sound Effect.mp3-c6fbe5a4deaa5e0a027f683060276b54.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

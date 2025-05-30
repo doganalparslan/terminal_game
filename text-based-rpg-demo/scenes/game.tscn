@@ -1,0 +1,98 @@
+[gd_scene load_steps=11 format=3 uid="uid://e2diufbnibob"]
+
+[ext_resource type="Script" uid="uid://ca7hu5v7fyt4s" path="res://scripts/game.gd" id="1_cwoj5"]
+[ext_resource type="Script" uid="uid://iqonxpv44kmi" path="res://scripts/scroll.gd" id="2_u5124"]
+[ext_resource type="Script" uid="uid://dbqt8rjjxfrf0" path="res://scripts/line_edit.gd" id="4_ivp3u"]
+[ext_resource type="Script" uid="uid://cfimnk66xb6an" path="res://scripts/typing_sound_manager.gd" id="4_nlldf"]
+[ext_resource type="AudioStream" uid="uid://cnilvbhexdvhp" path="res://sounds/single keyboard click.mp3" id="6_ivp3u"]
+[ext_resource type="AudioStream" uid="uid://bao2cxg2od8tp" path="res://sounds/shortest_beep_sound.mp3" id="7_dktwy"]
+[ext_resource type="Script" uid="uid://fdjxgxn3ref8" path="res://scripts/CommandProcessor.gd" id="7_ivp3u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_feb5d"]
+bg_color = Color(0.0645193, 0.0881919, 0.066893, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o4jio"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r2ppy"]
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cwoj5")
+max_lines_remembered = 300
+
+[node name="Background" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_feb5d")
+
+[node name="MarginContainer" type="MarginContainer" parent="Background"]
+layout_mode = 2
+
+[node name="Rows" type="VBoxContainer" parent="Background/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="GameInfo" type="PanelContainer" parent="Background/MarginContainer/Rows"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Scroll" type="ScrollContainer" parent="Background/MarginContainer/Rows/GameInfo"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+script = ExtResource("2_u5124")
+
+[node name="MarginContainer" type="MarginContainer" parent="Background/MarginContainer/Rows/GameInfo/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+
+[node name="HistoryRows" type="VBoxContainer" parent="Background/MarginContainer/Rows/GameInfo/Scroll/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LineEdit" type="LineEdit" parent="Background/MarginContainer/Rows/GameInfo/Scroll/MarginContainer/HistoryRows"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/focus = SubResource("StyleBoxEmpty_o4jio")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_r2ppy")
+max_length = 500
+keep_editing_on_text_submit = true
+selecting_enabled = false
+caret_blink = true
+caret_force_displayed = true
+script = ExtResource("4_ivp3u")
+
+[node name="TypingSoundManager" type="Node" parent="."]
+script = ExtResource("4_nlldf")
+
+[node name="BeepSound" type="AudioStreamPlayer2D" parent="TypingSoundManager"]
+stream = ExtResource("7_dktwy")
+
+[node name="ClickSound" type="AudioStreamPlayer2D" parent="TypingSoundManager"]
+stream = ExtResource("6_ivp3u")
+
+[node name="PCSound" type="AudioStreamPlayer2D" parent="TypingSoundManager"]
+
+[node name="AmbientSound" type="AudioStreamPlayer2D" parent="TypingSoundManager"]
+
+[node name="CommandProcessor" type="Node" parent="."]
+script = ExtResource("7_ivp3u")
+
+[connection signal="focus_entered" from="Background/MarginContainer/Rows/GameInfo/Scroll/MarginContainer/HistoryRows/LineEdit" to="Background/MarginContainer/Rows/GameInfo/Scroll/MarginContainer/HistoryRows/LineEdit" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Background/MarginContainer/Rows/GameInfo/Scroll/MarginContainer/HistoryRows/LineEdit" to="Background/MarginContainer/Rows/GameInfo/Scroll/MarginContainer/HistoryRows/LineEdit" method="_on_focus_exited"]
+[connection signal="text_changed" from="Background/MarginContainer/Rows/GameInfo/Scroll/MarginContainer/HistoryRows/LineEdit" to="Background/MarginContainer/Rows/GameInfo/Scroll/MarginContainer/HistoryRows/LineEdit" method="_on_text_changed"]
+[connection signal="text_changed" from="Background/MarginContainer/Rows/GameInfo/Scroll/MarginContainer/HistoryRows/LineEdit" to="TypingSoundManager" method="_on_line_edit_text_changed"]
+[connection signal="text_submitted" from="Background/MarginContainer/Rows/GameInfo/Scroll/MarginContainer/HistoryRows/LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="text_submitted" from="Background/MarginContainer/Rows/GameInfo/Scroll/MarginContainer/HistoryRows/LineEdit" to="Background/MarginContainer/Rows/GameInfo/Scroll/MarginContainer/HistoryRows/LineEdit" method="_on_text_submitted"]
+[connection signal="text_submitted" from="Background/MarginContainer/Rows/GameInfo/Scroll/MarginContainer/HistoryRows/LineEdit" to="TypingSoundManager" method="_on_line_edit_text_submitted"]
+[connection signal="text_submitted" from="Background/MarginContainer/Rows/GameInfo/Scroll/MarginContainer/HistoryRows/LineEdit" to="CommandProcessor" method="_on_line_edit_text_submitted"]

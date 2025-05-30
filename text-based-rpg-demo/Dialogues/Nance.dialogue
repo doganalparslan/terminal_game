@@ -1,0 +1,37 @@
+~ start
+Nance: Hello there cowboy...[wait=1][speed=2] Wasn't sure you would jack in
+- Hi Nance [if has_met_nance]
+	=> met_nance
+- Hello? [if !has_met_nance]
+	set has_met_nance = true
+Nance: Didn't your mama tell you "not to" stick other people's usb drives in your pc [next=auto]
+Nance: Especially those you've met on the lone alleys. [next=auto]
+Nance: Anyway,[wait=0.5] Im Nance [wait=1][next=auto]
+Nance: This is Radiotext.[wait=1] it allows to talk without government or corps spying on us.
+Nance: Uses long range radio waves to deliver data, decentralized, encrypted.
+
+Nance: Imma send you a picture
+- Alright
+do Global.create_empty_lines(false)
+Nance: ┌──────── [pulse]Loading Image[/pulse] ────────────┐ [wait=2][next=auto]
+match Global.active_color #probably a copy paste for all images
+	when green
+		Nance: [next=auto][img=370, color=WEB_GREEN]res://ascii-art.png[/img]
+	when red
+		Nance: [next=auto][img=370, color=CRIMSON]res://ascii-art.png[/img]
+	when blue
+		Nance: [next=auto][img=370, color=BLUE]res://ascii-art.png[/img]
+	when yellow
+		Nance: [next=auto][img=370, color=YELLOW]res://ascii-art.png[/img]
+Nance: [speed=10]└───────────────────────────────────┘[next=auto]
+Nance: [next=auto]yes...                                                                                                                               
+do Global.create_empty_lines(true)
+Nance: Thats me!
+- Start again => start
+- End the conversation
+Nance: For more information see the online documentation.
+do Global.set_line_editable(false)
+do Global.get_current_chat().line_edit.create_placeholder_text(1, "connection lost...")
+=> END
+
+~ met_nance

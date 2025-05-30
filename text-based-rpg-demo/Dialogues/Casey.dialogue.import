@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://daobpkhks2kdo"
+path="res://.godot/imported/Casey.dialogue-fb9ed2ce01c6004a8e3d03abc59cd588.tres"
+
+[deps]
+
+source_file="res://Dialogues/Casey.dialogue"
+dest_files=["res://.godot/imported/Casey.dialogue-fb9ed2ce01c6004a8e3d03abc59cd588.tres"]
+
+[params]
+
+defaults=true

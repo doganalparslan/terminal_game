@@ -1,0 +1,32 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bk06osqvfj375"]
+
+[ext_resource type="FontFile" uid="uid://dj2dsdcdrwpwt" path="res://fonts/CourierPrime-Regular.ttf" id="1_0tnci"]
+[ext_resource type="FontFile" uid="uid://ccj2guu8lnjpt" path="res://fonts/CourierPrime-Bold.ttf" id="2_4rlow"]
+[ext_resource type="FontFile" uid="uid://yikrt0ofltek" path="res://fonts/CourierPrime-BoldItalic.ttf" id="3_d0505"]
+[ext_resource type="FontFile" uid="uid://7prurtkl4d6o" path="res://fonts/CourierPrime-Italic.ttf" id="4_qwueu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ldhs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jy5h5"]
+
+[resource]
+default_font = ExtResource("1_0tnci")
+default_font_size = 16
+LineEdit/colors/caret_color = Color(0.862745, 0.0784314, 0.235294, 1)
+LineEdit/colors/font_color = Color(0.862745, 0.0784314, 0.235294, 1)
+LineEdit/fonts/font = ExtResource("1_0tnci")
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_8ldhs")
+LineEdit/styles/normal = SubResource("StyleBoxEmpty_jy5h5")
+LineEdit/styles/read_only = SubResource("StyleBoxEmpty_jy5h5")
+Preview/base_type = &"RichTextLabel"
+Preview/colors/default_color = Color(0.484541, 0.018506, 0.113637, 1)
+RichTextLabel/colors/default_color = Color(0.862745, 0.0784314, 0.235294, 1)
+RichTextLabel/fonts/bold_font = ExtResource("2_4rlow")
+RichTextLabel/fonts/bold_italics_font = ExtResource("3_d0505")
+RichTextLabel/fonts/italics_font = ExtResource("4_qwueu")
+RichTextLabel/fonts/mono_font = ExtResource("1_0tnci")
+RichTextLabel/fonts/normal_font = ExtResource("1_0tnci")
+TabContainer/colors/font_hovered_color = Color(0.862745, 0.0784314, 0.235294, 1)
+TabContainer/colors/font_selected_color = Color(0.862745, 0.0784314, 0.235294, 1)
+TabContainer/colors/font_unselected_color = Color(0.862745, 0.0784314, 0.235294, 1)
+TabContainer/fonts/font = ExtResource("1_0tnci")

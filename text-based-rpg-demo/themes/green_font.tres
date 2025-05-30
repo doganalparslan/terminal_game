@@ -1,0 +1,36 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://dgt1pgiyqvae2"]
+
+[ext_resource type="FontFile" uid="uid://dj2dsdcdrwpwt" path="res://fonts/CourierPrime-Regular.ttf" id="1_oioa3"]
+[ext_resource type="FontFile" uid="uid://ccj2guu8lnjpt" path="res://fonts/CourierPrime-Bold.ttf" id="2_p4ff0"]
+[ext_resource type="FontFile" uid="uid://yikrt0ofltek" path="res://fonts/CourierPrime-BoldItalic.ttf" id="3_pmitu"]
+[ext_resource type="FontFile" uid="uid://7prurtkl4d6o" path="res://fonts/CourierPrime-Italic.ttf" id="4_m6ubs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nj57u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gcxar"]
+
+[resource]
+default_font = ExtResource("1_oioa3")
+default_font_size = 16
+LineEdit/colors/caret_color = Color(0.274803, 0.707471, 0.100815, 1)
+LineEdit/colors/font_color = Color(0.274803, 0.707471, 0.100815, 1)
+LineEdit/fonts/font = ExtResource("1_oioa3")
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_nj57u")
+LineEdit/styles/normal = SubResource("StyleBoxEmpty_gcxar")
+LineEdit/styles/read_only = SubResource("StyleBoxEmpty_gcxar")
+Preview/base_type = &"RichTextLabel"
+Preview/colors/default_color = Color(0.141244, 0.389132, 0.0460305, 1)
+Preview/fonts/bold_font = ExtResource("1_oioa3")
+Preview/fonts/bold_italics_font = ExtResource("1_oioa3")
+Preview/fonts/italics_font = ExtResource("1_oioa3")
+Preview/fonts/mono_font = ExtResource("1_oioa3")
+Preview/fonts/normal_font = ExtResource("1_oioa3")
+RichTextLabel/colors/default_color = Color(0.274803, 0.707471, 0.100815, 1)
+RichTextLabel/fonts/bold_font = ExtResource("2_p4ff0")
+RichTextLabel/fonts/bold_italics_font = ExtResource("3_pmitu")
+RichTextLabel/fonts/italics_font = ExtResource("4_m6ubs")
+RichTextLabel/fonts/mono_font = ExtResource("1_oioa3")
+TabContainer/colors/font_hovered_color = Color(0.274803, 0.707471, 0.100815, 1)
+TabContainer/colors/font_selected_color = Color(0.274803, 0.707471, 0.100815, 1)
+TabContainer/colors/font_unselected_color = Color(0.199638, 0.6624, 5.77569e-07, 1)
+TabContainer/fonts/font = ExtResource("1_oioa3")

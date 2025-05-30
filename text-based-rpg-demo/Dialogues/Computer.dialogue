@@ -1,0 +1,63 @@
+~ start
+Computer: Terminal initialized. [next=auto]
+Computer: Radiotext Interface Software: Ver0.002 [next=auto]
+Computer: Awaiting input...
+- help
+~ commands
+Computer: Avaliable Commands: [next=auto]
+Computer: Connect | Change Audio | Terminal Interface
+- Connect
+	if has_met_nance == true
+		Computer: Scanning the wideband for active broadcasts...[do Global.change_chat("Casey")]
+	elif has_met_nance == false
+#		Computer: Establishing connection with pre-designated terminal
+		Computer: ...[do Global.change_chat("Nance")]
+#	=> commands
+- change audio
+	Computer: Avaliable audio tweaks: mute | low | Medium | HIGH | MAX
+	- mute
+		do Global.change_audio(0)
+		Computer: Audio has been muted
+	- low
+		do Global.change_audio(0.25)
+		Computer: Audio level has been set to low
+	- Medium
+		do Global.change_audio(0.75)
+		Computer: Audio level has been set to Medium
+	- HIGH
+		do Global.change_audio(1)
+		Computer: Audio level has been set to HIGH
+	- MAX
+		do Global.change_audio(1.25)
+		Computer: Audio level has been set to MAX
+- terminal interface
+	Computer: Avaliable terminal tweaks: font size | color
+	- font size
+		Computer: Choose a size: small, Medium, BIG
+		- small
+			do Global.change_font_size(16)
+			Computer: Font size has been set to small
+		- Medium
+			do Global.change_font_size(28)
+			Computer: Font size has been set to Medium
+		- BIG
+			do Global.change_font_size(35)
+			Computer: Font size has been set to BIG
+	- color
+		Available colors are; green, red, blue, yellow.
+		- red
+			interface color changed to [do Global.change_interface_color("red")]red
+		- blue
+			interface color changed to [do Global.change_interface_color("blue")]blue
+		- yellow
+			interface color changed to [do Global.change_interface_color("yellow")]yellow
+		- green
+			interface color changed to [do Global.change_interface_color("green")]green
+#- kill terminal
+#	Computer: Terminal shutting down 
+#	do _on_line_edit_text_submitted("")
+#	Computer: [wait=2]...
+#	do get_tree().quit()
+=> commands
+
+=> END
