@@ -1,37 +1,89 @@
 ~ start
-Nance: Hello there cowboy...[wait=1][speed=2] Wasn't sure you would jack in
-- Hi Nance [if has_met_nance]
-	=> met_nance
-- Hello? [if !has_met_nance]
-	set has_met_nance = true
-Nance: Didn't your mama tell you "not to" stick other people's usb drives in your pc [next=auto]
-Nance: Especially those you've met on the lone alleys. [next=auto]
-Nance: Anyway,[wait=0.5] Im Nance [wait=1][next=auto]
-Nance: This is Radiotext.[wait=1] it allows to talk without government or corps spying on us.
-Nance: Uses long range radio waves to deliver data, decentralized, encrypted.
+set has_met_nance = true
+Nance: [wait=3]Hello there cowboy...[wait=1][speed=1.5] wasn't sure you would jack in.
+- Hello?
+Nance: [speed=1.2]Didn't your mama tell you [i]"not to"[/i] stick other people's drives in your pc?[wait=1][next=auto]
+Nance: [speed=1.1]Especially those you've met on the lone alleys.[wait=1][next=auto]
+Nance: Why did you plug it anyway?
 
-Nance: Imma send you a picture
-- Alright
-do Global.create_empty_lines(false)
-Nance: ┌──────── [pulse]Loading Image[/pulse] ────────────┐ [wait=2][next=auto]
-match Global.active_color #probably a copy paste for all images
-	when green
-		Nance: [next=auto][img=370, color=WEB_GREEN]res://ascii-art.png[/img]
-	when red
-		Nance: [next=auto][img=370, color=CRIMSON]res://ascii-art.png[/img]
-	when blue
-		Nance: [next=auto][img=370, color=BLUE]res://ascii-art.png[/img]
-	when yellow
-		Nance: [next=auto][img=370, color=YELLOW]res://ascii-art.png[/img]
-Nance: [speed=10]└───────────────────────────────────┘[next=auto]
-Nance: [next=auto]yes...                                                                                                                               
-do Global.create_empty_lines(true)
-Nance: Thats me!
-- Start again => start
-- End the conversation
-Nance: For more information see the online documentation.
-do Global.set_line_editable(false)
-do Global.get_current_chat().line_edit.create_placeholder_text(1, "connection lost...")
+- Who are you
+	Nance: Im Nance.[wait=1][next=auto]
+	=>< RadiotextExplanation
+- Did you hack me
+	Nance: Of course not [wait=0.5][i]silly[/i].[next=auto]
+	Nance: Anyway,[wait=0.5] Im Nance.[wait=1] sorry for the barge in.
+	- Its ok
+		=>< RadiotextExplanation
+- Well you were cute
+	Nance: well, [wait=1]thank you[wait=0.5] :D[wait=1][next=auto][do GameState.romanced_nance(1)] 
+	do Global.create_empty_lines(false)
+	Nance: Im Nance.[wait=1][next=auto]
+	Nance: The stick you jacked in had a radio-wave transmitter[wait=0.5], alongside this terminal software.[next=auto]
+	Nance: Wasn't sure you would keep it tbh.[wait=0.5][next=auto]
+	do Global.create_empty_lines(true)
+	Nance: Anyway,[next=auto]
+	Nance: It uses long range radio waves to deliver data. decentralized [wait=0.25]and encrypted E2E.[next=auto]
+	Nance: Allows to talk without governments or corps spying on us.[next=auto]
+
+Nance: You will probably have questions[wait=1.5], so ask away.
+
+- Why me
+	Nance: My goal is to get as many as I can out of the net.[next=auto]
+	Nance: Old web has been dead for a long time[wait=0.5] and [u][i]cypherpunk[/i][/u] battle is lost anyway.[wait=1][next=auto]
+	Nance: Only [i]corp-aristos[/i] use it to rule people now.[next=auto]
+	Nance: I build these sticks on my free time, usually hand them to strangers on the street[wait=1], like you.[next=auto]
+	- you said us
+		Nance: I am not alone in this.[next=auto]
+		Nance: We are a cyber-activist group. [wait=1]we call ourselves [b]Chirp Syndicate[/b][next=auto]
+- Who is us
+	Nance: We are a [i]cyber-activist[/i] group. [wait=1]we call ourselves [b]Chirp Syndicate[/b][next=auto]
+	Nance: My goal is to get as many as I can out of the net.[next=auto]
+	Nance: Old web has been dead for a long time[wait=0.5] and [u][i]cypherpunk[/i][/u] battle is lost anyway.[wait=1][next=auto]
+	Nance: Only [i]corp-aristos[/i] use it to rule people now.[next=auto]
+	Nance: I build these sticks on my free time, usually hand them to strangers on the street[wait=1], like you.[next=auto]
+
+Nance: Basically I am the welcome party.
+- Do I join
+	Nance: That part is totally up to you. [wait=1]no one can force you upstream.[next=auto]
+	Nance: But you don't have to be all hasty about it.[wait=1] take your time, [wait=0.5]come back with your answer later.[next=auto]
+	Nance: In the meantime get to know the terminal. there are weird people to talk in the wideband.[next=auto]
+	Nance: I am signing off now, see you later. [wait=1] oh, also terminals show auto replies when we are away. don't be surprised by it.[do GameState.update_nance_lines(20)]
+	- Okay
+
+while GameState.lines_created < 100
+	do Global.create_empty_lines(false)
+	Nance: comp. repetitive transmission:[next=auto]
+	Nance: Hey there! I am not on the wave rn. ping me back later
+Nance: I am back again.
+
+
+
+
+
+~ RadiotextExplanation
+Nance: This is [b]Radiotext[/b].[wait=1] it allows to talk without governments or corps spying on us.[wait=1][next=auto]
+Nance: Uses long-range radio waves to deliver data, [i]decentralized[/i], [i]encrypted[/i] E2E.[wait=1][next=auto]
+Nance: The stick you jacked in had a radio-wave transmitter, alongside this terminal software.[next=auto]
 => END
 
-~ met_nance
+
+
+
+
+#Nance: Imma send you a picture now
+#- Alright
+#do Global.create_empty_lines(false)
+#Nance: ┌──────── [pulse]Loading Image[/pulse] ────────────┐ [wait=2][next=auto]
+#match Global.active_color #probably a copy paste for all images
+#	when green
+#		Nance: [next=auto][img=370, color=WEB_GREEN]res://ascii-art.png[/img]
+#	when red
+#		Nance: [next=auto][img=370, color=CRIMSON]res://ascii-art.png[/img]
+#	when blue
+#		Nance: [next=auto][img=370, color=BLUE]res://ascii-art.png[/img]
+#	when yellow
+#		Nance: [next=auto][img=370, color=YELLOW]res://ascii-art.png[/img]
+#Nance: [speed=10]└───────────────────────────────────┘[next=auto]
+#Nance: [next=auto]yes...                                                                                                                               
+#do Global.create_empty_lines(true)
+#Nance: Thats me!

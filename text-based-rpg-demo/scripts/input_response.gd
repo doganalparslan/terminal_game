@@ -33,7 +33,6 @@ func create_empty_lines():
 
 
 func set_input_text(input):
-	print_debug("set input text called: " + input)
 	$InputHistory.text = input
 
 

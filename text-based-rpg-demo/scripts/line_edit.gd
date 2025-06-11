@@ -23,6 +23,7 @@ func _ready() -> void:
 func _on_text_submitted(_new_text: String) -> void:
 	clear()
 	how_many_times = 0
+	_on_text_changed("")
 	placeholder_label.add_theme_color_override("default_color", get_theme_color("font_color") * Color(1,1,1, 0.5) )
 
 
@@ -64,3 +65,7 @@ func _physics_process(_delta: float) -> void:
 #
 #func _on_focus_exited() -> void:
 	#DisplayServer.virtual_keyboard_hide()
+	
+	
+	
+	

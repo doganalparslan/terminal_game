@@ -1,0 +1,13 @@
+~ start
+do Global.create_empty_lines(false)
+FreeDictionary: Welcome to the dictionary of the free world, [b]FREEDICTIONARY[/b].
+FreeDictionary: This is an open-sourced project made possible by the contributions from all over the Balkans.
+do Global.create_empty_lines(true)
+FreeDictionary: Type the desired word then press the return key. If there is a match, auto-response system will answer.
+- Radiotext
+- Chirp Syndicate
+- Corporate Towers
+- Decentralized
+- E2E
+- long-range
+- longrange

@@ -1,11 +1,33 @@
 ~ start
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
+Casey: [color=f2f200]Under the [pulse]pulsing NEON lights[/pulse] of the [b]corporate towers[/b], you can feel the city's heartbeat...[/color][next=auto]
+Casey: [color=f2f200]Metals resonate on the same frequency, as the motor-vehicles pollute the air, using highways.[/color]
+- How did u type yellow [if Global.active_color != yellow]
+	Casey: It's rather easy actually. Just go into your computer/terminal interface settings.[wait=1] Never thought I would give someone tech advice in here.[next=auto]
+	Casey: Let me introduce myself.
+	=>< introduction
+
+- WTF
+	do GameState.casey_relationship(-1)
+	Casey: [shake]Okay![/shake][wait=1]first of all[wait=0.5] that was rude.[next=auto]
+	Casey: I was going to ask you, whether you liked it or not...[next=auto]
+	Casey: But I guess that was a no.
+	- Im sorry
+		Casey: I accept your apology[wait=1], [i]mean[/i] stranger.
+		Casey: Not everyone appreciates[wait=0.5] [i]art[/i][wait=0.5] first time they see it.
+		Casey: My name is CASEY[wait=1] I'm a writer.
+		Casey: I wrote that passage and set it as a greeting message.[wait=1] Just not sure yet, whether people like it or not.
+	- no it was good
+		Casey: Oh[wait=2], wasn't expecting to be flattered after that mean enterance.[wait=1] Thank you.
+		=>< introduction 
+
+- Who are you
+	=>< introduction
+
+- Hello
+	=>< introduction
+
+~ introduction
+Casey: [wave]HELLO COMPLETE STRANGER[/wave][wait=1] Im CASEY.[next=auto]
+Casey: I am an author... novelist... a [wait=0.5]novel writer...[next=auto]
+Casey: That didn't sound too confident did it?[next=auto]
 => END

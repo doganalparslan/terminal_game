@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://m2drxspej8ef"
+path="res://.godot/imported/yükselen ince ses.wav-c54c524b9e634f4ea44cceda84df8bd6.sample"
+
+[deps]
+
+source_file="res://sounds/yükselen ince ses.wav"
+dest_files=["res://.godot/imported/yükselen ince ses.wav-c54c524b9e634f4ea44cceda84df8bd6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

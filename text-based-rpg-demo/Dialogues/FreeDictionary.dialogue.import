@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bs3i4mnvschap"
+path="res://.godot/imported/FreeDictionary.dialogue-18febbcc2c3a785a50c0ab651bbcb236.tres"
+
+[deps]
+
+source_file="res://Dialogues/FreeDictionary.dialogue"
+dest_files=["res://.godot/imported/FreeDictionary.dialogue-18febbcc2c3a785a50c0ab651bbcb236.tres"]
+
+[params]
+
+defaults=true

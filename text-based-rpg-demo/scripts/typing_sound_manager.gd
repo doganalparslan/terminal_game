@@ -1,7 +1,5 @@
 extends Node
 
-var dtag:= "typing sound manager: "
-
 @onready var beep_sound: AudioStreamPlayer2D = $BeepSound
 @onready var click_sound: AudioStreamPlayer2D = $ClickSound
 @onready var pc_sound: AudioStreamPlayer2D = $PCSound
@@ -36,8 +34,9 @@ func _on_game_booted() -> void:
 	pc_sound.stream = load("res://sounds/turn_on.mp3")
 	pc_sound.play()
 	await pc_sound.finished
-	pc_sound.stream = load("res://sounds/PC Fan.mp3")
 	var infinite_number = 0
 	while infinite_number == 0:
+		pc_sound.stream = load("res://sounds/PC_Fan.mp3")
 		await get_tree().create_timer(randi_range(30, 150)).timeout
+		print_debug("PC_Fan sound played")
 		pc_sound.play()

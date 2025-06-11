@@ -26,7 +26,10 @@ var response_line
 var second = 0
 
 func _ready() -> void:
-	_on_line_edit_text_submitted(" ")
+	if dialogue == load("res://Dialogues/Computer.dialogue"):
+		get_child(1)._on_game_booted()
+		await get_tree().create_timer(4.5).timeout
+	_on_line_edit_text_submitted("")
 	line_edit.grab_focus()
 
 
@@ -35,11 +38,13 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 	enter_pressed.emit()
 	var answer := new_text.strip_edges().to_lower()
 
+	GameState.lines_created += 1
+
 	var input_response: VBoxContainer = INPUTRESPONSE.instantiate()
 	history_rows.add_child(input_response) #writes the text to screen using input_response scene
 	input_response.set_input_text(new_text)
+	
 	if option_proceed == true:
-		
 		input_response.response.connect("spoke", $TypingSoundManager.on_npc_typed_one_character) # for playing beep sounds
 		connect("enter_pressed", input_response.enter_pressed) #for handling skip inside the input_response.gd
 		input_response.connect("line_skipped", self.line_skipped)
@@ -53,10 +58,6 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 		input_response.response.type_out()
 		line_is_skipped = false
 		line_done = false
-	
-	#if option_proceed == false:
-		#print_debug("input response freed")
-		#input_response.queue_free()
 	
 	if dialogue_line.responses.size() > 0:
 		response_line = dialogue_line
@@ -73,15 +74,22 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 				prompt_line = ""
 				bits = []
 				line_edit.create_placeholder_text(0, "")
-				_on_line_edit_text_submitted("")
 				line_edit_to_end()
+				if dialogue == load("res://Dialogues/Computer.dialogue"):
+					pass
+				else:
+					await get_tree().create_timer(randf_range(0.3, 1)).timeout
+				_on_line_edit_text_submitted("")
 				return
 			else:
 				option_proceed = false
+				if new_text != "":
+					input_response.input_history.text = ""
 				
 		
 	
 	else:
+		input_response.input_history.queue_free()
 		line_edit.create_placeholder_text(0, "")
 		dialogue_line = await DialogueManager.get_next_dialogue_line(dialogue, dialogue_line.next_id)
 	
@@ -95,7 +103,6 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 func finished_typing(_dialogue_label):
 	line_edit.create_placeholder_text(0, "")
 	if _dialogue_label.dialogue_line == response_line:
-		print_debug("dialogue_line with responses finished typing")
 		prompt_line = " / ".join(bits)
 		line_edit.create_placeholder_text(0, prompt_line)
 		
@@ -104,6 +111,10 @@ func finished_typing(_dialogue_label):
 
 func next_auto(): # Retrieve the DialogueLine this label just finished typing
 	if line_is_skipped == false:
+		if dialogue == load("res://Dialogues/Computer.dialogue"):
+			pass
+		else:
+			await get_tree().create_timer(1).timeout
 		_on_line_edit_text_submitted("")
 
 

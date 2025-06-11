@@ -98,8 +98,19 @@ func change_audio(audio: float):
 	save_to_file()
 
 
+func booted():
+	get_current_chat().get_child(1)._on_game_booted()
+
+
+func get_sound_player(which):
+	return get_current_chat().get_child(1).get_child(which) as AudioStreamPlayer2D
+
 
 func change_chat(chat_dialogue_res: String):
+	get_sound_player(2).stream = load("res://sounds/yükselen_ince_ses_lowered_more(mp3cut.net).wav")
+	get_sound_player(2).play()
+	await get_tree().create_timer(1).timeout
+	
 	var new_chat = GAME.instantiate()
 	new_chat.name = chat_dialogue_res
 	new_chat.dialogue = load("res://Dialogues/" + chat_dialogue_res + ".dialogue")
@@ -130,8 +141,6 @@ func create_empty_lines(should: bool):
 
 
 func set_line_editable(is_editable: bool):
-	print_debug(tab_container.current_tab)
-	print_debug(get_current_chat())
 	get_current_chat().line_edit.editable = is_editable
 
 

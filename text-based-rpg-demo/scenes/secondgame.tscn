@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bhqmoved7yhau"]
+[gd_scene load_steps=13 format=3 uid="uid://bhqmoved7yhau"]
 
 [ext_resource type="Script" uid="uid://ca7hu5v7fyt4s" path="res://scripts/game.gd" id="1_cwoj5"]
 [ext_resource type="Theme" uid="uid://dgt1pgiyqvae2" path="res://themes/green_font.tres" id="1_r2ppy"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://cnilvbhexdvhp" path="res://sounds/single keyboard click.mp3" id="6_ivp3u"]
 [ext_resource type="AudioStream" uid="uid://bao2cxg2od8tp" path="res://sounds/shortest_beep_sound.mp3" id="7_dktwy"]
 [ext_resource type="Script" uid="uid://fdjxgxn3ref8" path="res://scripts/CommandProcessor.gd" id="7_ivp3u"]
+[ext_resource type="AudioStream" uid="uid://ctftvpsblu3xv" path="res://sounds/eletric_humm_mp3.mp3" id="8_r2ppy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_feb5d"]
 bg_color = Color(0.0645193, 0.0881919, 0.066893, 1)
@@ -68,6 +69,7 @@ size_flags_horizontal = 3
 theme_override_styles/focus = SubResource("StyleBoxEmpty_o4jio")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_r2ppy")
 keep_editing_on_text_submit = true
+emoji_menu_enabled = false
 selecting_enabled = false
 caret_blink = true
 caret_force_displayed = true
@@ -85,6 +87,9 @@ stream = ExtResource("6_ivp3u")
 [node name="PCSound" type="AudioStreamPlayer2D" parent="TypingSoundManager"]
 
 [node name="AmbientSound" type="AudioStreamPlayer2D" parent="TypingSoundManager"]
+stream = ExtResource("8_r2ppy")
+volume_db = -20.0
+autoplay = true
 
 [node name="CommandProcessor" type="Node" parent="."]
 script = ExtResource("7_ivp3u")

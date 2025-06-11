@@ -1,17 +1,18 @@
 ~ start
-Computer: Terminal initialized. [next=auto]
-Computer: Radiotext Interface Software: Ver0.002 [next=auto]
+Computer: Terminal initialized.[next=auto]
+#Conputer: [if has_met_nance == true] sent [do Global.change_chat("Nance")] [/if]
+Computer: Radiotext Interface Software: Ver0.003[next=auto]
 Computer: Awaiting input...
 - help
 ~ commands
-Computer: Avaliable Commands: [next=auto]
-Computer: Connect | Change Audio | Terminal Interface
-- Connect
-	if has_met_nance == true
-		Computer: Scanning the wideband for active broadcasts...[do Global.change_chat("Casey")]
-	elif has_met_nance == false
-#		Computer: Establishing connection with pre-designated terminal
-		Computer: ...[do Global.change_chat("Nance")]
+Computer: Avaliable Commands:[next=auto]
+Computer: Connect[if GameState.has_met_nance] Random[/if] | Change Audio | Terminal Interface
+- Connect [if GameState.has_met_nance == false]
+	Computer: Establishing connection with pre-designated terminal[next=auto]
+	Computer: [pulse][wave]...[/wave][/pulse] [do Global.change_chat("Nance")]
+- Connect Random [if GameState.has_met_nance == true]
+	Computer: Scanning the wideband for active broadcasts...[next=auto]
+	Computer: [wave]▅ ▇ █ ▇ ▆ ▇ █ ▇ ▆ ▇ █ ▇ ▅[/wave][do Global.change_chat("Casey")]
 #	=> commands
 - change audio
 	Computer: Avaliable audio tweaks: mute | low | Medium | HIGH | MAX
@@ -44,7 +45,7 @@ Computer: Connect | Change Audio | Terminal Interface
 			do Global.change_font_size(35)
 			Computer: Font size has been set to BIG
 	- color
-		Available colors are; green, red, blue, yellow.
+		Available colors are; green, red, blue, yellow
 		- red
 			interface color changed to [do Global.change_interface_color("red")]red
 		- blue
@@ -61,3 +62,4 @@ Computer: Connect | Change Audio | Terminal Interface
 => commands
 
 => END
+do Global.get_current_chat().queue_free()
