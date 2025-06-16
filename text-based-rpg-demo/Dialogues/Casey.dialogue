@@ -1,9 +1,10 @@
 ~ start
-Casey: [color=f2f200]Under the [pulse]pulsing NEON lights[/pulse] of the [b]corporate towers[/b], you can feel the city's heartbeat...[/color][next=auto]
-Casey: [color=f2f200]Metals resonate on the same frequency, as the motor-vehicles pollute the air, using highways.[/color]
-- How did u type yellow [if Global.active_color != yellow]
+Casey: [color=f2f200]The view beneath the horizon seemed rendered in pixels behind the flyscreen[/color][wait=2][next=auto]
+Casey: [color=f2f200]Under the [pulse]pulsing NEON lights[/pulse] of the [b]corporate towers[/b], you could feel the city's heartbeat.[/color][next=auto]
+Casey: [color=f2f200]Metals vibrate at the same frequency as the engines of motor-vehicles, passing along the generous highways.[/color]
+- How did u type yellow [if Global.active_color == green]
 	Casey: It's rather easy actually. Just go into your computer/terminal interface settings.[wait=1] Never thought I would give someone tech advice in here.[next=auto]
-	Casey: Let me introduce myself.
+	Casey: Let me introduce myself.[next=auto]
 	=>< introduction
 
 - WTF
@@ -12,12 +13,12 @@ Casey: [color=f2f200]Metals resonate on the same frequency, as the motor-vehicle
 	Casey: I was going to ask you, whether you liked it or not...[next=auto]
 	Casey: But I guess that was a no.
 	- Im sorry
-		Casey: I accept your apology[wait=1], [i]mean[/i] stranger.
-		Casey: Not everyone appreciates[wait=0.5] [i]art[/i][wait=0.5] first time they see it.
-		Casey: My name is CASEY[wait=1] I'm a writer.
-		Casey: I wrote that passage and set it as a greeting message.[wait=1] Just not sure yet, whether people like it or not.
+		Casey: I accept your apology[wait=1], [i]mean[/i] stranger.[next=auto]
+		Casey: Not everyone appreciates[wait=0.5] [i]art[/i][wait=0.5] first time they see it.[next=auto]
+		Casey: My name is CASEY[wait=1] I'm a writer.[next=auto]
 	- no it was good
-		Casey: Oh[wait=2], wasn't expecting to be flattered after that mean enterance.[wait=1] Thank you.
+		Casey: Oh[wait=2], wasn't expecting to be flattered after that mean enterance.[wait=1] Thank you.[next=auto]
+		Casey: We started on the wrong foot. Allow me to introduce myself.[next=auto]
 		=>< introduction 
 
 - Who are you
@@ -26,8 +27,37 @@ Casey: [color=f2f200]Metals resonate on the same frequency, as the motor-vehicle
 - Hello
 	=>< introduction
 
+Casey: Forget all that now, what do you think about the greeting? Was it too descriptive, too mystique, perhaps a little hard to understand?
+- Long sentences
+	Casey: So what you are saying is, the reader loses the context at the end of the sentence, I see...[next=auto]
+- Cool theme
+	Casey: Well its pretty much what I got when I look out. They shat in the worlds eco-system and now we are the ones to suffer.[wait=1] I just romanticize it a little.[next=auto] 
+- Too descriptive
+	Casey: Then perhaps I should go easy on the vocabulary. It might get confusing within the whole sentence and futuristic lingo.[wait=1][next=auto]
+	Casey: I mean I haven't yet added the lingo[wait=0.5], apart from the "rendered" part but sure it will get confusing when it is more complete.[next=auto]
+- Unusual Perspective
+	Casey: Right!? I was too intrigued when I noticed my flyscreen does that in real life. It was almost as if I was in a virtual world.[next=auto]
+
+Casey: This passage is going to be the intro of my book[wait=1], so it's important that it's catchy.[next=auto]
+Casey: Gotta hook the reader right into it.[next=auto]
+Casey: I can show more of it.[wait=1] What I wrote I mean.[wait=1] If you'd like?[next=auto]
+- Yeah sure
+	Casey: Thank you.[wait=0.5] I promise they are not going to be boring. Also you will be amongst the lucky few which had a chance to read my stories.
+	Casey: So consider yourself lucky.
+- No thanks
+	Casey: Oh[wait=2] sure.[wait=2] Okay.
+
+
+~ offline
+while GameState.lines_created < 200
+	do Global.create_empty_lines(false)
+	Casey: comp. repetitive transmission:[next=auto]
+	Casey: Your favourite writer is now off waves. See me later.
+	do Global.create_empty_lines(true)
+=> END
+
 ~ introduction
 Casey: [wave]HELLO COMPLETE STRANGER[/wave][wait=1] Im CASEY.[next=auto]
-Casey: I am an author... novelist... a [wait=0.5]novel writer...[next=auto]
+Casey: I am an author.[wait=1] A novelist... A [wait=0.5]novel writer?[next=auto]
 Casey: That didn't sound too confident did it?[next=auto]
 => END

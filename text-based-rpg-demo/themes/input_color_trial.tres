@@ -1,0 +1,21 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://c20bsus7bsews"]
+
+[ext_resource type="FontFile" uid="uid://dj2dsdcdrwpwt" path="res://fonts/CourierPrime-Regular.ttf" id="1_ualim"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ldhs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jy5h5"]
+
+[resource]
+default_font = ExtResource("1_ualim")
+default_font_size = 16
+Label/colors/font_color = Color(0.862745, 0.0784314, 0.235294, 1)
+Label/fonts/font = ExtResource("1_ualim")
+Label/styles/normal = null
+LineEdit/colors/caret_color = Color(0.862745, 0.0784314, 0.235294, 1)
+LineEdit/colors/font_color = Color(0.862745, 0.0784314, 0.235294, 1)
+LineEdit/fonts/font = ExtResource("1_ualim")
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_8ldhs")
+LineEdit/styles/normal = SubResource("StyleBoxEmpty_jy5h5")
+LineEdit/styles/read_only = SubResource("StyleBoxEmpty_jy5h5")
+Preview/colors/default_color = Color(0.484541, 0.018506, 0.113637, 1)

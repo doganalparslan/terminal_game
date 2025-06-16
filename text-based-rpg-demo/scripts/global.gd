@@ -5,6 +5,7 @@ signal resolution_changed
 const GAME = preload("res://scenes/game.tscn")
 
 var font_theme: Theme = load("res://themes/green_font.tres")
+var input_font_theme: Theme = load("res://themes/input_color_trial.tres")
 
 var computer_has_booted := false
 
@@ -18,7 +19,7 @@ var blue:= Color(0.0, 0.51, 1.0)
 var green:= Color(0.275, 0.707, 0.101)
 var red:= Color(0.863, 0.078, 0.235)
 var yellow:= Color(0.949, 0.949, 0.0)
-var active_color: Color = green
+var active_color: Color = Color(0.275, 0.707, 0.101)
 
 var config = ConfigFile.new()
 
@@ -27,7 +28,7 @@ var config = ConfigFile.new()
 
 func _ready() -> void:
 	tab_container.set_theme(font_theme)
-	change_resolution(DisplayServer.window_get_size())
+	change_resolution(Vector2(DisplayServer.screen_get_size().x - 200, DisplayServer.screen_get_size().y - 200))
 	load_from_file()
 	font_theme = load("res://themes/" + font_color + "_font.tres")
 	change_resolution(resolution)
@@ -72,6 +73,9 @@ func change_resolution(target_res: Vector2):
 
 func change_font_size(size: int):
 	font_theme.set_default_font_size(size)
+	
+	input_font_theme.set_default_font_size(size)
+	
 	font_size = size
 	save_to_file()
 

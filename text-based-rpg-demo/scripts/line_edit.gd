@@ -34,6 +34,8 @@ func create_placeholder_text(await_time, preview_text: String):
 	stored_placeholder_text = preview_text
 	placeholder_label.text = preview_text
 	tween.tween_property(placeholder_label,"visible_ratio", 1, await_time)
+	placeholder_label.size = size
+	placeholder_label.global_position = global_position
 
 
 func _on_text_changed(new_text: String) -> void:

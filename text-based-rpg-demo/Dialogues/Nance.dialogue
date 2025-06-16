@@ -47,17 +47,23 @@ Nance: Basically I am the welcome party.
 	Nance: That part is totally up to you. [wait=1]no one can force you upstream.[next=auto]
 	Nance: But you don't have to be all hasty about it.[wait=1] take your time, [wait=0.5]come back with your answer later.[next=auto]
 	Nance: In the meantime get to know the terminal. there are weird people to talk in the wideband.[next=auto]
-	Nance: I am signing off now, see you later. [wait=1] oh, also terminals show auto replies when we are away. don't be surprised by it.[do GameState.update_nance_lines(20)]
+	Nance: I am signing off now, see you later.[wait=1] oh, also terminals show auto replies when we are away. don't be surprised by it.[do GameState.update_nance_lines(20)]
 	- Okay
 
-while GameState.lines_created < 100
-	do Global.create_empty_lines(false)
-	Nance: comp. repetitive transmission:[next=auto]
-	Nance: Hey there! I am not on the wave rn. ping me back later
+=>< offline
+
 Nance: I am back again.
 
 
 
+
+~ offline
+while GameState.lines_created < 100
+	do Global.create_empty_lines(false)
+	Nance: comp. repetitive transmission:[next=auto]
+	Nance: Hey there! I am not on the wave rn. ping me back later
+	do Global.create_empty_lines(true)
+=> END
 
 
 ~ RadiotextExplanation

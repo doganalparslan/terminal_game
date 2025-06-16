@@ -33,7 +33,6 @@ runtime/state_autoload_shortcuts=["GameState", "Global"]
 
 window/size/viewport_width=720
 window/size/viewport_height=480
-window/size/resizable=false
 window/size/always_on_top=true
 
 [editor_plugins]

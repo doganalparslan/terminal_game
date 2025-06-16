@@ -36,14 +36,11 @@ Computer: Connect[if GameState.has_met_nance] Random[/if] | Change Audio | Termi
 	- font size
 		Computer: Choose a size: small, Medium, BIG
 		- small
-			do Global.change_font_size(16)
-			Computer: Font size has been set to small
+			Computer: Font size has been set to[do Global.change_font_size(16)] small
 		- Medium
-			do Global.change_font_size(28)
-			Computer: Font size has been set to Medium
+			Computer: Font size has been set to[do Global.change_font_size(28)] Medium
 		- BIG
-			do Global.change_font_size(35)
-			Computer: Font size has been set to BIG
+			Computer: Font size has been set to[do Global.change_font_size(35)] BIG
 	- color
 		Available colors are; green, red, blue, yellow
 		- red
@@ -59,6 +56,8 @@ Computer: Connect[if GameState.has_met_nance] Random[/if] | Change Audio | Termi
 #	do _on_line_edit_text_submitted("")
 #	Computer: [wait=2]...
 #	do get_tree().quit()
+computer: Awaiting input...
+- help
 => commands
 
 => END

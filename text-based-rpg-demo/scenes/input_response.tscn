@@ -12,10 +12,8 @@ grow_vertical = 2
 size_flags_horizontal = 3
 script = ExtResource("1_qa54y")
 
-[node name="InputHistory" type="RichTextLabel" parent="."]
+[node name="InputHistory" type="Label" parent="."]
 layout_mode = 2
-bbcode_enabled = true
-fit_content = true
 
 [node name="Response" parent="." instance=ExtResource("2_brd57")]
 unique_name_in_owner = true

@@ -3,7 +3,7 @@ extends VBoxContainer
 signal next_auto
 signal line_skipped
 
-@onready var input_history: RichTextLabel = $InputHistory
+@onready var input_history: Label = $InputHistory
 @onready var response: DialogueLabel = %Response
 
 func _ready() -> void:
