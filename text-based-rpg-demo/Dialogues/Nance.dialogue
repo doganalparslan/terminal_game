@@ -1,5 +1,3 @@
-#Nance talks with first letter capital and no caps again even with a dot. She punctuates correctly.
-
 ~ start
 set has_met_nance = true
 Nance: [wait=3]Hello there cowboy...[wait=1][speed=1.5] wasn't sure you would jack in.
@@ -9,7 +7,7 @@ Nance: [speed=1.1]Especially those you've met on the lone alleys.[wait=1][next=a
 Nance: Why did you plug it anyway?
 
 - Who are you
-	Nance: I'm Nance.[wait=1][next=auto]
+	Nance: Im Nance.[wait=1][next=auto]
 	=>< RadiotextExplanation
 - Did you hack me
 	Nance: Of course not [wait=0.5][i]silly[/i].[next=auto]
@@ -17,7 +15,7 @@ Nance: Why did you plug it anyway?
 	- Its ok
 		=>< RadiotextExplanation
 - Well you were cute
-	Nance: well, [wait=1]thank you[wait=0.5] :D[wait=1][next=auto][do nance_flirted += 1] 
+	Nance: well, [wait=1]thank you[wait=0.5] :D[wait=1][next=auto][do GameState.romanced_nance(1)] 
 	do Global.create_empty_lines(false)
 	Nance: Im Nance.[wait=1][next=auto]
 	Nance: The stick you jacked in had a radio-wave transmitter[wait=0.5], alongside this terminal software.[next=auto]
@@ -34,10 +32,10 @@ Nance: You will probably have questions[wait=1.5], so ask away.
 	Nance: Old web has been dead for a long time[wait=0.5] and [u][i]cypherpunk[/i][/u] battle is lost anyway.[wait=1][next=auto]
 	Nance: Only [i]corp-aristos[/i] use it to rule people now.[next=auto]
 	Nance: I build these sticks on my free time, usually hand them to strangers on the street[wait=1], like you.[next=auto]
-	- you said us before
+	- you said us
 		Nance: I am not alone in this.[next=auto]
 		Nance: We are a cyber-activist group. [wait=1]we call ourselves [b]Chirp Syndicate[/b][next=auto]
-- Why would they spy
+- Who is us
 	Nance: We are a [i]cyber-activist[/i] group. [wait=1]we call ourselves [b]Chirp Syndicate[/b][next=auto]
 	Nance: My goal is to get as many as I can out of the net.[next=auto]
 	Nance: Old web has been dead for a long time[wait=0.5] and [u][i]cypherpunk[/i][/u] battle is lost anyway.[wait=1][next=auto]
@@ -49,13 +47,12 @@ Nance: Basically I am the welcome party.
 	Nance: That part is totally up to you. [wait=1]no one can force you upstream.[next=auto]
 	Nance: But you don't have to be all hasty about it.[wait=1] take your time, [wait=0.5]come back with your answer later.[next=auto]
 	Nance: In the meantime get to know the terminal. there are weird people to talk in the wideband.[next=auto]
-	Nance: I am signing off now, see you later.[wait=1] oh, also terminals show auto replies when we are away. don't be surprised by it.[do GameState.nance_lines_created += 20]
+	Nance: I am signing off now, see you later.[wait=1] oh, also terminals show auto replies when we are away. don't be surprised by it.[do GameState.update_nance_lines(20)]
 	- Okay
 
 =>< offline
 
 Nance: I am back again.
-Nance: Did you meet some new friends?
 
 
 

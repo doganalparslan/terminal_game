@@ -1,5 +1,4 @@
 ~ start
-set has_met_casey = true
 Casey: [color=f2f200]The view beneath the horizon seemed rendered in pixels behind the flyscreen[/color][wait=2][next=auto]
 Casey: [color=f2f200]Under the [pulse]pulsing NEON lights[/pulse] of the [b]corporate towers[/b], you could feel the city's heartbeat.[/color][next=auto]
 Casey: [color=f2f200]Metals vibrate at the same frequency as the engines of motor-vehicles, passing along the generous highways.[/color]
@@ -43,55 +42,11 @@ Casey: This passage is going to be the intro of my book[wait=1], so it's importa
 Casey: Gotta hook the reader right into it.[next=auto]
 Casey: I can show more of it.[wait=1] What I wrote I mean.[wait=1] If you'd like?[next=auto]
 - Yeah sure
-	Casey: Thank you.[wait=0.5] I promise they are not going to be boring. Also you will be amongst the lucky few which had a chance to read my stories.[next=auto]
-	Casey: So consider yourself lucky.[next=auto]
-	Casey: What should I begin with. Let me think for a second.[wait=2][do Global.create_empty_lines(false)] Okay.[wait=1] I think you will like this.[next=auto]
-	=>< story
-	Casey: I would like to ask did you like it[wait=1] but first.[next=auto]
-	=> tell_me_about_yourself
-
+	Casey: Thank you.[wait=0.5] I promise they are not going to be boring. Also you will be amongst the lucky few which had a chance to read my stories.
+	Casey: So consider yourself lucky.
 - No thanks
-	Casey: Oh[wait=2] sure.[wait=2] Okay.[next=auto]
-	Casey: Well[wait=0.5] thats mainly why I am here.[wait=1] Talking about writing and[wait=0.5] a bit of a civil disobedience.[next=auto]
-	do GameState.casey_progress(1)
-	=> tell_me_about_yourself
+	Casey: Oh[wait=2] sure.[wait=2] Okay.
 
-~ tell_me_about_yourself
-Casey: You tell me about yourself[if GameState.casey_prog == 1] then[/if].
-- What do you mean
-	Casey: I mean I am out of topics to chat about, you tell something.
-	- No the civil thing
-		Casey: Oh that, the government doesn't allow people to broadcast on the radio[wait=1] or use its frequency or something I don't know.[next=auto]
-		Casey: They tell that it interferes with the communication or something. Also there was pirate radios before times, it was a measure against that too.[next=auto]
-		Casey: All complete bullshit if you ask me. I think they only fear that they can't control.
-		Casey: They force us to use their channels to communicate.[speed=1.5] I don't obey to that law, I'm sorry.
-
-
-
-
-
-~ introduction
-Casey: [wave]HELLO COMPLETE STRANGER[/wave][wait=1] Im CASEY.[next=auto]
-Casey: I am an author.[wait=1] A novelist... A [wait=0.5]novel writer?[next=auto]
-Casey: That didn't sound too confident did it?[next=auto]
-=> END
-
-~ story
-do Global.create_empty_lines(false)
-if GameState.casey_story_told == 0
-	Casey: There once was a man. Who replaced a part of his brain with a memory drive.[next=auto]
-	Casey: This cost him a lot.[wait=1] He had to give up an important part inside his head[wait=2], that carried his memories.[wait=1] Yet he did it anyway.[next=auto]
-	Casey: He was working as a free agent. Carrying information from one client to another, secretly, within his head.[next=auto]
-	Casey: Clients were usually corpos. Swimming in money[wait=1], still can't wait to make more.[next=auto]
-	Casey: And the information was always encrypted. He wasn't allowed to peek at what he was carrying.[wait=1.5] Yet he did it anyway.[next=auto]
-	Casey: He wanted to sell it to another buyer at the same time. He was doing this gig for so long already[wait=1] and even sacrificed half his head.[wait=1][next=auto]
-	Casey: "Just this once" he was saying to himself "and then I'm out with the money" planning to buy his memories back.[next=auto]
-	Casey: But there was competition. When the other corporates have learnt what he was carrying in his head, they didn't want to share it.[next=auto]
-	Casey: They sent in the fixers. Wanting to have the info to themselves, they gave the order "flatline".[next=auto]
-	Casey: Man survived some.[wait=1] Ran for too long. Then gave up at some point. Crying towards the fixers,[wait=1] "[shake]All I wanted was to remember my mom[/shake]".[next=auto]
-	do GameState.casey_story_told += 1
-do Global.create_empty_lines(true)
-=> END
 
 ~ offline
 while GameState.lines_created < 200
@@ -99,4 +54,10 @@ while GameState.lines_created < 200
 	Casey: comp. repetitive transmission:[next=auto]
 	Casey: Your favourite writer is now off waves. See me later.
 	do Global.create_empty_lines(true)
+=> END
+
+~ introduction
+Casey: [wave]HELLO COMPLETE STRANGER[/wave][wait=1] Im CASEY.[next=auto]
+Casey: I am an author.[wait=1] A novelist... A [wait=0.5]novel writer?[next=auto]
+Casey: That didn't sound too confident did it?[next=auto]
 => END

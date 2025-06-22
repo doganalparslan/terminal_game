@@ -37,6 +37,7 @@ current_tab = 0
 
 [node name="Computer" parent="TabContainer" instance=ExtResource("2_33ahm")]
 layout_mode = 2
+theme = null
 metadata/_tab_index = 0
 
 [node name="ColorRect" type="ColorRect" parent="."]
