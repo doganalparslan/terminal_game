@@ -3,10 +3,8 @@ Computer: Terminal initialized.[next=auto]
 #Conputer: [if has_met_nance == true] sent [do Global.change_chat("Nance")] [/if]
 Computer: Radiotext Interface Software: Ver0.003[next=auto]
 Computer: Awaiting input...
-- c
-	do Global.change_chat("Casey")
 - help
-	~ commands
+~ commands
 Computer: Avaliable Commands:[next=auto]
 Computer: Connect[if GameState.has_met_nance] Random[/if] | Change Audio | Terminal Interface
 - Connect [if GameState.has_met_nance == false]
