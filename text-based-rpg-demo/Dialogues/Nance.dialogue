@@ -52,7 +52,15 @@ Nance: Basically I am the welcome party.
 
 =>< offline
 
+<<<<<<< Updated upstream
 Nance: I am back again.
+=======
+Nance: I am back again. [next=auto]
+Nance: Did you meet some new friends?
+- I met casey [if has_met_casey]
+- I met chrome [if has_met_chrome]
+
+>>>>>>> Stashed changes
 
 
 
