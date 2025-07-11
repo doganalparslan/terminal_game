@@ -15,6 +15,8 @@ var font_size:= 16
 var audio_level:= 1.0
 var font_color:= "green"
 
+var active_tab
+
 var blue:= Color(0.0, 0.51, 1.0)
 var green:= Color(0.275, 0.707, 0.101)
 var red:= Color(0.863, 0.078, 0.235)
@@ -42,27 +44,30 @@ func _ready() -> void:
 
 
 func save_to_file():
-	config.set_value("preferences", "resolution", resolution)
-	config.set_value("preferences", "is_fullscreen", is_fullscreen)
-	config.set_value("preferences", "font_size", font_size)
-	config.set_value("preferences", "audio_level", audio_level)
-	config.set_value("preferences", "font_color", font_color)
-	config.save("user://preferences.cfg")
+	pass
+	#config.set_value("preferences", "resolution", resolution)
+	#config.set_value("preferences", "is_fullscreen", is_fullscreen)
+	#config.set_value("preferences", "font_size", font_size)
+	#config.set_value("preferences", "audio_level", audio_level)
+	#config.set_value("preferences", "font_color", font_color)
+	#config.save("user://preferences.cfg")
 
 func load_from_file():
-	var err= config.load("user://preferences.cfg")
-	if err == OK:
-		resolution= config.get_value("preferences", "resolution")
-		is_fullscreen= config.get_value("preferences", "is_fullscreen")
-		font_size= config.get_value("preferences", "font_size")
-		audio_level= config.get_value("preferences", "audio_level")
-		font_color= config.get_value("preferences", "font_color")
+	pass
+	#var err= config.load("user://preferences.cfg")
+	#if err == OK:
+		#resolution= config.get_value("preferences", "resolution")
+		#is_fullscreen= config.get_value("preferences", "is_fullscreen")
+		#font_size= config.get_value("preferences", "font_size")
+		#audio_level= config.get_value("preferences", "audio_level")
+		#font_color= config.get_value("preferences", "font_color")
 
 
 
 
 func change_resolution(target_res: Vector2):
 	DisplayServer.window_set_size(target_res)
+	@warning_ignore("narrowing_conversion")
 	change_font_size(target_res.y / 28)
 	DisplayServer.window_set_position(Vector2(0,0))
 	resolution_changed.emit()
@@ -107,21 +112,36 @@ func booted():
 
 
 func get_sound_player(which):
-	return get_current_chat().get_child(1).get_child(which) as AudioStreamPlayer2D
+	return get_current_chat().get_child(1).get_child(which) as AudioStreamPlayer
 
 
-func change_chat(chat_dialogue_res: String):
+func change_chat(chat_dialogue_res: String) -> void:
+	GameState.connected_number += 1
 	get_sound_player(2).stream = load("res://sounds/yükselen_ince_ses_lowered_more(mp3cut.net).wav")
 	get_sound_player(2).play()
 	await get_tree().create_timer(1).timeout
+	# CONNECTING EFFECT
 	
 	var new_chat = GAME.instantiate()
 	new_chat.name = chat_dialogue_res
 	new_chat.dialogue = load("res://Dialogues/" + chat_dialogue_res + ".dialogue")
 	tab_container.add_child(new_chat) #LOADING DIALOGUE FIRST RUNS [DO] LINES FOR THE PREVIOUS CHAT; FOR FIRST LINE
 	tab_container.current_tab = tab_container.get_tab_count() -1
-	new_chat.line_edit.grab_focus()
+	# ADDING THE CHAT
+	
+	for chat in GameState.all_chats:
+		if chat == chat_dialogue_res:
+			GameState.all_chats.erase(chat)
+			print_debug("available chats: " + str(GameState.all_chats))
 
+
+func change_chat_random() -> void:
+	pass
+	var random_chat_number = randi_range(0, GameState.all_chats.size() - 1)
+	var random_chat = GameState.all_chats[random_chat_number]
+	print_debug("random_chat: " + str(random_chat))
+	
+	change_chat(random_chat)
 
 
 func change_interface_color(color):

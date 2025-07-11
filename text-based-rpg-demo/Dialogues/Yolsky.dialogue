@@ -1,0 +1,12 @@
+# Yolsky is from the balkans and uses dash intead of dot or comma, doesn't end his sentences with a dot.
+# wait time is 0.8
+
+~ start
+Yolsky: At first -[wait=0.8] people romanticized the cyberpunk future as dark[next=auto]
+Yolsky: They named their fictional cities "Night City" -[wait=0.8] Portraited as if the sun will never shine[next=auto]
+Yolsky: As if the days went darker -[wait=0.8] gloomier -[wait=0.8] rainy[next=auto]
+Yolsky: Instead - damn days got hotter[wait=0.8] - without trees there are no shades[next=auto]
+Yolsky: And in the nights I keep my curtains closed[wait=0.8] - To sleep away from the lights of the neon cities.
+- Hello
+- Strong enterance
+=> END

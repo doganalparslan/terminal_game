@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://ckvgyvclnwggo"]
+[gd_scene load_steps=4 format=3 uid="uid://ckvgyvclnwggo"]
 
 [ext_resource type="Script" uid="uid://g32um0mltv5d" path="res://addons/dialogue_manager/dialogue_label.gd" id="1_cital"]
+[ext_resource type="Script" uid="uid://b1f2gvr328hgn" path="res://scripts/glitch_bbcode.gd" id="1_vdugj"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_opjls"]
+script = ExtResource("1_vdugj")
+metadata/_custom_type_script = "uid://b1f2gvr328hgn"
 
 [node name="DialogueLabel" type="RichTextLabel"]
 anchors_preset = 10
@@ -11,6 +16,7 @@ bbcode_enabled = true
 fit_content = true
 scroll_active = false
 shortcut_keys_enabled = false
+custom_effects = [SubResource("RichTextEffect_opjls")]
 meta_underlined = false
 hint_underlined = false
 deselect_on_focus_loss_enabled = false

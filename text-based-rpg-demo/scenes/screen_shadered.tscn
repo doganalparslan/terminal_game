@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2ibkfkt1h628"]
+[gd_scene load_steps=5 format=3 uid="uid://c2ibkfkt1h628"]
 
 [ext_resource type="Shader" uid="uid://4qb2w4sorcxl" path="res://screen.gdshader" id="1_3f4gp"]
+[ext_resource type="Script" uid="uid://wyp3gw4xqg3o" path="res://scripts/tab_container.gd" id="1_5uhan"]
 [ext_resource type="PackedScene" uid="uid://e2diufbnibob" path="res://scenes/game.tscn" id="2_33ahm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y8bpf"]
@@ -34,6 +35,9 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 tab_alignment = 2
 current_tab = 0
+drag_to_rearrange_enabled = true
+tab_focus_mode = 1
+script = ExtResource("1_5uhan")
 
 [node name="Computer" parent="TabContainer" instance=ExtResource("2_33ahm")]
 layout_mode = 2
@@ -47,3 +51,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[connection signal="tab_changed" from="TabContainer" to="TabContainer" method="_on_tab_changed"]

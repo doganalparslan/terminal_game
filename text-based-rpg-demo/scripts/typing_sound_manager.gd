@@ -1,9 +1,9 @@
 extends Node
 
-@onready var beep_sound: AudioStreamPlayer2D = $BeepSound
-@onready var click_sound: AudioStreamPlayer2D = $ClickSound
-@onready var pc_sound: AudioStreamPlayer2D = $PCSound
-@onready var ambient_sound: AudioStreamPlayer2D = $AmbientSound
+@onready var beep_sound: AudioStreamPlayer = $BeepSound
+@onready var click_sound: AudioStreamPlayer = $ClickSound
+@onready var pc_sound: AudioStreamPlayer = $PCSound
+@onready var ambient_sound: AudioStreamPlayer = $AmbientSound
 
 
 # ANSWER BEEP Sound Effect ----------------------------------
@@ -51,7 +51,7 @@ func _on_game_booted() -> void:
 	var infinite_number = 0
 	while infinite_number == 0:
 		pc_sound.stream = load("res://sounds/PC_Fan.mp3")
-		await get_tree().create_timer(randi_range(5, 10)).timeout
+		await get_tree().create_timer(randi_range(30, 150)).timeout
 		electric_humm_db()
 		print_debug("PC_Fan sound played, electric humm db_change called")
 		pc_sound.play()

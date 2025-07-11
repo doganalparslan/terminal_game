@@ -3,6 +3,18 @@ Computer: Terminal initialized.[next=auto]
 #Conputer: [if has_met_nance == true] sent [do Global.change_chat("Nance")] [/if]
 Computer: Radiotext Interface Software: Ver0.003[next=auto]
 Computer: Awaiting input...
+- c [if GameState.debug_mode == true]
+	do Global.change_chat("CASEY")
+- n [if GameState.debug_mode == true]
+	do Global.change_chat("Nance")
+- ch [if GameState.debug_mode == true]
+	do Global.change_chat("chrome")
+- fd [if GameState.debug_mode == true]
+	do Global.change_chat("FreeDictionary")
+- test [if GameState.debug_mode == true]
+	do Global.change_chat("test")
+- random
+	do Global.change_chat_random()
 - help
 ~ commands
 Computer: Avaliable Commands:[next=auto]
@@ -12,8 +24,13 @@ Computer: Connect[if GameState.has_met_nance] Random[/if] | Change Audio | Termi
 	Computer: [pulse][wave]...[/wave][/pulse] [do Global.change_chat("Nance")]
 - Connect Random [if GameState.has_met_nance == true]
 	Computer: Scanning the wideband for active broadcasts...[next=auto]
-	Computer: [wave]▅ ▇ █ ▇ ▆ ▇ █ ▇ ▆ ▇ █ ▇ ▅[/wave][do Global.change_chat("Casey")]
+	Computer: 5 frequencies acquired.[wait=0.4] {{GameState.connected_number}} previously designated.[next=auto]
+	Computer: Connecting new random frequency [wave]▅ ▇ █ ▇ ▆ ▇ █ ▇ ▆ ▇ █ ▇ ▅[/wave][do Global.change_chat("Casey")]
 #	=> commands
+- install_plugin --bitmap_render [if GameState.plugin_bitmap_installed == 1]
+	Computer: bitmap_render plugin installed[next=auto]
+	do plugin_bitmap_installed = 2
+
 - change audio
 	Computer: Avaliable audio tweaks: mute | low | Medium | HIGH | MAX
 	- mute
@@ -56,7 +73,7 @@ Computer: Connect[if GameState.has_met_nance] Random[/if] | Change Audio | Termi
 #	do _on_line_edit_text_submitted("")
 #	Computer: [wait=2]...
 #	do get_tree().quit()
-computer: Awaiting input...
+Computer: Awaiting input...
 - help
 => commands
 

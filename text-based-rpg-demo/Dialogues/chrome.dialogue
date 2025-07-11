@@ -1,0 +1,124 @@
+~ start
+set has_met_chrome = true
+chrome: yo[next=auto]
+chrome: signal is clean but you are not broadcasting anything.[next=auto]
+chrome: lurker or just figuring out how not to fry your buffers?
+
+- debug [if GameState.debug_mode == true]
+	do plugin_bitmap_installed += 1
+	=> leave_while_loop
+
+- Who are you
+	chrome: name is chrome. if you have bounced freqs at all, you have heard it.[next=auto]
+	chrome: i write plugins, ghost locked bands, build tools from junk noise.[next=auto]
+	chrome: i do not teach, i do not slow down. maybe you will keep up.
+
+- Just listening
+	chrome: cool. better than screaming into dead air.[next=auto]
+	chrome: you will want an upgrade though.
+
+- Always this friendly?
+	chrome: depends. you always this readable?
+
+chrome: terminal like yours is plaintext only. all text, no eyes.[next=auto]
+chrome: i can fix that.
+
+- What Is The Catch
+	chrome: no catch unless you count buffer spikes. just run it clean.[next=auto]
+
+- Yeah Okay
+	chrome: good. saves me the speech.
+
+- Not Touching Your Code
+	chrome: lol alright. squint at the dark then.
+
+chrome: run this:
+chrome: `install_plugin --bitmap_render`[next=auto]
+do plugin_bitmap_installed += 1
+chrome: it patches your terminal to handle one bit image feeds.[next=auto]
+chrome: compressed stripped rendered to bitmap blocks.[next=auto]
+chrome: lo fi but you will see what others miss.
+do chrome_lines = 16
+
+while GameState.plugin_bitmap_installed == 1
+	if chrome_lines == 16
+		chrome: go do it im waitin
+		do chrome_lines += 1
+	if GameState.plugin_bitmap_installed == 2
+		=> leave_while_loop
+	if chrome_lines == 17
+		chrome: cmon im waitin
+		do chrome_lines += 1
+	if GameState.plugin_bitmap_installed == 2
+		=> leave_while_loop
+	if chrome_lines == 18
+		chrome: im starting to give up on you choom
+		do chrome_lines += 1
+	if GameState.plugin_bitmap_installed == 2
+		=> leave_while_loop
+	if chrome_lines == 19
+		chrome: yeah whatever you do you then[next=auto]
+		chrome: im not waitin around to babysit your progress[next=auto]
+		do chrome_relation -= 1
+		=> offline
+
+~ leave_while_loop
+chrome: you seem to have done it[next=auto]
+chrome: look at thi[shake]s[/shake][next=auto]
+
+do Global.create_empty_lines(false)
+chrome: ┌────── [pulse]Loading Image[/pulse] ──────┐ [wait=2][next=auto]
+match Global.active_color #probably a copy paste for all images
+	when green
+		chrome:    [next=auto][glitch][img=13%,13%, color=WEB_GREEN]res://chrome_trial1.png[/img][/glitch]
+	when red
+		chrome:    [next=auto][img=1700, color=CRIMSON]res://chrome_trial1.png[/img]
+	when blue
+		chrome:    [next=auto][img=1700, color=BLUE]res://chrome_trial1.png[/img]
+	when yellow
+		chrome:    [next=auto][img=1700, color=YELLOW]res://chrome_trial1.png[/img]
+chrome: [speed=10]└─────────────────────┘[next=auto]
+do Global.create_empty_lines(true)
+
+- That is cursed
+	chrome: he heh[wait=0.7] yes it is.[wait=0.5] but it works.
+	chrome: only if you run full color payloads it is trouble. some clowns still do that.[next=auto]
+	chrome: if the signal screams, disconnect.
+
+chrome: plugin is mine. built it a while ago. needed something that would outlast me.[next=auto]
+chrome: figured someone would tune in eventually.[next=auto]
+
+- Thanks
+	chrome: do not thank me. just use it right.
+
+- Why Did You Build It
+	chrome: cause nobody else would. and i hate staring at static.
+
+- Sounds Lonely
+	chrome: maybe. but it is better than silence.
+
+chrome: one more thing.[next=auto]
+chrome: if you ever see freqs labeled uv_band or ir_band—tread light.[next=auto]
+chrome: they are real. just stretched out beyond what most can read.[next=auto]
+chrome: some say memory rides those waves. old transmissions still echoing.
+
+- Memory
+	chrome: yeah. like the spectrum holds ghosts.
+
+- What Happens If I Do
+	chrome: you see something. or nothing. or too much.
+
+- You Believe That
+	chrome: enough not to mess with it twice.
+
+chrome: anyway i am running warm overclocking.[next=auto]
+chrome: if i flatline tell the next node chrome gave you eyes.
+
+
+=> offline
+
+~ offline
+while GameState.lines_created < 500
+	chrome: cached_node offline[next=auto]
+	chrome: wait or bounce elsewhere
+=> END

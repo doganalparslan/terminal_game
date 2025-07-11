@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://j1anxc3lls5c"
+path="res://.godot/imported/Yolsky.dialogue-ffb82e39178a1db04ff7c0379303edd2.tres"
+
+[deps]
+
+source_file="res://Dialogues/Yolsky.dialogue"
+dest_files=["res://.godot/imported/Yolsky.dialogue-ffb82e39178a1db04ff7c0379303edd2.tres"]
+
+[params]
+
+defaults=true

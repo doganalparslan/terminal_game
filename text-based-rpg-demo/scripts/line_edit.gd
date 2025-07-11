@@ -39,6 +39,7 @@ func create_placeholder_text(await_time, preview_text: String):
 
 
 func _on_text_changed(new_text: String) -> void:
+	@warning_ignore("integer_division")
 	var delete_pressed = (how_many_times - new_text.length()) / 2
 	
 	if delete_pressed > 1 and new_text.length() < stored_placeholder_text.length():

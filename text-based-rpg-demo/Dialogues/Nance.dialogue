@@ -54,14 +54,47 @@ Nance: Basically I am the welcome party.
 
 =>< offline
 
-Nance: I am back again.
-Nance: Did you meet some new friends?
+Nance: I am back.[next=auto]
+Nance: Have you made up your mind?
+- I want in
+	do GameState.player_in_syndicate = 1
+	Nance: Welcome to Syndicate then[wait=1] rookie.[next=auto]
+	Nance: It's fun[wait=0.5], you're gonna love it.
+	do GameState.nance_flirted += 2
+- Not yet
+	do GameState.player_in_syndicate = 0
+	Nance: It's alright, take your time.
+- I dont want it
+	Nance: Oh[wait=1] I get it.[next=auto]
+	do GameState.player_in_syndicate = 2
+	do GameState.nance_flirted -= 2
+	Nance: Thought you were more bold.[wait=1] guess I was wrong.[next=auto]
+	- Give me more time
+		Nance: I feel like you are playing me.[wait=1] But ok[wait=1], re-think your answer.
+	- Sorry to disappoint
+		Nance: No, I get it.[wait=1] Not everyone is cut for it.
+		Nance: I'm going off-wave now.
+		=> offline_bad
+
+Nance: So how was it, met some new friends?
+- Met CASEY
+- Met chrome
+- Saw dead channels
+Nance: whatever fam.
 
 
 
 
 ~ offline
 while GameState.lines_created < 100
+	do Global.create_empty_lines(false)
+	Nance: comp. repetitive transmission:[next=auto]
+	Nance: Hey there! I am not on the wave rn. ping me back later
+	do Global.create_empty_lines(true)
+=> END
+
+~ offline_bad
+while GameState.lines_created < 500
 	do Global.create_empty_lines(false)
 	Nance: comp. repetitive transmission:[next=auto]
 	Nance: Hey there! I am not on the wave rn. ping me back later

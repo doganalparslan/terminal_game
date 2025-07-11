@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bola8328bil8t"
+path="res://.godot/imported/chrome.dialogue-6fea3900e5e666d9f64450353a6c5d3f.tres"
+
+[deps]
+
+source_file="res://Dialogues/chrome.dialogue"
+dest_files=["res://.godot/imported/chrome.dialogue-6fea3900e5e666d9f64450353a6c5d3f.tres"]
+
+[params]
+
+defaults=true

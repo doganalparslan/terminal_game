@@ -28,9 +28,9 @@ var second = 0
 func _ready() -> void:
 	if dialogue == load("res://Dialogues/Computer.dialogue"):
 		get_child(1)._on_game_booted()
-		await get_tree().create_timer(4.5).timeout
+		if GameState.debug_mode == false:
+			await get_tree().create_timer(4.5).timeout
 	_on_line_edit_text_submitted("")
-	line_edit.grab_focus()
 
 
 
@@ -96,7 +96,8 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 	
 	
 	line_edit_to_end()
-	line_edit.grab_focus()
+	if Global.active_tab == self:
+		line_edit.grab_focus()
 
 
 
@@ -125,7 +126,9 @@ func line_skipped():
 func line_edit_to_end():
 	history_rows.remove_child(line_edit)   #removes line edit from the text's line
 	history_rows.add_child(line_edit)      #places line edit to the next line
-	line_edit.grab_focus()
+	
+	if Global.active_tab == self:
+		line_edit.grab_focus()
 
 
 
@@ -143,4 +146,5 @@ func delete_history_beyond_limit():
 
 
 func on_resolution_changed():
-	line_edit.grab_focus()
+	pass
+	#line_edit.grab_focus()
