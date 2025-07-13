@@ -1,0 +1,14 @@
+[remap]
+
+importer="import_gif_to_animated_texture"
+type="AnimatedTexture"
+uid="uid://d3xk6plw2bqr7"
+path="res://.godot/imported/chrome.gif-e33068fb08de6416c6fa8d288981b4fe.tres"
+
+[deps]
+
+source_file="res://chrome.gif"
+dest_files=["res://.godot/imported/chrome.gif-e33068fb08de6416c6fa8d288981b4fe.tres"]
+
+[params]
+

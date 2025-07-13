@@ -340,15 +340,28 @@ func get_resolved_line_data(data: Dictionary, extra_game_states: Array = []) -> 
 			resolved_text = resolved_text.substr(0, r.start) + r.body + resolved_text.substr(r.end, 9999)
 			# Move any other markers now that the text has changed
 			var offset: int = r.end - r.start - r.body.length()
+			
+
 			for key in [&"pauses", &"speeds", &"time"]:
 				if markers.get(key) == null: continue
 				var marker = markers.get(key)
+				if typeof(marker) != TYPE_DICTIONARY:
+					#print("SKIPPING marker for", key, "because it's not a dictionary. Type is", typeof(marker), "Value is:", marker)
+					continue
+				#print("MARKER DUMP:")
+				#for marker_key in marker:
+					#print("key:", marker_key, "type:", typeof(marker_key), "value type:", typeof(marker[marker_key]), "value:", marker[marker_key])
 				var next_marker: Dictionary = {}
 				for index in marker:
-					if index < r.start:
+					# Only process int keys where the value is a DICTIONARY
+					if typeof(index) == TYPE_INT and typeof(marker[index]) == TYPE_DICTIONARY:
+						if index < r.start:
+							next_marker[index] = marker[index]
+						elif index > r.start:
+							next_marker[index - offset] = marker[index]
+					else:
+						# Just carry over non-dict entries unchanged (or skip them, depending on what your code needs)
 						next_marker[index] = marker[index]
-					elif index > r.start:
-						next_marker[index - offset] = marker[index]
 				markers.set(key, next_marker)
 			var mutations: Array[Array] = markers.mutations
 			var next_mutations: Array[Array] = []
@@ -665,8 +678,11 @@ func _resolve_condition_value(data: Dictionary, extra_game_states: Array) -> Var
 	if data.get(&"condition", null) == null: return true
 	if data.condition.is_empty(): return true
 
-	return await _resolve(data.condition.expression.duplicate(true), extra_game_states)
-
+	if typeof(data.condition) == TYPE_DICTIONARY and data.condition.has("expression"):
+		return await _resolve(data.condition.expression.duplicate(true), extra_game_states)
+	else:
+		print("WARNING: condition missing 'expression':", data.condition)
+		return true  # or false, depending on desired fallback
 
 # Check if a match value matches a case value
 func _check_case_value(match_value: Variant, data: Dictionary, extra_game_states: Array) -> bool:

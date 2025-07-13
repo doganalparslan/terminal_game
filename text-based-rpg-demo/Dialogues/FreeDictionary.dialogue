@@ -1,13 +1,31 @@
 ~ start
-do Global.create_empty_lines(false)
+set GameState.dictionary_frequency_given = true
+match Global.active_color #probably a copy paste for all images
+	when green
+		FreeDictionary:    [next=auto][img=13%,13%, color=WEB_GREEN]res://fd_png_ver-2.png[/img]
+	when red
+		FreeDictionary:    [next=auto][img=13%,13%, color=CRIMSON]res://fd_png_ver-2.png[/img]
+	when blue
+		FreeDictionary:    [next=auto][img=13%,13%, color=BLUE]res://fd_png_ver-2.png[/img]
+	when yellow
+		FreeDictionary:    [next=auto][img=13%,13%, color=YELLOW]res://fd_png_ver-2.png[/img]
+
 FreeDictionary: Welcome to the dictionary of the free world, [b]FREEDICTIONARY[/b].
 FreeDictionary: This is an open-sourced project made possible by the contributions from all over the Balkans.
 do Global.create_empty_lines(true)
 FreeDictionary: Type the desired word then press the return key. If there is a match, auto-response system will answer.
+~ type_term
+FreeDictionary: [if GameState.never_see_line == true] never see this line [/if]
 - Radiotext
 - Chirp Syndicate
-- Corporate Towers
 - Decentralized
 - E2E
+- Glass
+- internet people
+	FreeDictionary: Internet People[wait=0.5] [i](plural)[/i][wait=0.5] or [wait=0.5]Internet Person [wait=0.5][i](singular)[/i][next=auto]
+	FreeDictionary: [speed=3]Means an individual who create, share, or manipulate content across the network, whose identity and influence exist primarily within the net. Anyone who broadcasts, streams, or shares digital content to a wide audience via the internet is considered an Internet Person.[next=auto]
+	FreeDictionary: [i]Also known as[/i]: net-people, net-peeps, influencers, and other similar terms.
 - long-range
 - longrange
+- long range
+=> type_term

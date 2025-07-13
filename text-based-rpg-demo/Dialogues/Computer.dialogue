@@ -3,9 +3,10 @@ Computer: Terminal initialized.[next=auto]
 #Conputer: [if has_met_nance == true] sent [do Global.change_chat("Nance")] [/if]
 Computer: Radiotext Interface Software: Ver0.003[next=auto]
 Computer: Awaiting input...
-- c [if GameState.debug_mode == true]
+- ca [if GameState.debug_mode == true]
 	do Global.change_chat("CASEY")
-- n [if GameState.debug_mode == true]
+- na [if GameState.debug_mode == true]
+	set GameState.lines_created = 50
 	do Global.change_chat("Nance")
 - ch [if GameState.debug_mode == true]
 	do Global.change_chat("chrome")
@@ -13,23 +14,35 @@ Computer: Awaiting input...
 	do Global.change_chat("FreeDictionary")
 - test [if GameState.debug_mode == true]
 	do Global.change_chat("test")
-- random
+- random [if GameState.debug_mode == true]
 	do Global.change_chat_random()
 - help
 ~ commands
 Computer: Avaliable Commands:[next=auto]
 Computer: Connect[if GameState.has_met_nance] Random[/if] | Change Audio | Terminal Interface
-- Connect [if GameState.has_met_nance == false]
+- connect [if GameState.has_met_nance == false]
 	Computer: Establishing connection with pre-designated terminal[next=auto]
 	Computer: [pulse][wave]...[/wave][/pulse] [do Global.change_chat("Nance")]
-- Connect Random [if GameState.has_met_nance == true]
+- connect random [if GameState.connected_number == 1]
 	Computer: Scanning the wideband for active broadcasts...[next=auto]
 	Computer: 5 frequencies acquired.[wait=0.4] {{GameState.connected_number}} previously designated.[next=auto]
-	Computer: Connecting new random frequency [wave]▅ ▇ █ ▇ ▆ ▇ █ ▇ ▆ ▇ █ ▇ ▅[/wave][do Global.change_chat("Casey")]
+	Computer: Connecting new random frequency [wave]▅ ▇ █ ▇ ▆ ▇ █ ▇ ▆ ▇ █ ▇ ▅[/wave][do Global.change_chat("CASEY")]
+- connect random [if GameState.connected_number == 2]
+	Computer: Scanning the wideband for active broadcasts...[next=auto]
+	Computer: 5 frequencies acquired.[wait=0.4] {{GameState.connected_number}} previously designated.[next=auto]
+	Computer: Connecting new random frequency [wave]▅ ▇ █ ▇ ▆ ▇ █ ▇ ▆ ▇ █ ▇ ▅[/wave][do Global.change_chat("chrome")]
+- connect random [if GameState.connected_number == 3]
+	Computer: Scanning the wideband for active broadcasts...[next=auto]
+	Computer: 5 frequencies acquired.[wait=0.4] {{GameState.connected_number}} previously designated.[next=auto]
+	Computer: Connecting new random frequency [wave]▅ ▇ █ ▇ ▆ ▇ █ ▇ ▆ ▇ █ ▇ ▅[/wave][do Global.connect_chat_random()]
 #	=> commands
 - install_plugin --bitmap_render [if GameState.plugin_bitmap_installed == 1]
 	Computer: bitmap_render plugin installed[next=auto]
 	do plugin_bitmap_installed = 2
+
+- connect 868.932 sf_7 [if GameState.dictionary_frequency_given == true]
+	Computer: Establishing connection with designated terminal[next=auto]
+	Computer: [wave]...[/wave][do Global.change_chat("FreeDictionary")]
 
 - change audio
 	Computer: Avaliable audio tweaks: mute | low | Medium | HIGH | MAX
@@ -39,13 +52,13 @@ Computer: Connect[if GameState.has_met_nance] Random[/if] | Change Audio | Termi
 	- low
 		do Global.change_audio(0.25)
 		Computer: Audio level has been set to low
-	- Medium
+	- medium
 		do Global.change_audio(0.75)
 		Computer: Audio level has been set to Medium
-	- HIGH
+	- high
 		do Global.change_audio(1)
 		Computer: Audio level has been set to HIGH
-	- MAX
+	- max
 		do Global.change_audio(1.25)
 		Computer: Audio level has been set to MAX
 - terminal interface
@@ -54,9 +67,9 @@ Computer: Connect[if GameState.has_met_nance] Random[/if] | Change Audio | Termi
 		Computer: Choose a size: small, Medium, BIG
 		- small
 			Computer: Font size has been set to[do Global.change_font_size(16)] small
-		- Medium
+		- medium
 			Computer: Font size has been set to[do Global.change_font_size(28)] Medium
-		- BIG
+		- big
 			Computer: Font size has been set to[do Global.change_font_size(35)] BIG
 	- color
 		Available colors are; green, red, blue, yellow

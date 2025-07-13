@@ -1,22 +1,23 @@
 #Nance talks with first letter capital and no caps again even with a dot. She punctuates correctly.
+# wait time 0.5 - 0.7 - 1
 
 ~ start
 set has_met_nance = true
 Nance: [wait=3]Hello there cowboy...[wait=1][speed=1.5] wasn't sure you would jack in.
-- Hello?
+- hello?
 Nance: [speed=1.2]Didn't your mama tell you [i]"not to"[/i] stick other people's drives in your pc?[wait=1][next=auto]
 Nance: [speed=1.1]Especially those you've met on the lone alleys.[wait=1][next=auto]
 Nance: Why did you plug it anyway?
 
-- Who are you
+- who are you
 	Nance: I'm Nance.[wait=1][next=auto]
 	=>< RadiotextExplanation
-- Did you hack me
+- did you hack me
 	Nance: Of course not [wait=0.5][i]silly[/i].[next=auto]
 	Nance: Anyway,[wait=0.5] Im Nance.[wait=1] sorry for the barge in.
 	- Its ok
 		=>< RadiotextExplanation
-- Well you were cute
+- well you were cute
 	Nance: well, [wait=1]thank you[wait=0.5] :D[wait=1][next=auto][do nance_flirted += 1] 
 	do Global.create_empty_lines(false)
 	Nance: Im Nance.[wait=1][next=auto]
@@ -29,7 +30,7 @@ Nance: Why did you plug it anyway?
 
 Nance: You will probably have questions[wait=1.5], so ask away.
 
-- Why me
+- why me
 	Nance: My goal is to get as many as I can out of the net.[next=auto]
 	Nance: Old web has been dead for a long time[wait=0.5] and [u][i]cypherpunk[/i][/u] battle is lost anyway.[wait=1][next=auto]
 	Nance: Only [i]corp-aristos[/i] use it to rule people now.[next=auto]
@@ -37,7 +38,7 @@ Nance: You will probably have questions[wait=1.5], so ask away.
 	- you said us before
 		Nance: I am not alone in this.[next=auto]
 		Nance: We are a cyber-activist group. [wait=1]we call ourselves [b]Chirp Syndicate[/b][next=auto]
-- Why would they spy
+- why would they spy
 	Nance: We are a [i]cyber-activist[/i] group. [wait=1]we call ourselves [b]Chirp Syndicate[/b][next=auto]
 	Nance: My goal is to get as many as I can out of the net.[next=auto]
 	Nance: Old web has been dead for a long time[wait=0.5] and [u][i]cypherpunk[/i][/u] battle is lost anyway.[wait=1][next=auto]
@@ -45,42 +46,140 @@ Nance: You will probably have questions[wait=1.5], so ask away.
 	Nance: I build these sticks on my free time, usually hand them to strangers on the street[wait=1], like you.[next=auto]
 
 Nance: Basically I am the welcome party.
-- Do I join
+- do I join
 	Nance: That part is totally up to you. [wait=1]no one can force you upstream.[next=auto]
 	Nance: But you don't have to be all hasty about it.[wait=1] take your time, [wait=0.5]come back with your answer later.[next=auto]
 	Nance: In the meantime get to know the terminal. there are weird people to talk in the wideband.[next=auto]
 	Nance: I am signing off now, see you later.[wait=1] oh, also terminals show auto replies when we are away. don't be surprised by it.[do GameState.nance_lines_created += 20]
-	- Okay
+	- okay
 
-=>< offline
+=>< offline 
+# OFFLINE'DAN ÇIKTIĞINDA GLOBAL.GD'DEN OTOMATİK OLARAK DİKKATİNİ ÇEKİP PRESS_KEY(ENTER) YAPABİLİRİZ
+# BİLDİRİM GELİNCE DİREKT EKRANI ÇALMIŞ OLUR
 
-Nance: I am back.[next=auto]
+Nance: I'm back.[next=auto]
+Nance: So how was it, met some new friends?
+- met CASEY [if GameState.has_met_casey == true]
+	~ met_casey
+	Nance: Yeah[wait=0.7] the writer man.[wait=0.7] How did you find him?
+	- he was interesting
+		Nance: He can be a way to escape sometimes.[0.7] Creates vivid images with his words.
+		- got history? [if GameState.nance_flirted > 0]
+			do GameState.nance_flirted += 1
+			Nance: Why?[wait=0.7] you curious?
+			- maybe
+				Nance: We didn't date or anything if that's what you are after.
+			- not at all
+				Nance: And I sure do believe you.
+	- boring
+		Nance: Oh I can imagine, believe me.[wait=0.5] been there.[next=auto]
+	- doesnt like syndicate
+		Nance: So you talked about it.
+		- a little
+			Nance: I see.[next=auto]
+			Nance: He doesn't like the way we operate.[wait=1] treats us like the invaders of this space.[next=auto]
+			Nance: Not a fan of corps but isn't brave enough to get up from his chair and do something about it.[next=auto]
+			Nance: I tried to convince him once. put so much effort into it but couldn't get him to join.[next=auto]
+			Nance: I was a newcomer back then[wait=0.5]and Syndicate was fresh.
+		- he asked how I got here
+			Nance: And you said Nance... got it.[wait=0.7][next=auto]
+			Nance: That probably pissed him off more :)[next=auto]
+			Nance: He doesn't like it when I invite people over[wait=0.5]. wants to keep his old writing-radio all to himself.
+	- doesnt like you
+		Nance: What did I do to him?[wait=0.7] and how did I come up in the conversation?
+		- he asked how I got here
+			Nance: And you said Nance... got it.[wait=0.7][next=auto]
+			Nance: That probably pissed him off more :D[next=auto]
+			Nance: He doesn't like it when I invite people over[wait=0.5]. wants to keep his old writing-radio all to himself.
+	Nance: Anyone else you met?
+	- met chrome
+		=> met_chrome
+	- no
+		Nance: Okay.[wait=1] it's time for the big question then.
+		=> have_you_made_up_your_mind
+
+- met chrome [if GameState.has_met_chrome == true]
+	~ met_chrome
+	Nance: That's a strong start.[wait=0.5] well done.[next=auto]
+	Nance: He is a high praised ice-breaker.[wait=0.5] doesn't connect much[next=auto]
+	Nance: You must have run into him in a good mood[wait=0.5]. which is not often, you are lucky.[next=auto]
+	Nance: He was very skilled and useful in the rare occasions where he helped us.[next=auto]
+	Nance: Mostly though, he is an asshole[wait=0.7] and a pain in the ass.[next=auto]
+	- installed a plugin
+		~ installed_a_plugin
+		Nance: Which one?
+		- image
+			Nance: Oh, congrats. Means you can see now.[next=auto]
+			Nance: What does one's eyes seek when they re-open?
+			- truth
+				Nance: Oooh, all philosophical aren't we :D
+			- the waves
+				Nance: We have lots of that around here.[wait=0.7]I don't think you'll get bored of them soon.
+			- you
+				Nance: That[wait=0.7] was smooth.[wait=1] not gonna lie :)[do GameState.nance_flirted += 1][next=auto]
+				Nance: You have to be brave enough to ask though.
+				- can I see you
+				Nance: [wait=1]Yes.[wait=0.7] you can.[next=auto]
+				do Global.create_empty_lines(false)
+				chrome: ┌────── [pulse]Loading Image[/pulse] ──────┐ [wait=2][next=auto]
+				match Global.active_color #probably a copy paste for all images
+					when green
+						chrome:    [next=auto][img=13%,13%, color=WEB_GREEN]res://Nance.gif[/img]
+					when red
+						chrome:    [next=auto][img=13%,13%, color=CRIMSON]res://Nance.gif[/img]
+					when blue
+						chrome:    [next=auto][img=13%,13%, color=BLUE]res://Nance.gif[/img]
+					when yellow
+						chrome:    [next=auto][img=13%,13%, color=YELLOW]res://Nance.gif[/img]
+				chrome: [speed=10]└─────────────────────┘[next=auto]
+				do Global.create_empty_lines(true)
+				Nance: Here I am.[wait=2] I mean this is an old pic but I still look the same. didn't upgrade my [u]glass[/u] or anything.
+				Nance: Gonna wake you up from the dreams to remind my question however.[next=auto]
+				=> have_you_made_up_your_mind
+	- got history?
+		Nance: Kind of.[wait=1.5] it was a small thing.[next=auto]
+		Nance: Lasted for a few days or so. seems so far away now.[next=auto]
+		Nance: What you talked about?
+		- installed a plugin
+			=> installed_a_plugin
+- saw dead channels
+	Nance: Yeah, they stuck there. wasting precious frequincies while corps get mad at us using it.[next=auto]
+	Nance: But it doesn't matter since they are perfectly dialed in. they don't bother our channels.[next=auto]
+	Nance: Was it all noise? didn't you connect anyone real?
+	- met CASEY
+	- met chrome
+	- all noise
+		Nance: Damn[wait=0.7], unlucky for you.[wait=1] was almost sure you'd find someone.[next=auto]
+		Nance: I guess no one was on.[wait=0.5] due to time zone or something I don't know.[next=auto]
+		Nance: Don't worry you'll find people.[wait=0.5] shit happens on the first time.[next=auto]
+		Nance: Gotta ask you the million dollar question now though.[next=auto]
+		=> have_you_made_up_your_mind
+
+~ have_you_made_up_your_mind
 Nance: Have you made up your mind?
 - I want in
 	do GameState.player_in_syndicate = 1
 	Nance: Welcome to Syndicate then[wait=1] rookie.[next=auto]
 	Nance: It's fun[wait=0.5], you're gonna love it.
 	do GameState.nance_flirted += 2
-- Not yet
+	=>< offline_demo_end
+- not yet
 	do GameState.player_in_syndicate = 0
-	Nance: It's alright, take your time.
+	Nance: Okay[wait=1], I'll be waiting.[next=auto]
+	Nance: Don't take too long.[next=auto]
+	=>< offline_demo_end
 - I dont want it
 	Nance: Oh[wait=1] I get it.[next=auto]
 	do GameState.player_in_syndicate = 2
 	do GameState.nance_flirted -= 2
 	Nance: Thought you were more bold.[wait=1] guess I was wrong.[next=auto]
-	- Give me more time
-		Nance: I feel like you are playing me.[wait=1] But ok[wait=1], re-think your answer.
-	- Sorry to disappoint
-		Nance: No, I get it.[wait=1] Not everyone is cut for it.
-		Nance: I'm going off-wave now.
-		=> offline_bad
+	- give me more time
+		Nance: I feel like you are playing me.[wait=1] But ok[wait=1], re-think your answer.[next=auto]
+	- sorry
+		Nance: No, I get it.[wait=1] Not everyone is cut for it.[next=auto]
+		Nance: I'm going off-wave now.[next=auto]
+	=>< offline_demo_end
 
-Nance: So how was it, met some new friends?
-- Met CASEY
-- Met chrome
-- Saw dead channels
-Nance: whatever fam.
 
 
 
@@ -101,6 +200,14 @@ while GameState.lines_created < 500
 	do Global.create_empty_lines(true)
 => END
 
+~ offline_demo_end
+while GameState.lines_created < 10000
+	do Global.create_empty_lines(false)
+	Nance: THIS WAS THE END OF THE DEMO[next=auto]
+	Nance: THANK YOU FOR PLAYING <3[wait=1][next=auto]
+	Nance: AND PLEASE FILL THE FEEDBACK FORM
+	do Global.create_empty_lines(true)
+=> END
 
 ~ RadiotextExplanation
 Nance: This is [b]Radiotext[/b].[wait=1] it allows to talk without governments or corps spying on us.[wait=1][next=auto]

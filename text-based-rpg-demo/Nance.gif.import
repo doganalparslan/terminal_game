@@ -1,0 +1,14 @@
+[remap]
+
+importer="import_gif_to_animated_texture"
+type="AnimatedTexture"
+uid="uid://dyfg6imn474pj"
+path="res://.godot/imported/Nance.gif-3b4c44b90338603169249ba3e007637c.tres"
+
+[deps]
+
+source_file="res://Nance.gif"
+dest_files=["res://.godot/imported/Nance.gif-3b4c44b90338603169249ba3e007637c.tres"]
+
+[params]
+

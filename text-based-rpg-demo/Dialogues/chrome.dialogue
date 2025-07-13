@@ -70,13 +70,13 @@ do Global.create_empty_lines(false)
 chrome: ┌────── [pulse]Loading Image[/pulse] ──────┐ [wait=2][next=auto]
 match Global.active_color #probably a copy paste for all images
 	when green
-		chrome:    [next=auto][glitch][img=13%,13%, color=WEB_GREEN]res://chrome_trial1.png[/img][/glitch]
+		chrome:    [next=auto][img=13%,13%, color=WEB_GREEN]res://chrome.gif[/img]
 	when red
-		chrome:    [next=auto][img=1700, color=CRIMSON]res://chrome_trial1.png[/img]
+		chrome:    [next=auto][img=13%,13%, color=CRIMSON]res://chrome_trial1.png[/img]
 	when blue
-		chrome:    [next=auto][img=1700, color=BLUE]res://chrome_trial1.png[/img]
+		chrome:    [next=auto][img=13%,13%, color=BLUE]res://chrome_trial1.png[/img]
 	when yellow
-		chrome:    [next=auto][img=1700, color=YELLOW]res://chrome_trial1.png[/img]
+		chrome:    [next=auto][img=13%,13%, color=YELLOW]res://chrome_trial1.png[/img]
 chrome: [speed=10]└─────────────────────┘[next=auto]
 do Global.create_empty_lines(true)
 

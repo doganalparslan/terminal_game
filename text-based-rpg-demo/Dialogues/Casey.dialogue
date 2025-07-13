@@ -1,19 +1,21 @@
 #CASEY always writes his name in full caps and punctuates absolutely correct.
+# wait time 0.5 - 1
 
 ~ start
 set has_met_casey = true
 Casey: [color=f2f200]The view beneath the horizon seemed rendered in pixels behind the flyscreen[/color][wait=2][next=auto]
-Casey: [color=f2f200]Under the [pulse]pulsing NEON lights[/pulse] of the [b]corporate towers[/b], you could feel the city's heartbeat.[/color][next=auto]
+Casey: [color=f2f200]Under the [pulse]pulsing NEON lights[/pulse] of the corporate towers, you could feel the city's heartbeat.[/color][next=auto]
 Casey: [color=f2f200]Metals vibrate at the same frequency as the engines of motor-vehicles, passing along the generous highways.[/color]
-- How did u type yellow [if Global.active_color == green]
+- how did u type yellow [if Global.active_color == green]
 	Casey: It's rather easy actually. Just go into your computer/terminal interface settings.[wait=1] Never thought I would give someone tech advice in here.[next=auto]
 	Casey: Let me introduce myself.[next=auto]
 	=>< introduction
 
-- debug
-	=> tell_me_about_yourself
+- debug [if GameState.debug_mode == true]
+	do casey_prog = 1
+	=> debug
 
-- WTF
+- wtf
 	do GameState.casey_relationship(-1)
 	Casey: [shake]Okay![/shake][wait=1]first of all[wait=0.5] that was rude.[next=auto]
 	Casey: I was going to ask you, whether you liked it or not...[next=auto]
@@ -21,33 +23,38 @@ Casey: [color=f2f200]Metals vibrate at the same frequency as the engines of moto
 	- Im sorry
 		Casey: I accept your apology[wait=1], [i]mean[/i] stranger.[next=auto]
 		Casey: Not everyone appreciates[wait=0.5] [i]art[/i][wait=0.5] first time they see it.[next=auto]
-		Casey: My name is CASEY[wait=1] I'm a writer.[next=auto]
+		Casey: My name is [color=f2f200][b]CASEY[/b][/color][wait=1] I'm a writer.[next=auto]
 	- no it was good
 		Casey: Oh[wait=2], wasn't expecting to be flattered after that mean enterance.[wait=1] Thank you.[next=auto]
 		Casey: We started on the wrong foot. Allow me to introduce myself.[next=auto]
 		=>< introduction 
 
-- Who are you
+- who are you
 	=>< introduction
 
-- Hello
+- hello
 	=>< introduction
 
-Casey: Forget all that now, what do you think about the greeting? Was it too descriptive, too mystique, perhaps a little hard to understand?
-- Long sentences
+Casey: Forget all that now, what do you think about the enterance? Was it too descriptive, too mystique, perhaps a little hard to understand?
+- long sentences
 	Casey: So what you are saying is, the reader loses the context at the end of the sentence, I see...[next=auto]
-- Cool theme
+- cool theme
+	do GameState.casey_relation += 1
 	Casey: Well its pretty much what I got when I look out. They shat in the worlds eco-system and now we are the ones to suffer.[wait=1] I just romanticize it a little.[next=auto] 
-- Too descriptive
+- too descriptive
 	Casey: Then perhaps I should go easy on the vocabulary. It might get confusing within the whole sentence and futuristic lingo.[wait=1][next=auto]
 	Casey: I mean I haven't yet added the lingo[wait=0.5], apart from the "rendered" part but sure it will get confusing when it is more complete.[next=auto]
-- Unusual Perspective
+- unusual perspective
+	do GameState.casey_relation += 1
 	Casey: Right!? I was too intrigued when I noticed my flyscreen does that in real life. It was almost as if I was in a virtual world.[next=auto]
 
 Casey: This passage is going to be the intro of my book[wait=1], so it's important that it's catchy.[next=auto]
-Casey: Gotta hook the reader right into it.[next=auto]
+Casey: Gotta hook the reader[wait=0.5][speed=1.5] right into it.[next=auto]
+Casey: Thats mainly why I am here.[wait=1] Talking about writing and[wait=0.5] a bit of a civil disobedience.[next=auto]
+=> tell_me_about_yourself
 Casey: I can show more of it.[wait=1] What I wrote I mean.[wait=1] If you'd like?[next=auto]
-- Yeah sure
+- yeah sure
+	do GameState.casey_relation += 1
 	Casey: Thank you.[wait=0.5] I promise they are not going to be boring. Also you will be amongst the lucky few which had a chance to read my stories.[next=auto]
 	Casey: So consider yourself lucky.[next=auto]
 	Casey: What should I begin with. Let me think for a second.[wait=2][do Global.create_empty_lines(false)] Okay.[wait=1] I think you will like this.[next=auto]
@@ -55,67 +62,109 @@ Casey: I can show more of it.[wait=1] What I wrote I mean.[wait=1] If you'd like
 	Casey: I would like to ask did you like it[wait=1] but first.[next=auto]
 	=> tell_me_about_yourself
 
-- No thanks
+- no thanks
 	Casey: Oh[wait=2] sure.[wait=2] Okay.[next=auto]
 	Casey: Well[wait=0.5] thats mainly why I am here.[wait=1] Talking about writing and[wait=0.5] a bit of a civil disobedience.[next=auto]
-	do GameState.casey_progress(1)
+	do GameState.casey_prog += 1
 	=> tell_me_about_yourself
 
 ~ tell_me_about_yourself
 Casey: You tell me about yourself[if GameState.casey_prog == 1] then[/if].
-- What do you mean
+- what do you mean
 	Casey: I mean I am out of topics to chat about, you tell something.
-	- No the civil thing
-		Casey: Oh that, the government doesn't allow people to broadcast on the radio[wait=1] or use its frequency or something I don't know.[next=auto]
+	- no the civil thing
+		Casey: Oh that,[wait=0.5] the government doesn't allow people to broadcast on the radio[wait=1] or use its frequency or something I don't know.[next=auto]
 		Casey: They tell that it interferes with the communication or something. Also there was pirate radios before times, it was a measure against that too.[next=auto]
-		Casey: All complete bullshit if you ask me. I think they only fear that they can't control.
+		Casey: All complete bullshit if you ask me. I think they only fear that they can't control.[next=auto]
 		Casey: They force us to use their channels to communicate.[speed=1.5] I don't obey to that law, I'm sorry.
-		- Is this illegal
+		- is this illegal
 			Casey: It wasn't initially[wait=0.5] even the big corps were advertising and stuff.[wait=1] You can still come across the dead channels.[next=auto]
-			Casey: Look I understood that you are new to this but how could you not know these stuff?[wait=1] Doesn't internet-people tell the history behind when calling people in?
-			- It was Nance
+			~ debug
+			Casey: Look I understood that you are new to this but how could you not know these?[wait=1] Doesn't [u]internet-people[/u] tell the history behind when calling people in?
+			- it was Nance
+				~ it_was_nance
 				Casey: [shake]What?![/shake][next=auto]
 				Casey: Yeah.[wait=1] No [shake]shit[/shake].[next=auto]
 				do casey_relation -= 1
-				Casey: She keeps turning this place into a Syndicate garden.[next=auto]
-				Casey: So you are one of them?
-				- Not yet decided [if GameState.player_in_syndicate == 0]
-					Casey: Look[wait=1] I don't want to guide you towards a specific decision.[next=auto]
-					Casey: But this sub-culture existed way before them.[wait=1] They shouldn't turn it into a personal tool.[next=auto]
-					Casey: Plus it's alerting the officials too.
-					- didnt Nance make this
-						=> nance_didnt_build_radiotext
-				- I refused
-					Casey: Good lord. Thank you! [next=auto]
-					if casey_relation > 3
-						Casey: I wasn't ready to lose another friend. Especially not to those people.
-					else
-						Casey: Those people doesn't deserve one more soul joining them.
-					- didnt Nance make this
-						=> nance_didnt_build_radiotext
+				Casey: She keeps turning this place into a S*ndicate garden.[next=auto]
+			- they dont
+				Casey: That's a shame.[wait=0.5] Of course the net isn't what it used to be but still,[wait=0.5] expected more from them.[next=auto]
+				Casey: You remember the name of it?
+				- it was Nance
+					=> it_was_nance
+				- I dont
+				Casey: It's alright.[wait=0.5] Not like I was gonna go beat up a rich fella with a million fans.[next=auto]
+				Casey: Im going to give you a frequency you can connect, this should help clear your questions. Wait a second.[wait=1.5][next=auto]
+				=>< free_dictionary
+				=> going_away
+			- internet people? [if GameState.dictionary_frequency_given == false]
+				Casey: Look you got to stop asking me this questions.[wait=1] Wait here, I'm fetching you a frequency.[wait=5][next=auto]
+				=>< free_dictionary
+				Casey: But how did you find this place if not from net people?
+				- it was Nance
+					=> it_was_nance
+				- no it was net people
+					Casey: Oh[wait=0.5]. So you just didn't know the slang[wait=0.5], got it.
+					=> going_away
 
-			- They don't
-				Casey: That's a shame.
+~ questioned
+Casey: [if casey_prog == 1]So [/if]are you one of them?
+- yes I am
+	do casey_relation -= 1
+	Casey: Should've guessed.[wait=1] Everyone nowadays are joining because of them.[next=auto]
+	Casey: This place is not it used to be.
+	- didnt Nance make this
+		=> nance_didnt_build_radiotext
+- not yet decided [if GameState.player_in_syndicate == 0]
+	do GameState.casey_knows_syndicate = 1
+	Casey: Good.[wait=1] Look[wait=1] I don't want to guide you towards a specific decision.[next=auto]
+	Casey: But this sub-culture existed way before them.[wait=1] They shouldn't turn it into a personal tool.[next=auto]
+	Casey: Plus it's alerting the officials too.
+	- didnt Nance make this
+		=> nance_didnt_build_radiotext
+- I refused
+	do casey_relation += 1
+	do GameState.casey_knows_syndicate = 1
+	Casey: Good lord. Thank you! [next=auto]
+	if casey_relation > 3
+		Casey: I wasn't ready to lose another friend. Especially not to those people.
+	else
+		Casey: Those people doesn't deserve one more soul joining them.
+	- didnt Nance make this
+		=> nance_didnt_build_radiotext
+- you know Nance? [if casey_prog == 1]
+	Casey: Of course I know Nance, [speed=1.3]you stick around in a dead radio tech long enough, you know everybody.[next=auto]
+	Casey: Now [shake]answer[/shake] the question![next=auto]
+	set casey_prog = 2
+	=> questioned
 
-			- Internet people? [if GameState.dictionary_frequency_given == false]
-				Casey: Look you got to stop asking me these.[wait=1] Wait here, I'm fetching you a frequency.[wait=5][next=auto]
-				Casey: Here,[wait=0.5] connect 868.932 Mhz frequency, spreading factor 7.[next=auto]
-				Casey: Go to your terminal and type: connect 868.932 sf_7. 
-				set dictionary_frequency_given = true
+
+
 
 ~ nance_didnt_build_radiotext
-Casey: No[wait=0.5], of course not! Radiotext was built in the 90's.[next=auto]
-Casey: No wonder she wouldn't tell this.[wait=1] She is enjoying being the [wave]queen[/wave].
+Casey: No[wait=0.5], of course [shake]not![/shake] Radiotext was built in the 90's.[next=auto]
+Casey: No wonder she wouldn't tell this.[wait=1] She is enjoying being the [wave]q u e e n[/wave].
+- got it
+	=> going_away
 
+~ going_away
+Casey: Okay[if GameState.casey_relation >= 3] friend[/if]. I need to go now.[wait=0.5] Gonna run some errands and then back to writing.[next=auto]
+Casey: [if GameState.casey_relation >= 3]I liked you. [/if]Hope you stick around.[if GameState.casey_knows_syndicate == 2] Without them.[/if]
+=>< offline
 
-
+~ free_dictionary
+Casey: Here,[wait=0.5] connect 868.932 Mhz frequency, spreading factor 7.[next=auto]
+Casey: Go to your terminal and type: connect 868.932 sf_7. 
+set dictionary_frequency_given = true
+Casey: You can look for your answers there from now on.[next=auto]
+=> END
 
 
 
 
 
 ~ introduction
-Casey: [wave]HELLO COMPLETE STRANGER[/wave][wait=1] Im CASEY.[next=auto]
+Casey: [wave]HELLO COMPLETE STRANGER[/wave][wait=1] Im [color=f2f200][b]CASEY[/b][/color].[next=auto]
 Casey: I am an author.[wait=1] A novelist... A [wait=0.5]novel writer?[next=auto]
 Casey: That didn't sound too confident did it?[next=auto]
 => END
@@ -141,6 +190,7 @@ do Global.create_empty_lines(true)
 while GameState.lines_created < 200
 	do Global.create_empty_lines(false)
 	Casey: comp. repetitive transmission:[next=auto]
-	Casey: Your favourite writer is now off waves. See me later.
+	Casey: Your favourite writer [color=f2f200][b]CASEY[/b][/color] is now off the waves. See me later!
 	do Global.create_empty_lines(true)
 => END
+
