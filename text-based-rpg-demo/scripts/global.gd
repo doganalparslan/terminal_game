@@ -131,16 +131,16 @@ func change_chat(chat_dialogue_res: String) -> void:
 	tab_container.current_tab = tab_container.get_tab_count() -1
 	# ADDING THE CHAT
 	
-	for chat in GameState.all_chats:
+	for chat in GameState.all_available_chats:
 		if chat == chat_dialogue_res:
-			GameState.all_chats.erase(chat)
-			print_debug("available chats: " + str(GameState.all_chats))
+			GameState.all_available_chats.erase(chat)
+			print_debug("available chats: " + str(GameState.all_available_chats))
 
 
 func change_chat_random() -> void:
 	pass
-	var random_chat_number = randi_range(0, GameState.all_chats.size() - 1)
-	var random_chat = GameState.all_chats[random_chat_number]
+	var random_chat_number = randi_range(0, GameState.all_available_chats.size() - 1)
+	var random_chat = GameState.all_available_chats[random_chat_number]
 	print_debug("random_chat: " + str(random_chat))
 	
 	change_chat(random_chat)
@@ -205,10 +205,13 @@ func returning_message(returning_chat: String):
 	game_node._on_line_edit_text_submitted("")
 
 
-var one_time: bool = false
+#var one_time: bool = false
+var offline_chats: Array
 func check_created_line(chat_name: String, number_needed: int):
-	if one_time == false:
-		one_time = true
+	if not offline_chats.has(chat_name):
+	#if one_time == false:
+		offline_chats.append(chat_name)
+		#one_time = true
 		while number_needed > GameState.lines_created:
 			print(chat_name, " is offline")
 			await get_tree().create_timer(3).timeout
@@ -222,6 +225,7 @@ func check_created_line(chat_name: String, number_needed: int):
 			"chrome":
 				GameState.chrome_offline = false
 		returning_message(chat_name)
+		offline_chats.erase(chat_name)
 		return
 	else:
 		return

@@ -1,0 +1,20 @@
+~ start
+
+match Global.active_color #probably a copy paste for all images
+	when green
+		TECT:    [wait=1.3][next=auto][img=13%,13%, color=WEB_GREEN]res://TECT_ad_white.png[/img]
+	when red
+		TECT:    [wait=1.4][next=auto][img=13%,13%, color=CRIMSON]res://TECT_ad_white.png[/img]
+	when blue
+		TECT:   [wait=1.3][next=auto][img=13%,13%, color=BLUE]res://TECT_ad_white.png[/img]
+	when yellow
+		TECT:    [wait=1.4][next=auto][img=13%,13%, color=YELLOW]res://TECT_ad_white.png[/img]
+
+TECT: Type without moving your fingers! [next=auto]
+TECT: Where speed is life,[wait=0.5] and keyboards are noise.[next=auto]
+TECT: TECT will be your saviour![next=auto]
+
+computer: comp. repetitive transmission.
+- close chat
+	computer: comp. severing connection.
+	do Global.get_current_chat().queue_free()

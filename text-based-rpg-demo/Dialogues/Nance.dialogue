@@ -39,12 +39,12 @@ Nance: You will probably have questions[wait=1.5], so ask away.
 	Nance: I build these sticks on my free time, usually hand them to strangers on the street[wait=1], like you.[next=auto]
 	- you said us before
 		Nance: I am not alone in this.[next=auto]
-		Nance: We are a cyber-activist group. [wait=1]we call ourselves [b]Chirp Syndicate[/b][next=auto]
+		Nance: We are a cyber-activist group. [wait=1]we call ourselves [b][u]Chirp Syndicate[/u][/b][next=auto]
 - they spy?
-	Nance: We are a [i]cyber-activist[/i] group. [wait=1]we call ourselves [b]Chirp Syndicate[/b][next=auto]
+	Nance: We are a [i]cyber-activist[/i] group. [wait=1]we call ourselves [b][u]Chirp Syndicate[/u][/b][next=auto]
 	Nance: My goal is to get as many as I can out of the net.[next=auto]
 	Nance: Old web has been dead for a long time[wait=0.5] and [u][i]cypherpunk[/i][/u] battle is lost anyway.[wait=1][next=auto]
-	Nance: Only [i]corp-aristos[/i] use it to rule people now.[next=auto]
+	Nance: Only [i][u]corp-aristos[u][/i] use it to rule people now.[next=auto]
 	Nance: I build these sticks on my free time, usually hand them to strangers on the street[wait=1], like you.[next=auto]
 
 Nance: Basically I am the welcome party.
@@ -66,7 +66,7 @@ do Global.create_empty_lines("Nance",false)
 set nance_offline = true
 while GameState.nance_offline == true
 	=>< offline 
-	do Global.check_created_line("Nance" ,150)
+	do Global.check_created_line("Nance" ,210)
 do Global.create_empty_lines("Nance",true)
 do Global.tab_is_offline("Nance",false)
 
@@ -125,7 +125,7 @@ Nance: So how was it, met some new friends?
 	Nance: Must have run into him in a good mood[wait=0.5]. which is not often.[next=auto]
 	Nance: He was very skilled and useful in the rare occasions we needed him.[next=auto]
 	Nance: Mostly though, he is an asshole[wait=0.7] and a pain in the ass.[next=auto]
-	- installed a plugin
+	- installed a plugin [if GameState.plugin_bitmap_installed == 2]
 		~ installed_a_plugin
 		Nance: Which one?
 		- image
@@ -160,8 +160,12 @@ Nance: So how was it, met some new friends?
 		Nance: Kind of.[wait=1.5] it was a small thing.[next=auto]
 		Nance: Lasted for a few days or so. seems so far away now. nothing but history.[next=auto]
 		Nance: What you talked about?
-		- installed a plugin
+		- installed a plugin [if GameState.plugin_bitmap_installed == 2]
 			=> installed_a_plugin
+		- not talked much
+			Nance: Yeah, he can be tight lipped sometimes.[next=auto]
+			Nance: Gotta ask you the million dollar question now though.[next=auto]
+
 - saw dead channels
 	Nance: Yeah, they stuck there. wasting precious frequincies while corps get mad at us using it.[next=auto]
 	Nance: Doesn't matter to us since they are perfectly dialed in. they don't bother our channels.[next=auto]
@@ -182,8 +186,8 @@ Nance: Have you made up your mind?
 - I want in
 	do GameState.player_in_syndicate = 1
 	do Global.play_music()
-	Nance: [wait=2]Welcome to Syndicate then[wait=1] rookie.[next=auto]
-	Nance: It's fun[wait=1.5], you're gonna love it.[wait=5][next=auto]
+	Nance: [wait=3]Welcome to Syndicate then[wait=1] rookie.[next=auto]
+	Nance: It's fun[wait=2], you're gonna love it.[wait=5][next=auto]
 	do GameState.nance_flirted += 2
 	=>< offline_demo_end
 #- not yet

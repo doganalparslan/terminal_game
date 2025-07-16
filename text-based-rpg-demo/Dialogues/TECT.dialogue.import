@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dwmnfku4qrssc"
+path="res://.godot/imported/TECT.dialogue-4e536e9b7d589d987a50551305be7aae.tres"
+
+[deps]
+
+source_file="res://Dialogues/TECT.dialogue"
+dest_files=["res://.godot/imported/TECT.dialogue-4e536e9b7d589d987a50551305be7aae.tres"]
+
+[params]
+
+defaults=true

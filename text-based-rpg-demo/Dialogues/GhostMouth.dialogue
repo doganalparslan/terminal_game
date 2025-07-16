@@ -1,0 +1,22 @@
+~ start
+
+match Global.active_color #probably a copy paste for all images
+	when green
+		GhostMouth:    [wait=1.3][next=auto][img=13%,13%, color=WEB_GREEN]res://ghostmouth_ad.png[/img]
+	when red
+		GhostMouth:    [wait=1.4][next=auto][img=13%,13%, color=CRIMSON]res://ghostmouth_ad.png[/img]
+	when blue
+		GhostMouth:   [wait=1.3][next=auto][img=13%,13%, color=BLUE]res://ghostmouth_ad.png[/img]
+	when yellow
+		GhostMouth:    [wait=1.4][next=auto][img=13%,13%, color=YELLOW]res://ghostmouth_ad.png[/img]
+
+GhostMouth: No wires. No interference. Just pure voice transmission.[next=auto]
+do Global.create_empty_lines("GhostMouth", false)
+GhostMouth: GhostMouth™ utilizes a minimally invasive procedure to install a precision microphone at the base of your skull,[next=auto]
+GhostMouth: enabling seamless, wireless communication wherever you go!
+do Global.create_empty_lines("GhostMouth", true)
+
+computer: comp. repetitive transmission.
+- close chat
+	computer: comp. severing connection.
+	do Global.get_current_chat().queue_free()

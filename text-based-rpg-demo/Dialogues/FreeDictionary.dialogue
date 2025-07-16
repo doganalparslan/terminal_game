@@ -16,15 +16,23 @@ FreeDictionary: This is an open-sourced project made possible by the contributio
 FreeDictionary: Type the desired word then press the return key. If there is a match, auto-response system will answer.
 ~ type_term
 FreeDictionary: [if GameState.never_see_line == true] never see this line [/if]
-- radiotext
+- Radiotext
 	FreeDictionary: Radiotext [wait=0.5][i](proper noun)[/i][next=auto]
 	FreeDictionary: [speed=3]An encrypted, [u]long-range[/u] radio protocol mesh-work. Released as an open source project on the Usenet in the 90s. Originally developed by Jennet Kovaic, aka spectrum-synthesizer, for earthquake emergency comms [i](official statement)[/i]. Following her untimely and unexplained death, rumors of assassination by hostile state or corporate actors have persisted.[next=auto]
 	FreeDictionary: [i]Also seen as[/i]: waves, wideband, mesh, and other similar terms.
-- chirp Syndicate
+- Chirp Syndicate
 	FreeDictionary: Chirp Syndicate [wait=0.5][i](proper noun)[/i][next=auto]
 	FreeDictionary: [speed=3]A wave-based organization believing that communication between individuals must remain private, un-monitored, un-censored, and always available. Inspired by the [u]cypherpunks[/u] who came before them.[next=auto]
 	FreeDictionary: [i]Also seen as[/i]: Chirps, Synths, Syndicate, and other similar names.
-- decentralized
+- Civil Disobedience
+	FreeDictionary: civil disobedience [wait=0.5][i](common noun)[/i][next=auto]
+	FreeDictionary: [speed=3]The intentional and public refusal to obey certain laws, demands, or commands of a government or occupying power, usually as a form of non-violent protest or resistance.[next=auto]
+	FreeDictionary: [i]Also known as[/i]: peaceful resistance, non-violent protest, and other similar terms.
+- Corp-Aristos
+	FreeDictionary: Corp-aristos[wait=0.5] [i](plural)[/i][wait=0.5] or [wait=0.5]corp-aristo [wait=0.5][i](singular)[/i][next=auto]
+	FreeDictionary: [speed=3]Refers to the elite class of corporate aristocrats who control major mega-corporations, wielding vast economic and political power. They shape policies, influence markets, and maintain dominance through networks of influence and wealth.[next=auto]
+	FreeDictionary: [i]Also known as[/i]: corporate oligarchs, mega-corp lords, and other similiar high-tier executive names.
+- Decentralized
 	FreeDictionary: Decentralized [wait=0.5][next=auto]
 	FreeDictionary: [speed=3]Describes a system without a single point of control or failure. In a decentralized network, authority, data, and trust are distributed across many nodes. Resisting surveillance, censorship, and collapse. Favored by [u]cypherpunks[/u], mesh builders, and distrustful [u]technomads[/u].[next=auto]
 	FreeDictionary: [i]Opposite of[/i]: centralized, federated, controlled.
@@ -32,27 +40,30 @@ FreeDictionary: [if GameState.never_see_line == true] never see this line [/if]
 	FreeDictionary: E2E[wait=0.5] [i](short-form)[/i][wait=0.5] or [wait=0.5]End to End[wait=0.5] [i](long-form)[/i][next=auto]
 	FreeDictionary: [speed=3]End to end is a method of encrypted communication where only the sender and receiver can read the data. No intermediaries. No backdoors. Often flagged by authorities for “suspicious” usage. A cornerstone of secure, private netflow.[next=auto]
 	FreeDictionary: [i]Also seen as[/i]: e2ee, ∑2∑
-- glass
+- Glass
 	FreeDictionary: Glass [wait=0.5][i](noun, slang)[/i][next=auto]
-	FreeDictionary: [speed=3]Refers to ocular wearable devices, goggles, lenses, or retinal overlays, that layer digital information over vision. “Wearing glass” implies persistent data feeds through vision.[next=auto]
+	FreeDictionary: [speed=3]Refers to ocular wearable devices, goggles, lenses, or retinal overlays, that layer digital information over vision. “Wearing glass” implies persistent data feed through a person's eyes.[next=auto]
 	FreeDictionary: [i]Also known as[/i]: [u]chrome[/u], gear, head-piece, overlays, shimmers and other similar terms.
-- internet people
+- Internet-People
 	FreeDictionary: Internet People[wait=0.5] [i](plural)[/i][wait=0.5] or [wait=0.5]Internet Person [wait=0.5][i](singular)[/i][next=auto]
 	FreeDictionary: [speed=3]Means an individual who creates, shares, or manipulates content across the network, whose identity and influence exist primarily within the net. Anyone who broadcasts, streams, or shares digital content to a wide audience via the internet is considered an Internet Person.[next=auto]
 	FreeDictionary: [i]Also known as[/i]: net-people, net-peeps, influencers, and other similar terms.
-- long range
+- Long-Range
 	=>< LoRa
-- lora
-	=>< LoRa
-- long-range
-	=>< LoRa
-- longrange
-	=>< LoRa
-- chrome #infamous hacker on the waves
-- cypherpunks
+- Technomads
+	FreeDictionary: Technomads[wait=0.5] [i](plural)[/i][wait=0.5] or [wait=0.5]technomad [wait=0.5][i](singular)[/i][next=auto]
+	FreeDictionary: [speed=3]Nomadic individuals who travel the digital and physical frontiers, often living off-grid and relying on portable technology to survive.[next=auto]
+	FreeDictionary: [i]Also known as[/i]: digital drifters, cyber nomads, and data wanderers.
+- chrome
+	FreeDictionary: chrome [wait=0.5][i](proper noun)[/i][next=auto]
+	FreeDictionary: [speed=3]A name whispered across the band, attributed to a legendary hacker said to operate deep in the radio noise floor. Presence unverified; stories vary.
+	FreeDictionary: [i]Also known as[/i]: Ghost of the noise, the breaker.
+- Cypherpunks
 	FreeDictionary: Cypherpunk [wait=0.5][i](proper noun)[/i][next=auto]
 	FreeDictionary: [speed=3]A movement or an individual who advocates for the widespread use of strong cryptography and privacy enhancing technologies, viewing them as essential tools for social and political change. Cypherpunks committed to defending privacy and personal freedom with cryptographic tools, decentralized communication, often expressing a deep distrust of centralized authority and corporate control over information streams.[next=auto]
 	FreeDictionary: [i]See also[/i]: decentralized, E2E, Chirp Syndicate.
+- LoRa
+	=>< LoRa
 
 
 

@@ -12,7 +12,7 @@ chrome: one of nances[wait=0.2][if Global.active_color == green] greens[/if][if 
 
 - debug [if GameState.debug_mode == true]
 	do plugin_bitmap_installed += 1
-	=> leave_while_loop
+	=> debug
 
 - who are you
 	chrome: name is [glitch duration=2][color= SILVER]chrome[/color][/glitch][wait=0.4] if you bounced freqs at all, you've heard it[next=auto]
@@ -123,17 +123,35 @@ chrome: do not thank. just use it right
 chrome: i dont care about those fools now[wait=0.4],[[ jobs| ice]] low level for me[next=auto]
 chrome: anyway i am running warm over-clocked in this heat[next=auto]
 chrome: gotta put some coolant on[next=auto]
+~ debug
 chrome: last advice before i bounce[next=auto]
 chrome: when you connect terminals[wait=0.4] if the signal screams,[wait=0.4] disconnect.
+
+
+
+
+
+
+
 
 do Global.tab_is_offline("chrome",true)
 do Global.create_empty_lines("chrome",false)
 set chrome_offline = true
 while GameState.chrome_offline == true
-	=>< offline 
-	do Global.check_created_line("chrome" ,300)
+	do Global.dialogue_print("inside dialogue while")
+	=>< offline
+	do Global.dialogue_print("finished chrome offline tag")
+	chrome: offline now [do Global.check_created_line("chrome" ,350)]
+	do Global.dialogue_print("ran the check_created_line() func")
 do Global.create_empty_lines("chrome",true)
 do Global.tab_is_offline("chrome",false)
+
+
+
+
+
+
+
 
 # HOLD THE I.R. - U.V. BAND ARC FOR LATER / REMOVE
 
@@ -153,6 +171,7 @@ do Global.tab_is_offline("chrome",false)
 
 
 ~ offline
-	chrome: comp. repetitive transmission:[next=auto]
-	chrome: wait elsewhere, im off
+do Global.dialogue_print("inside chrome offline tag")
+chrome: comp. repetitive transmission:[next=auto]
+chrome: wait elsewhere, im off
 => END

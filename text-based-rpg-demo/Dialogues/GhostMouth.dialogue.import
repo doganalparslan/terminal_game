@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bvhpj3roscvr8"
+path="res://.godot/imported/GhostMouth.dialogue-4013bbfb1ea425e29b54dfc91042c1bf.tres"
+
+[deps]
+
+source_file="res://Dialogues/GhostMouth.dialogue"
+dest_files=["res://.godot/imported/GhostMouth.dialogue-4013bbfb1ea425e29b54dfc91042c1bf.tres"]
+
+[params]
+
+defaults=true

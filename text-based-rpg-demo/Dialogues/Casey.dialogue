@@ -13,6 +13,7 @@ Casey: [color=f2f200]Metals vibrate at the same frequency as the engines of moto
 
 - debug [if GameState.debug_mode == true]
 	set casey_prog = 1
+	set GameState.lines_created = 120
 	=> debug
 
 - wtf
