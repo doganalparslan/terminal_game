@@ -17,6 +17,6 @@ GhostMouth: enabling seamless, wireless communication wherever you go!
 do Global.create_empty_lines("GhostMouth", true)
 
 computer: comp. repetitive transmission.
-- close chat
+- disconnect
 	computer: comp. severing connection.
 	do Global.get_current_chat().queue_free()

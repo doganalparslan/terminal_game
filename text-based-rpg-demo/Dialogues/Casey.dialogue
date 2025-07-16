@@ -79,7 +79,7 @@ Casey: You tell me about yourself[if GameState.casey_prog == 1] then[/if].
 		Casey: All complete bullshit if you ask me. I think they only fear that they can't control.[next=auto]
 		Casey: They force us to use their channels to communicate.[speed=1.5] I don't obey to that law, I'm sorry.
 		- is this illegal
-			Casey: It wasn't initially[wait=0.5] even the big corps were advertising and stuff.[wait=1] You can still come across the dead channels.[next=auto]
+			Casey: It wasn't initially.[wait=0.5] Even the big corps were advertising and stuff.[wait=1] You can still come across the dead channels.[next=auto]
 			~ debug
 			Casey: Look I understood that you are new to this but how could you not know these?[wait=1] Doesn't [u]internet-people[/u] tell the history behind when calling people in?
 			- it was Nance

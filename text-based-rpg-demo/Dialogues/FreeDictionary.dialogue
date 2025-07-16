@@ -24,7 +24,7 @@ FreeDictionary: [if GameState.never_see_line == true] never see this line [/if]
 	FreeDictionary: Chirp Syndicate [wait=0.5][i](proper noun)[/i][next=auto]
 	FreeDictionary: [speed=3]A wave-based organization believing that communication between individuals must remain private, un-monitored, un-censored, and always available. Inspired by the [u]cypherpunks[/u] who came before them.[next=auto]
 	FreeDictionary: [i]Also seen as[/i]: Chirps, Synths, Syndicate, and other similar names.
-- Civil Disobedience
+- Civil-Disobedience
 	FreeDictionary: civil disobedience [wait=0.5][i](common noun)[/i][next=auto]
 	FreeDictionary: [speed=3]The intentional and public refusal to obey certain laws, demands, or commands of a government or occupying power, usually as a form of non-violent protest or resistance.[next=auto]
 	FreeDictionary: [i]Also known as[/i]: peaceful resistance, non-violent protest, and other similar terms.
@@ -33,7 +33,7 @@ FreeDictionary: [if GameState.never_see_line == true] never see this line [/if]
 	FreeDictionary: [speed=3]Refers to the elite class of corporate aristocrats who control major mega-corporations, wielding vast economic and political power. They shape policies, influence markets, and maintain dominance through networks of influence and wealth.[next=auto]
 	FreeDictionary: [i]Also known as[/i]: corporate oligarchs, mega-corp lords, and other similiar high-tier executive names.
 - Decentralized
-	FreeDictionary: Decentralized [wait=0.5][next=auto]
+	FreeDictionary: Decentralized[wait=0.5][i](adjective)[/i][next=auto]
 	FreeDictionary: [speed=3]Describes a system without a single point of control or failure. In a decentralized network, authority, data, and trust are distributed across many nodes. Resisting surveillance, censorship, and collapse. Favored by [u]cypherpunks[/u], mesh builders, and distrustful [u]technomads[/u].[next=auto]
 	FreeDictionary: [i]Opposite of[/i]: centralized, federated, controlled.
 - E2E
@@ -44,6 +44,10 @@ FreeDictionary: [if GameState.never_see_line == true] never see this line [/if]
 	FreeDictionary: Glass [wait=0.5][i](noun, slang)[/i][next=auto]
 	FreeDictionary: [speed=3]Refers to ocular wearable devices, goggles, lenses, or retinal overlays, that layer digital information over vision. “Wearing glass” implies persistent data feed through a person's eyes.[next=auto]
 	FreeDictionary: [i]Also known as[/i]: [u]chrome[/u], gear, head-piece, overlays, shimmers and other similar terms.
+- ICE
+	FreeDictionary: ICE [wait=0.5][i](acronym, uncountable noun)[/i][next=auto]
+	FreeDictionary: [speed=3]Stands for Intrusion Countermeasures Electronics. Refers to digital security programs, firewalls, and defensive [u]construct[/u]s designed to detect, delay, or destroy unauthorized access attempts. Often encountered in corporate nets or locked data vaults.[next=auto]
+	FreeDictionary: [i]Also known as[/i]: black ICE (lethal), white ICE (passive), gatekeeper code, or simply “the wall”.
 - Internet-People
 	FreeDictionary: Internet People[wait=0.5] [i](plural)[/i][wait=0.5] or [wait=0.5]Internet Person [wait=0.5][i](singular)[/i][next=auto]
 	FreeDictionary: [speed=3]Means an individual who creates, shares, or manipulates content across the network, whose identity and influence exist primarily within the net. Anyone who broadcasts, streams, or shares digital content to a wide audience via the internet is considered an Internet Person.[next=auto]
@@ -56,7 +60,7 @@ FreeDictionary: [if GameState.never_see_line == true] never see this line [/if]
 	FreeDictionary: [i]Also known as[/i]: digital drifters, cyber nomads, and data wanderers.
 - chrome
 	FreeDictionary: chrome [wait=0.5][i](proper noun)[/i][next=auto]
-	FreeDictionary: [speed=3]A name whispered across the band, attributed to a legendary hacker said to operate deep in the radio noise floor. Presence unverified; stories vary.
+	FreeDictionary: [speed=3]A name whispered across the band, attributed to a legendary hacker said to operate deep in the radio noise floor. Presence unverified; stories vary.[next=auto]
 	FreeDictionary: [i]Also known as[/i]: Ghost of the noise, the breaker.
 - Cypherpunks
 	FreeDictionary: Cypherpunk [wait=0.5][i](proper noun)[/i][next=auto]
@@ -64,9 +68,14 @@ FreeDictionary: [if GameState.never_see_line == true] never see this line [/if]
 	FreeDictionary: [i]See also[/i]: decentralized, E2E, Chirp Syndicate.
 - LoRa
 	=>< LoRa
-
-
-
+- Construct
+	FreeDictionary: Construct [wait=0.5][i](noun, slang)[/i][next=auto]
+	FreeDictionary: [speed=3]Refers to a digital consciousness emulating a human mind, often formed from memory traces, personality matrices, or full-brain scans. A Construct operates within a machine or network, retaining fragments or illusions of the original self. Usually mistaken for an [i]artificial intelligence[/i] or AI.[next=auto]
+	FreeDictionary: [i]Also known as[/i]: ghost-copy, brain-dump, softmind, posthumous agent.
+- Brain-Lock
+	FreeDictionary: Brain-lock [wait=0.5][i](noun, slang)[/i][next=auto]
+	FreeDictionary: [speed=3]Refers to a neuro-electronic inhibition device that restricts a subject’s access to certain thoughts, memories, or learned skills. Often imposed as a form of control, punishment, or sabotage. The lock prevents activation of targeted neural pathways and enforces compliance by inducing seizures in the subject individual upon attempted access.[next=auto]
+	FreeDictionary: [i]Also known as[/i]: cognitive block, neural inhibitor, mem-shunt, blackout switch.
 
 => type_term
 

@@ -27,15 +27,15 @@ Nance: Why did you plug it anyway?
 	Nance: Wasn't sure you would keep it tbh.[wait=0.5][next=auto]
 	do Global.create_empty_lines("Nance",true)
 	Nance: Anyway,[next=auto]
-	Nance: It uses long range radio waves to deliver data. decentralized [wait=0.25]and encrypted E2E.[next=auto]
+	Nance: It uses long range radio waves to deliver data. [u]decentralized[/u] [wait=0.25]and encrypted [u]E2E[/u].[next=auto]
 	Nance: Allows to talk without governments or corps spying on us.[next=auto]
 
 Nance: You will probably have questions[wait=1.5], so ask away.
 
 - why me
 	Nance: My goal is to get as many as I can out of the net.[next=auto]
-	Nance: Old web has been dead for a long time[wait=0.5] and [u][i]cypherpunk[/i][/u] battle is lost anyway.[wait=1][next=auto]
-	Nance: Only [i]corp-aristos[/i] use it to rule people now.[next=auto]
+	Nance: Old web has been dead for a long time[wait=0.5] and [u]cypherpunk[/u] battle is lost anyway.[wait=1][next=auto]
+	Nance: Only [u]corp-aristos[/u] use it to rule people now.[next=auto]
 	Nance: I build these sticks on my free time, usually hand them to strangers on the street[wait=1], like you.[next=auto]
 	- you said us before
 		Nance: I am not alone in this.[next=auto]
@@ -44,7 +44,7 @@ Nance: You will probably have questions[wait=1.5], so ask away.
 	Nance: We are a [i]cyber-activist[/i] group. [wait=1]we call ourselves [b][u]Chirp Syndicate[/u][/b][next=auto]
 	Nance: My goal is to get as many as I can out of the net.[next=auto]
 	Nance: Old web has been dead for a long time[wait=0.5] and [u][i]cypherpunk[/i][/u] battle is lost anyway.[wait=1][next=auto]
-	Nance: Only [i][u]corp-aristos[u][/i] use it to rule people now.[next=auto]
+	Nance: Only [u][i]corp-aristos[/i][/u] use it to rule people now.[next=auto]
 	Nance: I build these sticks on my free time, usually hand them to strangers on the street[wait=1], like you.[next=auto]
 
 Nance: Basically I am the welcome party.

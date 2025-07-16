@@ -73,7 +73,7 @@ while GameState.plugin_bitmap_installed == 1
 		chrome: yeah whatever fuck yourself then[next=auto]
 		chrome: im not waitin around to babysit your progress[next=auto]
 		do chrome_relation -= 1
-		=> offline
+		=> early_offline
 
 ~ leave_while_loop
 chrome: you seem to done it
@@ -132,7 +132,7 @@ chrome: when you connect terminals[wait=0.4] if the signal screams,[wait=0.4] di
 
 
 
-
+~ early_offline
 
 do Global.tab_is_offline("chrome",true)
 do Global.create_empty_lines("chrome",false)

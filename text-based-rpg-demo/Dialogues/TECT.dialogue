@@ -15,6 +15,6 @@ TECT: Where speed is life,[wait=0.5] and keyboards are noise.[next=auto]
 TECT: TECT will be your saviour![next=auto]
 
 computer: comp. repetitive transmission.
-- close chat
+- disconnect
 	computer: comp. severing connection.
 	do Global.get_current_chat().queue_free()

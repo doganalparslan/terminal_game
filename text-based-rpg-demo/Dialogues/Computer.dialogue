@@ -1,6 +1,6 @@
 ~ start
 Computer: Terminal initialized.[next=auto]
-Computer: Radiotext Interface Software: Ver0.003[next=auto]
+Computer: Radiotext Interface Software: Ver0.023[next=auto]
 ~ commands
 Computer: Awaiting input...
 - na [if GameState.debug_mode == true]
@@ -21,26 +21,35 @@ Computer: Awaiting input...
 - help
 Computer: Available Commands:[next=auto]
 Computer: Connect[if GameState.has_met_nance] Random[/if] | Change Audio | Terminal Interface
+
+- refresh term [if GameState.debug_mode == true]
+	=> commands
+
 - connect [if GameState.has_met_nance == false]
 	Computer: Establishing connection with pre-designated terminal[next=auto]
 	Computer: [pulse][wave]...[/wave][/pulse] [do Global.change_chat("Nance")]
-- connect random [if GameState.connected_number == 1]
+
+- connect random [if GameState.all_available_chats.has("CASEY") and !GameState.all_available_chats.has("Nance")]
 	Computer: Scanning the wideband for active broadcasts...[next=auto]
 	Computer: {{GameState.all_chats.size()}} frequencies acquired.[wait=0.4] {{GameState.connected_number}} previously designated.[next=auto]
 	Computer: Connecting new random frequency [wave]▅ ▇ █ ▇ ▆ ▇ █ ▇ ▆ ▇ █ ▇ ▅[/wave][do Global.change_chat("CASEY")]
-- connect random [if GameState.connected_number == 2]
+
+- connect random [if GameState.all_available_chats.has("chrome") and !GameState.all_available_chats.has("CASEY")]
 	Computer: Scanning the wideband for active broadcasts...[next=auto]
 	Computer: {{GameState.all_chats.size()}} frequencies acquired.[wait=0.4] {{GameState.connected_number}} previously designated.[next=auto]
 	Computer: Connecting new random frequency [wave]▅ ▇ █ ▇ ▆ ▇ █ ▇ ▆ ▇ █ ▇ ▅[/wave][do Global.change_chat("chrome")]
-- connect random [if GameState.connected_number == 3]
+
+- connect random [if !GameState.all_available_chats.has("chrome")]
 	Computer: Scanning the wideband for active broadcasts...[next=auto]
 	Computer: {{GameState.all_chats.size()}} frequencies acquired.[wait=0.4] {{GameState.connected_number}} previously designated.[next=auto]
-	Computer: Connecting new random frequency [wave]▅ ▇ █ ▇ ▆ ▇ █ ▇ ▆ ▇ █ ▇ ▅[/wave][do Global.change_chat("chrome")]
-- connect random [if GameState.connected_number == 4]
+	Computer: Connecting new random frequency [wave]▅ ▇ █ ▇ ▆ ▇ █ ▇ ▆ ▇ █ ▇ ▅[/wave][do Global.change_chat_random()]
+
+- connect random [if GameState.connected_number > 3]
 	Computer: Scanning the wideband for active broadcasts...[next=auto]
 	Computer: {{GameState.all_chats.size()}} frequencies acquired.[wait=0.4] {{GameState.connected_number}} previously designated.[next=auto]
 	Computer: Connecting new random frequency [wave]▅ ▇ █ ▇ ▆ ▇ █ ▇ ▆ ▇ █ ▇ ▅[/wave][do Global.connect_chat_random()]
 #	=> commands
+
 - install_plugin --bitmap_render [if GameState.plugin_bitmap_installed == 1]
 	Computer: bitmap_render plugin installed[next=auto]
 	do plugin_bitmap_installed = 2

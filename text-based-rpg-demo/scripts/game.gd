@@ -37,7 +37,7 @@ func _ready() -> void:
 
 func _on_line_edit_text_submitted(new_text: String) -> void:
 	enter_pressed.emit()
-	var answer := new_text.strip_edges().to_lower().replace("?", "").replace("-", " ")
+	var answer := new_text.strip_edges().to_lower().replace("?", "").replace("-", " ").replace("ı", "i")
 
 	GameState.lines_created += 1
 
@@ -66,7 +66,7 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 			if not resp.is_allowed: # looks for the responses that are unabled
 				continue
 			bits.append(resp.text)
-			var option : String = resp.text.strip_edges().to_lower().replace("?", "").replace("-", " ")
+			var option : String = resp.text.strip_edges().to_lower().replace("?", "").replace("-", " ").replace("ı", "i")
 			if answer == option:
 				option_proceed = true
 				input_response.input_history.text = new_text

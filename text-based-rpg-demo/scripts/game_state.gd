@@ -21,7 +21,7 @@ var lines_created: int = 0: # TO KEEP TRACK OF PLAYER SPENT TIME // USE EXAGGARA
 var ad_chat_loop: bool = true
 var never_see_line = false
 var connected_number: int = 0
-var all_chats: Array = ["Nance", "CASEY", "chrome", "FreeDictionary", "TECT", "GhostMouth"]
+var all_chats:           Array = ["Nance", "CASEY", "chrome", "FreeDictionary", "TECT", "GhostMouth"]
 var all_available_chats: Array = ["Nance", "CASEY", "chrome", "FreeDictionary", "TECT", "GhostMouth"]
 
 
