@@ -5,6 +5,8 @@
 set has_met_nance = true
 Nance: [wait=3]Hello there cowboy...[wait=1][speed=1.5] wasn't sure you would jack in.
 - hello?
+- debug [if GameState.debug_mode == true]
+	=> debug
 Nance: [speed=1.2]Didn't your mama tell you [i]"not to"[/i] stick other people's drives in your pc?[wait=1][next=auto]
 Nance: [speed=1.1]Especially those you've met on the lone alleys.[wait=1][next=auto]
 Nance: Why did you plug it anyway?
@@ -14,16 +16,16 @@ Nance: Why did you plug it anyway?
 	=>< RadiotextExplanation
 - did you hack me
 	Nance: Of course not [wait=0.5][i]silly[/i].[next=auto]
-	Nance: Anyway,[wait=0.5] Im Nance.[wait=1] sorry for the barge in.
+	Nance: Anyway,[wait=0.5] I'm Nance.[wait=1] sorry for the barge in.
 	- Its ok
 		=>< RadiotextExplanation
 - well you were cute
 	Nance: well, [wait=1]thank you[wait=0.5] :D[wait=1][next=auto][do nance_flirted += 1] 
-	do Global.create_empty_lines(false)
-	Nance: Im Nance.[wait=1][next=auto]
+	do Global.create_empty_lines("Nance",false)
+	Nance: I'm Nance.[wait=1][next=auto]
 	Nance: The stick you jacked in had a radio-wave transmitter[wait=0.5], alongside this terminal software.[next=auto]
 	Nance: Wasn't sure you would keep it tbh.[wait=0.5][next=auto]
-	do Global.create_empty_lines(true)
+	do Global.create_empty_lines("Nance",true)
 	Nance: Anyway,[next=auto]
 	Nance: It uses long range radio waves to deliver data. decentralized [wait=0.25]and encrypted E2E.[next=auto]
 	Nance: Allows to talk without governments or corps spying on us.[next=auto]
@@ -38,7 +40,7 @@ Nance: You will probably have questions[wait=1.5], so ask away.
 	- you said us before
 		Nance: I am not alone in this.[next=auto]
 		Nance: We are a cyber-activist group. [wait=1]we call ourselves [b]Chirp Syndicate[/b][next=auto]
-- why would they spy
+- they spy?
 	Nance: We are a [i]cyber-activist[/i] group. [wait=1]we call ourselves [b]Chirp Syndicate[/b][next=auto]
 	Nance: My goal is to get as many as I can out of the net.[next=auto]
 	Nance: Old web has been dead for a long time[wait=0.5] and [u][i]cypherpunk[/i][/u] battle is lost anyway.[wait=1][next=auto]
@@ -50,12 +52,30 @@ Nance: Basically I am the welcome party.
 	Nance: That part is totally up to you. [wait=1]no one can force you upstream.[next=auto]
 	Nance: But you don't have to be all hasty about it.[wait=1] take your time, [wait=0.5]come back with your answer later.[next=auto]
 	Nance: In the meantime get to know the terminal. there are weird people to talk in the wideband.[next=auto]
+	~ debug
 	Nance: I am signing off now, see you later.[wait=1] oh, also terminals show auto replies when we are away. don't be surprised by it.[do GameState.nance_lines_created += 20]
 	- okay
 
-=>< offline 
-# OFFLINE'DAN ÇIKTIĞINDA GLOBAL.GD'DEN OTOMATİK OLARAK DİKKATİNİ ÇEKİP PRESS_KEY(ENTER) YAPABİLİRİZ
-# BİLDİRİM GELİNCE DİREKT EKRANI ÇALMIŞ OLUR
+
+
+
+
+
+do Global.tab_is_offline("Nance",true)
+do Global.create_empty_lines("Nance",false)
+set nance_offline = true
+while GameState.nance_offline == true
+	=>< offline 
+	do Global.check_created_line("Nance" ,150)
+do Global.create_empty_lines("Nance",true)
+do Global.tab_is_offline("Nance",false)
+
+
+
+
+
+
+
 
 Nance: I'm back.[next=auto]
 Nance: So how was it, met some new friends?
@@ -68,48 +88,48 @@ Nance: So how was it, met some new friends?
 			do GameState.nance_flirted += 1
 			Nance: Why?[wait=0.7] you curious?
 			- maybe
-				Nance: We didn't date or anything if that's what you are after.
+				Nance: We didn't date or anything if that's what you are after.[next=auto]
 			- not at all
-				Nance: And I sure do believe you.
+				Nance: And I sure do believe you.[next=auto]
 	- boring
 		Nance: Oh I can imagine, believe me.[wait=0.5] been there.[next=auto]
-	- doesnt like syndicate
+	- dislikes syndicate [if casey_talked_about_nance == true]
 		Nance: So you talked about it.
 		- a little
 			Nance: I see.[next=auto]
 			Nance: He doesn't like the way we operate.[wait=1] treats us like the invaders of this space.[next=auto]
 			Nance: Not a fan of corps but isn't brave enough to get up from his chair and do something about it.[next=auto]
 			Nance: I tried to convince him once. put so much effort into it but couldn't get him to join.[next=auto]
-			Nance: I was a newcomer back then[wait=0.5]and Syndicate was fresh.
-		- he asked how I got here
+			Nance: I was new back then[wait=0.5] and Syndicate was fresh.[next=auto]
+		- asked how I got here
 			Nance: And you said Nance... got it.[wait=0.7][next=auto]
 			Nance: That probably pissed him off more :)[next=auto]
 			Nance: He doesn't like it when I invite people over[wait=0.5]. wants to keep his old writing-radio all to himself.
-	- doesnt like you
+	- doesnt like you [if casey_talked_about_nance == true]
 		Nance: What did I do to him?[wait=0.7] and how did I come up in the conversation?
 		- he asked how I got here
 			Nance: And you said Nance... got it.[wait=0.7][next=auto]
-			Nance: That probably pissed him off more :D[next=auto]
-			Nance: He doesn't like it when I invite people over[wait=0.5]. wants to keep his old writing-radio all to himself.
+			Nance: That is what pissed him off :D[next=auto]
+			Nance: He doesn't like it when I invite people over[wait=0.5]. wants to keep his old writing-radio all to himself.[next=auto]
 	Nance: Anyone else you met?
-	- met chrome
+	- met chrome [if GameState.has_met_chrome == true]
 		=> met_chrome
 	- no
-		Nance: Okay.[wait=1] it's time for the big question then.
+		Nance: Okay.[wait=1] it's time for the big question then.[next=auto]
 		=> have_you_made_up_your_mind
 
 - met chrome [if GameState.has_met_chrome == true]
 	~ met_chrome
 	Nance: That's a strong start.[wait=0.5] well done.[next=auto]
-	Nance: He is a high praised ice-breaker.[wait=0.5] doesn't connect much[next=auto]
-	Nance: You must have run into him in a good mood[wait=0.5]. which is not often, you are lucky.[next=auto]
-	Nance: He was very skilled and useful in the rare occasions where he helped us.[next=auto]
+	Nance: He is a highly praised ice-breaker.[wait=0.5] doesn't connect much.[wait=0.5] you are so lucky for a newcomer.[next=auto]
+	Nance: Must have run into him in a good mood[wait=0.5]. which is not often.[next=auto]
+	Nance: He was very skilled and useful in the rare occasions we needed him.[next=auto]
 	Nance: Mostly though, he is an asshole[wait=0.7] and a pain in the ass.[next=auto]
 	- installed a plugin
 		~ installed_a_plugin
 		Nance: Which one?
 		- image
-			Nance: Oh, congrats. Means you can see now.[next=auto]
+			Nance: Oh,[wait=0.5] congrats. Means you can see now.[next=auto]
 			Nance: What does one's eyes seek when they re-open?
 			- truth
 				Nance: Oooh, all philosophical aren't we :D
@@ -120,7 +140,7 @@ Nance: So how was it, met some new friends?
 				Nance: You have to be brave enough to ask though.
 				- can I see you
 				Nance: [wait=1]Yes.[wait=0.7] you can.[next=auto]
-				do Global.create_empty_lines(false)
+				do Global.create_empty_lines("Nance",false)
 				chrome: ┌────── [pulse]Loading Image[/pulse] ──────┐ [wait=2][next=auto]
 				match Global.active_color #probably a copy paste for all images
 					when green
@@ -132,22 +152,24 @@ Nance: So how was it, met some new friends?
 					when yellow
 						chrome:    [next=auto][img=13%,13%, color=YELLOW]res://Nance.gif[/img]
 				chrome: [speed=10]└─────────────────────┘[next=auto]
-				do Global.create_empty_lines(true)
-				Nance: Here I am.[wait=2] I mean this is an old pic but I still look the same. didn't upgrade my [u]glass[/u] or anything.
+				do Global.create_empty_lines("Nance",true)
+				Nance: Here I am.[wait=2] I mean this is an old pic but I still look the same. didn't upgrade my [u]glass[/u] or anything.[next=auto]
 				Nance: Gonna wake you up from the dreams to remind my question however.[next=auto]
 				=> have_you_made_up_your_mind
 	- got history?
 		Nance: Kind of.[wait=1.5] it was a small thing.[next=auto]
-		Nance: Lasted for a few days or so. seems so far away now.[next=auto]
+		Nance: Lasted for a few days or so. seems so far away now. nothing but history.[next=auto]
 		Nance: What you talked about?
 		- installed a plugin
 			=> installed_a_plugin
 - saw dead channels
 	Nance: Yeah, they stuck there. wasting precious frequincies while corps get mad at us using it.[next=auto]
-	Nance: But it doesn't matter since they are perfectly dialed in. they don't bother our channels.[next=auto]
+	Nance: Doesn't matter to us since they are perfectly dialed in. they don't bother our channels.[next=auto]
 	Nance: Was it all noise? didn't you connect anyone real?
-	- met CASEY
-	- met chrome
+	- met CASEY [if GameState.has_met_casey == true]
+		=> met_casey
+	- met chrome [if GameState.has_met_chrome == true]
+		=> met_chrome
 	- all noise
 		Nance: Damn[wait=0.7], unlucky for you.[wait=1] was almost sure you'd find someone.[next=auto]
 		Nance: I guess no one was on.[wait=0.5] due to time zone or something I don't know.[next=auto]
@@ -159,54 +181,54 @@ Nance: So how was it, met some new friends?
 Nance: Have you made up your mind?
 - I want in
 	do GameState.player_in_syndicate = 1
-	Nance: Welcome to Syndicate then[wait=1] rookie.[next=auto]
-	Nance: It's fun[wait=0.5], you're gonna love it.
+	do Global.play_music()
+	Nance: [wait=2]Welcome to Syndicate then[wait=1] rookie.[next=auto]
+	Nance: It's fun[wait=1.5], you're gonna love it.[wait=5][next=auto]
 	do GameState.nance_flirted += 2
 	=>< offline_demo_end
-- not yet
-	do GameState.player_in_syndicate = 0
-	Nance: Okay[wait=1], I'll be waiting.[next=auto]
-	Nance: Don't take too long.[next=auto]
-	=>< offline_demo_end
-- I dont want it
-	Nance: Oh[wait=1] I get it.[next=auto]
-	do GameState.player_in_syndicate = 2
-	do GameState.nance_flirted -= 2
-	Nance: Thought you were more bold.[wait=1] guess I was wrong.[next=auto]
-	- give me more time
-		Nance: I feel like you are playing me.[wait=1] But ok[wait=1], re-think your answer.[next=auto]
-	- sorry
-		Nance: No, I get it.[wait=1] Not everyone is cut for it.[next=auto]
-		Nance: I'm going off-wave now.[next=auto]
-	=>< offline_demo_end
+#- not yet
+#	do GameState.player_in_syndicate = 0
+#	Nance: Okay[wait=1], I'll be waiting.[next=auto]
+#	Nance: Don't take too long.[next=auto]
+#	=>< offline_demo_end
+#- I dont want it
+#	Nance: Oh[wait=1] I get it.[next=auto]
+#	do GameState.player_in_syndicate = 2
+#	do GameState.nance_flirted -= 2
+#	Nance: Thought you were more bold.[wait=1] guess I was wrong.[next=auto]
+#	- give me more time
+#		Nance: I feel like you are playing me.[wait=1] But ok[wait=1], re-think your answer.[next=auto]
+#	- sorry
+#		Nance: No, I get it.[wait=1] Not everyone is cut for it.[next=auto]
+#		Nance: I'm going off-wave now. See you[wait=2] :❨ [next=auto] 
+#	=>< offline_demo_end
+#
 
 
 
 
 
 ~ offline
-while GameState.lines_created < 100
-	do Global.create_empty_lines(false)
-	Nance: comp. repetitive transmission:[next=auto]
-	Nance: Hey there! I am not on the wave rn. ping me back later
-	do Global.create_empty_lines(true)
+Nance: comp. repetitive transmission:[next=auto]
+Nance: Hey there! I am not on the wave rn. ping me back later
 => END
 
 ~ offline_bad
 while GameState.lines_created < 500
-	do Global.create_empty_lines(false)
+	do Global.create_empty_lines("Nance",false)
 	Nance: comp. repetitive transmission:[next=auto]
 	Nance: Hey there! I am not on the wave rn. ping me back later
-	do Global.create_empty_lines(true)
+	do Global.create_empty_lines("Nance",true)
 => END
 
 ~ offline_demo_end
 while GameState.lines_created < 10000
-	do Global.create_empty_lines(false)
+	do Global.create_empty_lines("Nance",false)
+	set GameState.demo_ended = true
 	Nance: THIS WAS THE END OF THE DEMO[next=auto]
 	Nance: THANK YOU FOR PLAYING <3[wait=1][next=auto]
 	Nance: AND PLEASE FILL THE FEEDBACK FORM
-	do Global.create_empty_lines(true)
+	do Global.create_empty_lines("Nance",true)
 => END
 
 ~ RadiotextExplanation

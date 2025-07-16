@@ -1,43 +1,51 @@
+# chrome writes in all lower_case, doesn't care about punctuation or grammar mistakes
+# usually writes shorter lines
+# wait time 0.4 or below if more needed goes next line
+
+
 ~ start
 set has_met_chrome = true
-chrome: yo[next=auto]
-chrome: signal is clean but you are not broadcasting anything.[next=auto]
-chrome: lurker or just figuring out how not to fry your buffers?
+% chrome: [wait=2]yo[next=auto]
+%3 chrome: [wait=2][glitch duration=0.5]newcomer[/glitch][wait=0.2] [glitch duration=1.5]huh[/glitch][next=auto]
+chrome: signal is clean,[wait=0.4] you are not broadcasting anything[next=auto]
+chrome: one of nances[wait=0.2][if Global.active_color == green] greens[/if][if Global.active_color != green] newbs[/if]
 
 - debug [if GameState.debug_mode == true]
 	do plugin_bitmap_installed += 1
 	=> leave_while_loop
 
-- Who are you
-	chrome: name is chrome. if you have bounced freqs at all, you have heard it.[next=auto]
-	chrome: i write plugins, ghost locked bands, build tools from junk noise.[next=auto]
-	chrome: i do not teach, i do not slow down. maybe you will keep up.
+- who are you
+	chrome: name is [glitch duration=2][color= SILVER]chrome[/color][/glitch][wait=0.4] if you bounced freqs at all, you've heard it[next=auto]
+	chrome: i am the [glitch duration=0.5]ghost[/glitch] in the [glitch duration=1.5]noise[/glitch][next=auto]
 
-- Just listening
-	chrome: cool. better than screaming into dead air.[next=auto]
-	chrome: you will want an upgrade though.
+- just listening
+	chrome: better than screaming into dead air[next=auto]
+	chrome: you will want an upgrade though[next=auto]
 
-- Always this friendly?
-	chrome: depends. you always this readable?
+- always this friendly?
+	chrome: depends. you always this readable?[next=auto]
 
-chrome: terminal like yours is plaintext only. all text, no eyes.[next=auto]
-chrome: i can fix that.
+chrome: terminal like yours is plaintext only.[wait=0.4] all text, no eyes[next=auto]
+chrome: i can fix that
 
-- What Is The Catch
-	chrome: no catch unless you count buffer spikes. just run it clean.[next=auto]
+- how
+	chrome: one can only fit so much data in a radiowave[next=auto]
 
-- Yeah Okay
-	chrome: good. saves me the speech.
+- okay
+	chrome: good. saves me the speech[next=auto]
 
-- Not Touching Your Code
-	chrome: lol alright. squint at the dark then.
+- should I trust you
+	chrome: im the best breaker there is kid[next=auto]
+	chrome: even inside [glitch duration=2]your terminal[/glitch] since the time it connected[next=auto]
+	set GameState.chrome_prog = 1
+	chrome: if i wanted to do something[wait=0.4] i would've[next=auto]
 
-chrome: run this:
+chrome: run this:[next=auto]
 chrome: `install_plugin --bitmap_render`[next=auto]
-do plugin_bitmap_installed += 1
-chrome: it patches your terminal to handle one bit image feeds.[next=auto]
-chrome: compressed stripped rendered to bitmap blocks.[next=auto]
-chrome: lo fi but you will see what others miss.
+set plugin_bitmap_installed = 1
+chrome: it patches your terminal to handle one bit image feeds[next=auto]
+chrome: compressed stripped rendered to bitmap blocks[next=auto]
+chrome: lo fi but least you'll see
 do chrome_lines = 16
 
 while GameState.plugin_bitmap_installed == 1
@@ -52,73 +60,99 @@ while GameState.plugin_bitmap_installed == 1
 	if GameState.plugin_bitmap_installed == 2
 		=> leave_while_loop
 	if chrome_lines == 18
-		chrome: im starting to give up on you choom
+		chrome: starting to give up on you choom
 		do chrome_lines += 1
 	if GameState.plugin_bitmap_installed == 2
 		=> leave_while_loop
 	if chrome_lines == 19
-		chrome: yeah whatever you do you then[next=auto]
+		chrome: [if GameState.never_see_line == true] see this [/if]
+		do chrome_lines += 1
+	if GameState.plugin_bitmap_installed == 2
+		=> leave_while_loop
+	if chrome_lines == 20
+		chrome: yeah whatever fuck yourself then[next=auto]
 		chrome: im not waitin around to babysit your progress[next=auto]
 		do chrome_relation -= 1
 		=> offline
 
 ~ leave_while_loop
-chrome: you seem to have done it[next=auto]
-chrome: look at thi[shake]s[/shake][next=auto]
+chrome: you seem to done it
+- how do you know
+chrome: [if GameState.chrome_prog == 1]i told u, [/if]im in ur terminal[next=auto]
+chrome: [glitch duration=2]see me[/glitch][next=auto]
 
-do Global.create_empty_lines(false)
+do Global.create_empty_lines("chrome",false)
 chrome: ┌────── [pulse]Loading Image[/pulse] ──────┐ [wait=2][next=auto]
 match Global.active_color #probably a copy paste for all images
 	when green
 		chrome:    [next=auto][img=13%,13%, color=WEB_GREEN]res://chrome.gif[/img]
 	when red
-		chrome:    [next=auto][img=13%,13%, color=CRIMSON]res://chrome_trial1.png[/img]
+		chrome:    [next=auto][img=13%,13%, color=CRIMSON]res://chrome.gif[/img]
 	when blue
-		chrome:    [next=auto][img=13%,13%, color=BLUE]res://chrome_trial1.png[/img]
+		chrome:    [next=auto][img=13%,13%, color=BLUE]res://chrome.gif[/img]
 	when yellow
-		chrome:    [next=auto][img=13%,13%, color=YELLOW]res://chrome_trial1.png[/img]
+		chrome:    [next=auto][img=13%,13%, color=YELLOW]res://chrome.gif[/img]
 chrome: [speed=10]└─────────────────────┘[next=auto]
-do Global.create_empty_lines(true)
+do Global.create_empty_lines("chrome",true)
 
-- That is cursed
-	chrome: he heh[wait=0.7] yes it is.[wait=0.5] but it works.
-	chrome: only if you run full color payloads it is trouble. some clowns still do that.[next=auto]
-	chrome: if the signal screams, disconnect.
+- that is cursed
+	% chrome: i know. but it works[next=auto]
+	% chrome: he heh[wait=0.7] yes it is.[wait=0.5] but it works[next=auto]
 
-chrome: plugin is mine. built it a while ago. needed something that would outlast me.[next=auto]
-chrome: figured someone would tune in eventually.[next=auto]
-
-- Thanks
-	chrome: do not thank me. just use it right.
-
-- Why Did You Build It
-	chrome: cause nobody else would. and i hate staring at static.
-
-- Sounds Lonely
-	chrome: maybe. but it is better than silence.
-
-chrome: one more thing.[next=auto]
-chrome: if you ever see freqs labeled uv_band or ir_band—tread light.[next=auto]
-chrome: they are real. just stretched out beyond what most can read.[next=auto]
-chrome: some say memory rides those waves. old transmissions still echoing.
-
-- Memory
-	chrome: yeah. like the spectrum holds ghosts.
-
-- What Happens If I Do
-	chrome: you see something. or nothing. or too much.
-
-- You Believe That
-	chrome: enough not to mess with it twice.
-
-chrome: anyway i am running warm overclocking.[next=auto]
-chrome: if i flatline tell the next node chrome gave you eyes.
+- is that you
+	chrome: yeah. but aint a live feed[next=auto]
+	chrome: you've seen [glitch duration=2][color= SILVER]chrome[/color][/glitch] in your mortal life kid[wait=0.4] re-joice[next=auto]
 
 
-=> offline
+chrome: plugin is mine. built it a while back[next=auto]
+chrome: many use it on the waves.[wait=0.3] you'll see[next=auto]
+
+- thanks
+- why did you build it
+	chrome: cause nobody else would. or nobody else could[next=auto]
+	chrome: and i hate staring at static
+	- thanks
+
+chrome: do not thank. just use it right
+- you in Syndicate?
+- know Nance?
+	chrome: yeah we go back. but haven't talked forever[next=auto]
+	chrome: she needed me for syndicate businnes, i helped.[wait=0.4] cracked the ice[next=auto]
+	chrome: couldnt get along after that[next=auto]
+
+chrome: i dont care about those fools now[wait=0.4],[[ jobs| ice]] low level for me[next=auto]
+chrome: anyway i am running warm over-clocked in this heat[next=auto]
+chrome: gotta put some coolant on[next=auto]
+chrome: last advice before i bounce[next=auto]
+chrome: when you connect terminals[wait=0.4] if the signal screams,[wait=0.4] disconnect.
+
+do Global.tab_is_offline("chrome",true)
+do Global.create_empty_lines("chrome",false)
+set chrome_offline = true
+while GameState.chrome_offline == true
+	=>< offline 
+	do Global.check_created_line("chrome" ,300)
+do Global.create_empty_lines("chrome",true)
+do Global.tab_is_offline("chrome",false)
+
+# HOLD THE I.R. - U.V. BAND ARC FOR LATER / REMOVE
+
+#chrome: one more thing.[next=auto]
+#chrome: if you ever see freqs labeled uv_band or ir_band—tread light.[next=auto]
+#chrome: they are mostly empty radiation[wait=0.4] but your wire can read it[next=auto]
+#chrome: if you catch one transmitting data[wait=0.4], make sure to tell me about it.[wait=0.4] i would like to know.
+#
+#- what if I cant
+#	chrome: you see something. or nothing. or too much.
+#
+#- You Believe That
+#	chrome: enough not to mess with it twice.
+
+#chrome: if i flatline tell the next node chrome gave you eyes.
+#chrome: needed something that would outlast me.
+
 
 ~ offline
-while GameState.lines_created < 500
-	chrome: cached_node offline[next=auto]
-	chrome: wait or bounce elsewhere
+	chrome: comp. repetitive transmission:[next=auto]
+	chrome: wait elsewhere, im off
 => END

@@ -1,13 +1,13 @@
 ~ start
 Computer: Terminal initialized.[next=auto]
-#Conputer: [if has_met_nance == true] sent [do Global.change_chat("Nance")] [/if]
 Computer: Radiotext Interface Software: Ver0.003[next=auto]
+~ commands
 Computer: Awaiting input...
+- na [if GameState.debug_mode == true]
+	set GameState.lines_created = 40
+	do Global.change_chat("Nance")
 - ca [if GameState.debug_mode == true]
 	do Global.change_chat("CASEY")
-- na [if GameState.debug_mode == true]
-	set GameState.lines_created = 50
-	do Global.change_chat("Nance")
 - ch [if GameState.debug_mode == true]
 	do Global.change_chat("chrome")
 - fd [if GameState.debug_mode == true]
@@ -17,8 +17,7 @@ Computer: Awaiting input...
 - random [if GameState.debug_mode == true]
 	do Global.change_chat_random()
 - help
-~ commands
-Computer: Avaliable Commands:[next=auto]
+Computer: Available Commands:[next=auto]
 Computer: Connect[if GameState.has_met_nance] Random[/if] | Change Audio | Terminal Interface
 - connect [if GameState.has_met_nance == false]
 	Computer: Establishing connection with pre-designated terminal[next=auto]
@@ -34,6 +33,10 @@ Computer: Connect[if GameState.has_met_nance] Random[/if] | Change Audio | Termi
 - connect random [if GameState.connected_number == 3]
 	Computer: Scanning the wideband for active broadcasts...[next=auto]
 	Computer: 5 frequencies acquired.[wait=0.4] {{GameState.connected_number}} previously designated.[next=auto]
+	Computer: Connecting new random frequency [wave]▅ ▇ █ ▇ ▆ ▇ █ ▇ ▆ ▇ █ ▇ ▅[/wave][do Global.change_chat("chrome")]
+- connect random [if GameState.connected_number == 4]
+	Computer: Scanning the wideband for active broadcasts...[next=auto]
+	Computer: 5 frequencies acquired.[wait=0.4] {{GameState.connected_number}} previously designated.[next=auto]
 	Computer: Connecting new random frequency [wave]▅ ▇ █ ▇ ▆ ▇ █ ▇ ▆ ▇ █ ▇ ▅[/wave][do Global.connect_chat_random()]
 #	=> commands
 - install_plugin --bitmap_render [if GameState.plugin_bitmap_installed == 1]
@@ -45,7 +48,7 @@ Computer: Connect[if GameState.has_met_nance] Random[/if] | Change Audio | Termi
 	Computer: [wave]...[/wave][do Global.change_chat("FreeDictionary")]
 
 - change audio
-	Computer: Avaliable audio tweaks: mute | low | Medium | HIGH | MAX
+	Computer: Available audio tweaks: mute | low | Medium | HIGH | MAX
 	- mute
 		do Global.change_audio(0)
 		Computer: Audio has been muted
@@ -62,32 +65,39 @@ Computer: Connect[if GameState.has_met_nance] Random[/if] | Change Audio | Termi
 		do Global.change_audio(1.25)
 		Computer: Audio level has been set to MAX
 - terminal interface
-	Computer: Avaliable terminal tweaks: font size | color
+	Computer: Available terminal tweaks: font size | color
 	- font size
 		Computer: Choose a size: small, Medium, BIG
 		- small
-			Computer: Font size has been set to[do Global.change_font_size(16)] small
+			Computer: Font size has been set to[do Global.change_font_size(30)] small
 		- medium
-			Computer: Font size has been set to[do Global.change_font_size(28)] Medium
+			Computer: Font size has been set to[do Global.change_font_size(55)] Medium
 		- big
-			Computer: Font size has been set to[do Global.change_font_size(35)] BIG
-	- color
-		Available colors are; green, red, blue, yellow
+			Computer: Font size has been set to[do Global.change_font_size(70)] BIG
+	- input color
+		Available colors are: green, red, blue, yellow
+		- red
+			Input color has been changed to [do Global.change_input_color(red)]red
+		- blue
+			Input color has been changed to [do Global.change_input_color(blue)]blue
+		- green
+			Input color has been changed to [do Global.change_input_color(green)]green
+		- yellow
+			Input color has been changed to [do Global.change_input_color(yellow)]yellow
+	- system color
+		Available colors are: green, red, blue, yellow
 		- red
 			interface color changed to [do Global.change_interface_color("red")]red
 		- blue
 			interface color changed to [do Global.change_interface_color("blue")]blue
-		- yellow
-			interface color changed to [do Global.change_interface_color("yellow")]yellow
 		- green
 			interface color changed to [do Global.change_interface_color("green")]green
-#- kill terminal
-#	Computer: Terminal shutting down 
-#	do _on_line_edit_text_submitted("")
-#	Computer: [wait=2]...
-#	do get_tree().quit()
-Computer: Awaiting input...
-- help
+		- yellow
+			interface color changed to [do Global.change_interface_color("yellow")]yellow
+- kill terminal [if GameState.demo_ended]
+	Computer: Terminal shutting down[next=auto]
+	Computer: [wait=2]...
+	do get_tree().quit()
 => commands
 
 => END

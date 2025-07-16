@@ -4,9 +4,10 @@ extends Node
 @onready var click_sound: AudioStreamPlayer = $ClickSound
 @onready var pc_sound: AudioStreamPlayer = $PCSound
 @onready var ambient_sound: AudioStreamPlayer = $AmbientSound
+@onready var music: AudioStreamPlayer = $Music
 
 
-# ANSWER BEEP Sound Effect ----------------------------------
+# ANSWER PER CHARACTER BEEP Sound Effect ----------------------------------
 func on_npc_typed_one_character(_letter: String, _letter_index: int, _speed: float):
 	beep_sound.volume_db = randi_range(-20, -15)
 	beep_sound.pitch_scale = randf_range(0.995, 1.005)
@@ -56,3 +57,20 @@ func _on_game_booted() -> void:
 		print_debug("PC_Fan sound played, electric humm db_change called")
 		pc_sound.play()
 		await pc_sound.finished
+
+
+
+# ELECTRIC HUMMING Sound Effect ----------------------------------
+func notification_sound():
+	pc_sound.stream = load("res://sounds/notification_short.wav")
+	pc_sound.volume_db = -5
+	pc_sound.play()
+	await pc_sound.finished
+
+
+# Musics ----------------------------------
+func play_music():
+	music.stream = load("res://sounds/emre_ilk_music_taslak.wav")
+	pc_sound.volume_db = -7
+	music.play()
+	

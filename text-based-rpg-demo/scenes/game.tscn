@@ -1,13 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://e2diufbnibob"]
+[gd_scene load_steps=14 format=3 uid="uid://e2diufbnibob"]
 
 [ext_resource type="Script" uid="uid://ca7hu5v7fyt4s" path="res://scripts/game.gd" id="1_cwoj5"]
 [ext_resource type="Script" uid="uid://iqonxpv44kmi" path="res://scripts/scroll.gd" id="2_u5124"]
+[ext_resource type="Theme" uid="uid://c20bsus7bsews" path="res://themes/input_color_trial.tres" id="3_0tnpc"]
 [ext_resource type="Script" uid="uid://dbqt8rjjxfrf0" path="res://scripts/line_edit.gd" id="4_ivp3u"]
 [ext_resource type="Script" uid="uid://cfimnk66xb6an" path="res://scripts/typing_sound_manager.gd" id="4_nlldf"]
 [ext_resource type="AudioStream" uid="uid://cnilvbhexdvhp" path="res://sounds/single keyboard click.mp3" id="6_ivp3u"]
 [ext_resource type="AudioStream" uid="uid://bao2cxg2od8tp" path="res://sounds/shortest_beep_sound.mp3" id="7_dktwy"]
 [ext_resource type="Script" uid="uid://fdjxgxn3ref8" path="res://scripts/CommandProcessor.gd" id="7_ivp3u"]
 [ext_resource type="AudioStream" uid="uid://ctftvpsblu3xv" path="res://sounds/eletric_humm_mp3.mp3" id="8_r2ppy"]
+[ext_resource type="AudioStream" uid="uid://d72l86jrok0w" path="res://sounds/emre_ilk_music_taslak.wav" id="9_vtaks"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_feb5d"]
 bg_color = Color(0.0645193, 0.0881919, 0.066893, 1)
@@ -65,6 +67,7 @@ size_flags_horizontal = 3
 [node name="LineEdit" type="LineEdit" parent="Background/MarginContainer/Rows/GameInfo/Scroll/MarginContainer/HistoryRows"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("3_0tnpc")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_o4jio")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_r2ppy")
 max_length = 500
@@ -87,6 +90,9 @@ stream = ExtResource("6_ivp3u")
 [node name="AmbientSound" type="AudioStreamPlayer" parent="TypingSoundManager"]
 stream = ExtResource("8_r2ppy")
 autoplay = true
+
+[node name="Music" type="AudioStreamPlayer" parent="TypingSoundManager"]
+stream = ExtResource("9_vtaks")
 
 [node name="CommandProcessor" type="Node" parent="."]
 script = ExtResource("7_ivp3u")

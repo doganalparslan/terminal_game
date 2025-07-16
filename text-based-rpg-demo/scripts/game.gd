@@ -6,7 +6,9 @@ const INPUTRESPONSE = preload("res://scenes/input_response.tscn")
 
 var dialogue = preload("res://Dialogues/Computer.dialogue")
 
+
 var should_create_empty_lines = true
+
 var prompt_line = ""
 var option_proceed:= true
 var line_is_skipped = false
@@ -20,10 +22,9 @@ var response_line
 
 @onready var history_rows: VBoxContainer = $Background/MarginContainer/Rows/GameInfo/Scroll/MarginContainer/HistoryRows
 @onready var line_edit: LineEdit = $Background/MarginContainer/Rows/GameInfo/Scroll/MarginContainer/HistoryRows/LineEdit
+@onready var typing_sound_manager: Node = $TypingSoundManager
 
 @onready var command_processor: Node = $CommandProcessor
-
-var second = 0
 
 func _ready() -> void:
 	if dialogue == load("res://Dialogues/Computer.dialogue"):

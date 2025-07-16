@@ -15,7 +15,7 @@ var font_size:= 16
 var audio_level:= 1.0
 var font_color:= "green"
 
-var active_tab
+var active_tab #checked by game.gd - first declared by tab_container.gd
 
 var blue:= Color(0.0, 0.51, 1.0)
 var green:= Color(0.275, 0.707, 0.101)
@@ -40,6 +40,8 @@ func _ready() -> void:
 		set_fullscreen("windowed")
 	change_font_size(font_size)
 	change_audio(audio_level)
+	
+	print("font size= ", font_size)
 
 
 
@@ -150,22 +152,15 @@ func change_interface_color(color):
 	update_current_system_color()
 	tab_container.set_theme(font_theme)
 	change_font_size(font_size)
+	change_input_color(active_color)
 
-
-
-func get_current_chat():
-	var current_chat = tab_container.get_child(tab_container.current_tab)
-	return current_chat
-
-
-
-func create_empty_lines(should: bool):
-	get_current_chat().should_create_empty_lines = should
-
-
-
-func set_line_editable(is_editable: bool):
-	get_current_chat().line_edit.editable = is_editable
+func change_input_color(incoming_color):
+	input_font_theme.set_color("font_color", "Label", incoming_color)
+	
+	input_font_theme.set_color("font_color", "LineEdit", incoming_color)
+	input_font_theme.set_color("caret_color", "LineEdit", incoming_color)
+	
+	input_font_theme.set_color("default_color", "Preview", Color(incoming_color.r, incoming_color.b, incoming_color.g, incoming_color.a * 0.5))
 
 
 func update_current_system_color():
@@ -177,3 +172,66 @@ func update_current_system_color():
 		active_color = red
 	if font_color == "yellow":
 		active_color = yellow
+
+
+func get_current_chat():
+	var current_chat = tab_container.get_child(tab_container.current_tab)
+	return current_chat
+
+
+func get_chat_named(specific_name: String):
+	return tab_container.get_node(specific_name)
+
+
+
+func create_empty_lines(chat_name: String,should: bool):
+	tab_container.get_node(chat_name).should_create_empty_lines = should
+
+
+func set_line_editable(is_editable: bool):
+	get_current_chat().line_edit.editable = is_editable
+
+
+
+func tab_is_offline(this_chat: String, offline: bool):
+	var node = tab_container.get_node(this_chat)
+	var which_chat = node.get_index(false)
+	tab_container.set_tab_disabled(which_chat, offline)
+
+
+func returning_message(returning_chat: String):
+	var game_node = tab_container.get_node(returning_chat)
+	game_node.typing_sound_manager.notification_sound()
+	game_node._on_line_edit_text_submitted("")
+
+
+var one_time: bool = false
+func check_created_line(chat_name: String, number_needed: int):
+	if one_time == false:
+		one_time = true
+		while number_needed > GameState.lines_created:
+			print(chat_name, " is offline")
+			await get_tree().create_timer(3).timeout
+		
+		print(chat_name, " is online")
+		match chat_name:
+			"Nance":
+				GameState.nance_offline = false
+			"CASEY":
+				GameState.casey_offline = false
+			"chrome":
+				GameState.chrome_offline = false
+		returning_message(chat_name)
+		return
+	else:
+		return
+
+
+
+func play_music():
+	#SINCE THERE IS ONE MUSIC RN, NOT USING THE PARAMETER
+	get_chat_named("Nance").typing_sound_manager.play_music()
+
+
+func dialogue_print(to_print):
+	print("Global.gd: " + str(to_print))

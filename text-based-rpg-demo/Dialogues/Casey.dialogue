@@ -3,20 +3,20 @@
 
 ~ start
 set has_met_casey = true
-Casey: [color=f2f200]The view beneath the horizon seemed rendered in pixels behind the flyscreen[/color][wait=2][next=auto]
+Casey: [wait=2][color=f2f200]The view beneath the horizon seemed rendered in pixels behind the flyscreen[/color][wait=2][next=auto]
 Casey: [color=f2f200]Under the [pulse]pulsing NEON lights[/pulse] of the corporate towers, you could feel the city's heartbeat.[/color][next=auto]
 Casey: [color=f2f200]Metals vibrate at the same frequency as the engines of motor-vehicles, passing along the generous highways.[/color]
-- how did u type yellow [if Global.active_color == green]
+- you typed yellow? [if Global.active_color == green]
 	Casey: It's rather easy actually. Just go into your computer/terminal interface settings.[wait=1] Never thought I would give someone tech advice in here.[next=auto]
 	Casey: Let me introduce myself.[next=auto]
 	=>< introduction
 
 - debug [if GameState.debug_mode == true]
-	do casey_prog = 1
+	set casey_prog = 1
 	=> debug
 
 - wtf
-	do GameState.casey_relationship(-1)
+	do GameState.casey_relation += 1
 	Casey: [shake]Okay![/shake][wait=1]first of all[wait=0.5] that was rude.[next=auto]
 	Casey: I was going to ask you, whether you liked it or not...[next=auto]
 	Casey: But I guess that was a no.
@@ -25,7 +25,7 @@ Casey: [color=f2f200]Metals vibrate at the same frequency as the engines of moto
 		Casey: Not everyone appreciates[wait=0.5] [i]art[/i][wait=0.5] first time they see it.[next=auto]
 		Casey: My name is [color=f2f200][b]CASEY[/b][/color][wait=1] I'm a writer.[next=auto]
 	- no it was good
-		Casey: Oh[wait=2], wasn't expecting to be flattered after that mean enterance.[wait=1] Thank you.[next=auto]
+		Casey: Oh[wait=2], wasn't expecting to be flattered after that mean entrance.[wait=1] Thank you.[next=auto]
 		Casey: We started on the wrong foot. Allow me to introduce myself.[next=auto]
 		=>< introduction 
 
@@ -35,7 +35,7 @@ Casey: [color=f2f200]Metals vibrate at the same frequency as the engines of moto
 - hello
 	=>< introduction
 
-Casey: Forget all that now, what do you think about the enterance? Was it too descriptive, too mystique, perhaps a little hard to understand?
+Casey: Forget all that now, what do you think about the entrance? Was it too descriptive, too mystique, perhaps a little hard to understand?
 - long sentences
 	Casey: So what you are saying is, the reader loses the context at the end of the sentence, I see...[next=auto]
 - cool theme
@@ -65,7 +65,7 @@ Casey: I can show more of it.[wait=1] What I wrote I mean.[wait=1] If you'd like
 - no thanks
 	Casey: Oh[wait=2] sure.[wait=2] Okay.[next=auto]
 	Casey: Well[wait=0.5] thats mainly why I am here.[wait=1] Talking about writing and[wait=0.5] a bit of a civil disobedience.[next=auto]
-	do GameState.casey_prog += 1
+	set GameState.casey_prog = 1
 	=> tell_me_about_yourself
 
 ~ tell_me_about_yourself
@@ -83,6 +83,7 @@ Casey: You tell me about yourself[if GameState.casey_prog == 1] then[/if].
 			Casey: Look I understood that you are new to this but how could you not know these?[wait=1] Doesn't [u]internet-people[/u] tell the history behind when calling people in?
 			- it was Nance
 				~ it_was_nance
+				set casey_talked_about_nance = true
 				Casey: [shake]What?![/shake][next=auto]
 				Casey: Yeah.[wait=1] No [shake]shit[/shake].[next=auto]
 				do casey_relation -= 1
@@ -94,7 +95,7 @@ Casey: You tell me about yourself[if GameState.casey_prog == 1] then[/if].
 					=> it_was_nance
 				- I dont
 				Casey: It's alright.[wait=0.5] Not like I was gonna go beat up a rich fella with a million fans.[next=auto]
-				Casey: Im going to give you a frequency you can connect, this should help clear your questions. Wait a second.[wait=1.5][next=auto]
+				Casey: I'm going to give you a frequency you can connect, this should help clear your questions. Wait a second.[wait=1.5][next=auto]
 				=>< free_dictionary
 				=> going_away
 			- internet people? [if GameState.dictionary_frequency_given == false]
@@ -150,7 +151,28 @@ Casey: No wonder she wouldn't tell this.[wait=1] She is enjoying being the [wave
 ~ going_away
 Casey: Okay[if GameState.casey_relation >= 3] friend[/if]. I need to go now.[wait=0.5] Gonna run some errands and then back to writing.[next=auto]
 Casey: [if GameState.casey_relation >= 3]I liked you. [/if]Hope you stick around.[if GameState.casey_knows_syndicate == 2] Without them.[/if]
-=>< offline
+
+
+
+
+
+
+
+do Global.tab_is_offline("CASEY",true)
+do Global.create_empty_lines("CASEY",false)
+set casey_offline = true
+while GameState.casey_offline == true
+	=>< offline 
+	do Global.check_created_line("CASEY" ,500000)
+do Global.create_empty_lines("CASEY",true)
+do Global.tab_is_offline("CASEY",false)
+
+
+
+
+
+
+
 
 ~ free_dictionary
 Casey: Here,[wait=0.5] connect 868.932 Mhz frequency, spreading factor 7.[next=auto]
@@ -164,7 +186,7 @@ Casey: You can look for your answers there from now on.[next=auto]
 
 
 ~ introduction
-Casey: [wave]HELLO COMPLETE STRANGER[/wave][wait=1] Im [color=f2f200][b]CASEY[/b][/color].[next=auto]
+Casey: [wave]HELLO COMPLETE STRANGER[/wave][wait=1] I am [color=f2f200][b]CASEY[/b][/color].[next=auto]
 Casey: I am an author.[wait=1] A novelist... A [wait=0.5]novel writer?[next=auto]
 Casey: That didn't sound too confident did it?[next=auto]
 => END
@@ -178,7 +200,7 @@ if GameState.casey_story_told == 0
 	Casey: Clients were usually corpos. Swimming in money[wait=1], still can't wait to make more.[next=auto]
 	Casey: And the information was always encrypted. He wasn't allowed to peek at what he was carrying.[wait=1.5] Yet he did it anyway.[next=auto]
 	Casey: He wanted to sell it to another buyer at the same time. He was doing this gig for so long already[wait=1] and even sacrificed half his head.[wait=1][next=auto]
-	Casey: "Just this once" he was saying to himself "and then I'm out with the money" planning to buy his memories back.[next=auto]
+	Casey: "Just this once" he told himself "and then I'm out with the money" planning to buy his memories back.[next=auto]
 	Casey: But there was competition. When the other corporates have learnt what he was carrying in his head, they didn't want to share it.[next=auto]
 	Casey: They sent in the fixers. Wanting to have the info to themselves, they gave the order "flatline".[next=auto]
 	Casey: Man survived some.[wait=1] Ran for too long. Then gave up at some point. Crying towards the fixers,[wait=1] "[shake]All I wanted was to remember my mom[/shake]".[next=auto]
@@ -187,10 +209,7 @@ do Global.create_empty_lines(true)
 => END
 
 ~ offline
-while GameState.lines_created < 200
-	do Global.create_empty_lines(false)
-	Casey: comp. repetitive transmission:[next=auto]
-	Casey: Your favourite writer [color=f2f200][b]CASEY[/b][/color] is now off the waves. See me later!
-	do Global.create_empty_lines(true)
+Casey: comp. repetitive transmission:[next=auto]
+Casey: Your favourite writer [color=f2f200][b]CASEY[/b][/color] is now off the waves. See me later!
 => END
 

@@ -1,31 +1,67 @@
 ~ start
-set GameState.dictionary_frequency_given = true
+set GameState.has_met_dictionary = true
+set GameState.dictionary_frequency_given = false
 match Global.active_color #probably a copy paste for all images
 	when green
-		FreeDictionary:    [next=auto][img=13%,13%, color=WEB_GREEN]res://fd_png_ver-2.png[/img]
+		FreeDictionary:    [wait=1.3][next=auto][img=13%,13%, color=WEB_GREEN]res://fd_png_ver-2.png[/img]
 	when red
-		FreeDictionary:    [next=auto][img=13%,13%, color=CRIMSON]res://fd_png_ver-2.png[/img]
+		FreeDictionary:    [wait=1.4][next=auto][img=13%,13%, color=CRIMSON]res://fd_png_ver-2.png[/img]
 	when blue
-		FreeDictionary:    [next=auto][img=13%,13%, color=BLUE]res://fd_png_ver-2.png[/img]
+		FreeDictionary:   [wait=1.3][next=auto][img=13%,13%, color=BLUE]res://fd_png_ver-2.png[/img]
 	when yellow
-		FreeDictionary:    [next=auto][img=13%,13%, color=YELLOW]res://fd_png_ver-2.png[/img]
+		FreeDictionary:    [wait=1.4][next=auto][img=13%,13%, color=YELLOW]res://fd_png_ver-2.png[/img]
 
 FreeDictionary: Welcome to the dictionary of the free world, [b]FREEDICTIONARY[/b].
 FreeDictionary: This is an open-sourced project made possible by the contributions from all over the Balkans.
-do Global.create_empty_lines(true)
 FreeDictionary: Type the desired word then press the return key. If there is a match, auto-response system will answer.
 ~ type_term
 FreeDictionary: [if GameState.never_see_line == true] never see this line [/if]
-- Radiotext
-- Chirp Syndicate
-- Decentralized
+- radiotext
+	FreeDictionary: Radiotext [wait=0.5][i](proper noun)[/i][next=auto]
+	FreeDictionary: [speed=3]An encrypted, [u]long-range[/u] radio protocol mesh-work. Released as an open source project on the Usenet in the 90s. Originally developed by Jennet Kovaic, aka spectrum-synthesizer, for earthquake emergency comms [i](official statement)[/i]. Following her untimely and unexplained death, rumors of assassination by hostile state or corporate actors have persisted.[next=auto]
+	FreeDictionary: [i]Also seen as[/i]: waves, wideband, mesh, and other similar terms.
+- chirp Syndicate
+	FreeDictionary: Chirp Syndicate [wait=0.5][i](proper noun)[/i][next=auto]
+	FreeDictionary: [speed=3]A wave-based organization believing that communication between individuals must remain private, un-monitored, un-censored, and always available. Inspired by the [u]cypherpunks[/u] who came before them.[next=auto]
+	FreeDictionary: [i]Also seen as[/i]: Chirps, Synths, Syndicate, and other similar names.
+- decentralized
+	FreeDictionary: Decentralized [wait=0.5][next=auto]
+	FreeDictionary: [speed=3]Describes a system without a single point of control or failure. In a decentralized network, authority, data, and trust are distributed across many nodes. Resisting surveillance, censorship, and collapse. Favored by [u]cypherpunks[/u], mesh builders, and distrustful [u]technomads[/u].[next=auto]
+	FreeDictionary: [i]Opposite of[/i]: centralized, federated, controlled.
 - E2E
-- Glass
+	FreeDictionary: E2E[wait=0.5] [i](short-form)[/i][wait=0.5] or [wait=0.5]End to End[wait=0.5] [i](long-form)[/i][next=auto]
+	FreeDictionary: [speed=3]End to end is a method of encrypted communication where only the sender and receiver can read the data. No intermediaries. No backdoors. Often flagged by authorities for “suspicious” usage. A cornerstone of secure, private netflow.[next=auto]
+	FreeDictionary: [i]Also seen as[/i]: e2ee, ∑2∑
+- glass
+	FreeDictionary: Glass [wait=0.5][i](noun, slang)[/i][next=auto]
+	FreeDictionary: [speed=3]Refers to ocular wearable devices, goggles, lenses, or retinal overlays, that layer digital information over vision. “Wearing glass” implies persistent data feeds through vision.[next=auto]
+	FreeDictionary: [i]Also known as[/i]: [u]chrome[/u], gear, head-piece, overlays, shimmers and other similar terms.
 - internet people
 	FreeDictionary: Internet People[wait=0.5] [i](plural)[/i][wait=0.5] or [wait=0.5]Internet Person [wait=0.5][i](singular)[/i][next=auto]
-	FreeDictionary: [speed=3]Means an individual who create, share, or manipulate content across the network, whose identity and influence exist primarily within the net. Anyone who broadcasts, streams, or shares digital content to a wide audience via the internet is considered an Internet Person.[next=auto]
+	FreeDictionary: [speed=3]Means an individual who creates, shares, or manipulates content across the network, whose identity and influence exist primarily within the net. Anyone who broadcasts, streams, or shares digital content to a wide audience via the internet is considered an Internet Person.[next=auto]
 	FreeDictionary: [i]Also known as[/i]: net-people, net-peeps, influencers, and other similar terms.
-- long-range
-- longrange
 - long range
+	=>< LoRa
+- lora
+	=>< LoRa
+- long-range
+	=>< LoRa
+- longrange
+	=>< LoRa
+- chrome #infamous hacker on the waves
+- cypherpunks
+	FreeDictionary: Cypherpunk [wait=0.5][i](proper noun)[/i][next=auto]
+	FreeDictionary: [speed=3]A movement or an individual who advocates for the widespread use of strong cryptography and privacy enhancing technologies, viewing them as essential tools for social and political change. Cypherpunks committed to defending privacy and personal freedom with cryptographic tools, decentralized communication, often expressing a deep distrust of centralized authority and corporate control over information streams.[next=auto]
+	FreeDictionary: [i]See also[/i]: decentralized, E2E, Chirp Syndicate.
+
+
+
+
 => type_term
+
+
+~ LoRa
+	FreeDictionary: Long Range[wait=0.5][i](proper noun)[/i][wait=0.5] or [wait=0.5]LoRa[wait=0.5] [i](short-form)[/i][next=auto]
+	FreeDictionary: [speed=3]A low-power, long-range wireless communication protocol, foundational to mesh-works such as Radiotext. It allows devices to transmit small packets of data over vast distances, through obstacles, bypassing traditional infrastructure. Favored by mesh builders for its robust, off-grid capabilities, enabling communication where the 'old net' fails.[next=auto]
+	FreeDictionary: [i]See also[/i]: [u]Radiotext[/u], mesh, [u]long range[/u], wideband.
+=> END

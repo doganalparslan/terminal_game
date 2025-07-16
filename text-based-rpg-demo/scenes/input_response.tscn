@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://mgmvw8t683w4"]
+[gd_scene load_steps=4 format=3 uid="uid://mgmvw8t683w4"]
 
 [ext_resource type="Script" uid="uid://cdy5hrp44nkpv" path="res://scripts/input_response.gd" id="1_qa54y"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_brd57"]
+[ext_resource type="Theme" uid="uid://c20bsus7bsews" path="res://themes/input_color_trial.tres" id="2_qu8yc"]
 
 [node name="InputResponse" type="VBoxContainer"]
 anchors_preset = 15
@@ -14,6 +15,8 @@ script = ExtResource("1_qa54y")
 
 [node name="InputHistory" type="Label" parent="."]
 layout_mode = 2
+theme = ExtResource("2_qu8yc")
+text = "MERHABA"
 
 [node name="Response" parent="." instance=ExtResource("2_brd57")]
 unique_name_in_owner = true
