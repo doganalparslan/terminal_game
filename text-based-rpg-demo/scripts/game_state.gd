@@ -3,11 +3,11 @@ extends Node
 var debug_mode: bool = false
 var demo_ended: bool = false
 
-func _ready() -> void:
-	if debug_mode == true:
-		dictionary_frequency_given = true
+#func _ready() -> void:
+	#if debug_mode == true:
+		#dictionary_frequency_given = true
 		#plugin_bitmap_installed = true
-		plugin_audio_installed = true
+		#plugin_audio_installed = true
 
 # -------------------------------------- GAME VARIABLES
 var lines_created: int = 0: # TO KEEP TRACK OF PLAYER SPENT TIME // USE EXAGGARATED NUMBERS
@@ -81,7 +81,7 @@ var casey_story_told = 0:
 var casey_knows_syndicate: int = 0 # 0 Syndicate not spoken 1 Casey thinks Player is out 2 Casey knows Player is in 
 var casey_talked_about_nance: bool = false
 
-var dictionary_frequency_given: bool = false
+var dictionary_frequency_given: int = 0 #0 for unknown 1 for known but isn't activated 2 for active
 
 
 # --------------------------------------chrome

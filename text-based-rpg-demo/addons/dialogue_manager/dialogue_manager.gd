@@ -1340,6 +1340,7 @@ func _compare(operator: String, first_value, second_value) -> bool:
 				else:
 					return second_value == null
 			else:
+
 				return first_value == second_value
 		&"!=":
 			if first_value == null:

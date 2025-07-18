@@ -99,10 +99,13 @@ Casey: You tell me about yourself[if GameState.casey_prog == 1] then[/if].
 				Casey: I'm going to give you a frequency you can connect, this should help clear your questions. Wait a second.[wait=1.5][next=auto]
 				=>< free_dictionary
 				=> going_away
-			- internet people? [if GameState.dictionary_frequency_given == false]
-				Casey: Look you got to stop asking me this questions.[wait=1] Wait here, I'm fetching you a frequency.[wait=5][next=auto]
-				=>< free_dictionary
-				Casey: But how did you find this place if not from net people?
+			- internet people? [if GameState.dictionary_frequency_given == 0]
+				Casey: Look you got to stop asking me this questions.[wait=1][if GameState.dictionary_frequency_given == 2] Go look at the dictionary[/if][if GameState.dictionary_frequency_given == 0] Wait here, I'm fetching you a frequency.[/if][wait=5][next=auto]
+				if GameState.dictionary_frequency_given == 0
+					=>< free_dictionary
+				elif GameState.dictionary_frequency_given == 2
+					Casey: I can guide you[wait=0.5], yes. But I can't give you everything.
+				Casey: How did you find this place if not from net people?
 				- it was Nance
 					=> it_was_nance
 				- no it was net people
@@ -177,8 +180,8 @@ do Global.tab_is_offline("CASEY",false)
 
 ~ free_dictionary
 Casey: Here,[wait=0.5] connect 868.932 Mhz frequency, spreading factor 7.[next=auto]
-Casey: Go to your terminal and type: connect 868.932 sf_7. 
-set dictionary_frequency_given = true
+Casey: Go to your terminal and type: connect 868.932 sf_7.[next=auto]
+set dictionary_frequency_given = 1
 Casey: You can look for your answers there from now on.[next=auto]
 => END
 

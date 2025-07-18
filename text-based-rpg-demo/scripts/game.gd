@@ -39,12 +39,18 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 	enter_pressed.emit()
 	var answer := new_text.strip_edges().to_lower().replace("?", "").replace("-", " ").replace("ı", "i")
 
+	#command_processor.parse_command(answer)
+
+	print_debug(dialogue_line.id)
+
 	GameState.lines_created += 1
 
 	var input_response: VBoxContainer = INPUTRESPONSE.instantiate()
 	history_rows.add_child(input_response) #writes the text to screen using input_response scene
 	input_response.set_input_text(new_text)
-	
+
+
+
 	if option_proceed == true:
 		input_response.response.connect("spoke", $TypingSoundManager.on_npc_typed_one_character) # for playing beep sounds
 		connect("enter_pressed", input_response.enter_pressed) #for handling skip inside the input_response.gd

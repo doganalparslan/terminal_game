@@ -7,9 +7,9 @@
 [ext_resource type="Script" uid="uid://cfimnk66xb6an" path="res://scripts/typing_sound_manager.gd" id="4_nlldf"]
 [ext_resource type="AudioStream" uid="uid://cnilvbhexdvhp" path="res://sounds/single keyboard click.mp3" id="6_ivp3u"]
 [ext_resource type="AudioStream" uid="uid://bao2cxg2od8tp" path="res://sounds/shortest_beep_sound.mp3" id="7_dktwy"]
-[ext_resource type="Script" uid="uid://fdjxgxn3ref8" path="res://scripts/CommandProcessor.gd" id="7_ivp3u"]
 [ext_resource type="AudioStream" uid="uid://ctftvpsblu3xv" path="res://sounds/eletric_humm_mp3.mp3" id="8_r2ppy"]
 [ext_resource type="AudioStream" uid="uid://d72l86jrok0w" path="res://sounds/emre_ilk_music_taslak.wav" id="9_vtaks"]
+[ext_resource type="Script" uid="uid://dxxajlaowqfqc" path="res://scripts/new_command_parser.gd" id="10_vtaks"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_feb5d"]
 bg_color = Color(0.0645193, 0.0881919, 0.066893, 1)
@@ -95,7 +95,7 @@ autoplay = true
 stream = ExtResource("9_vtaks")
 
 [node name="CommandProcessor" type="Node" parent="."]
-script = ExtResource("7_ivp3u")
+script = ExtResource("10_vtaks")
 
 [connection signal="focus_entered" from="Background/MarginContainer/Rows/GameInfo/Scroll/MarginContainer/HistoryRows/LineEdit" to="Background/MarginContainer/Rows/GameInfo/Scroll/MarginContainer/HistoryRows/LineEdit" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Background/MarginContainer/Rows/GameInfo/Scroll/MarginContainer/HistoryRows/LineEdit" to="Background/MarginContainer/Rows/GameInfo/Scroll/MarginContainer/HistoryRows/LineEdit" method="_on_focus_exited"]

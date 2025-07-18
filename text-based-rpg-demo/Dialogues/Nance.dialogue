@@ -66,7 +66,7 @@ do Global.create_empty_lines("Nance",false)
 set nance_offline = true
 while GameState.nance_offline == true
 	=>< offline 
-	do Global.check_created_line("Nance" ,210)
+	do Global.check_created_line("Nance" ,190)
 do Global.create_empty_lines("Nance",true)
 do Global.tab_is_offline("Nance",false)
 
@@ -121,7 +121,7 @@ Nance: So how was it, met some new friends?
 - met chrome [if GameState.has_met_chrome == true]
 	~ met_chrome
 	Nance: That's a strong start.[wait=0.5] well done.[next=auto]
-	Nance: He is a highly praised ice-breaker.[wait=0.5] doesn't connect much.[wait=0.5] you are so lucky for a newcomer.[next=auto]
+	Nance: He is a highly praised [u]ice-breaker[/u].[wait=0.5] doesn't connect much.[wait=0.5] you are so lucky for a newcomer.[next=auto]
 	Nance: Must have run into him in a good mood[wait=0.5]. which is not often.[next=auto]
 	Nance: He was very skilled and useful in the rare occasions we needed him.[next=auto]
 	Nance: Mostly though, he is an asshole[wait=0.7] and a pain in the ass.[next=auto]
@@ -132,9 +132,12 @@ Nance: So how was it, met some new friends?
 			Nance: Oh,[wait=0.5] congrats. Means you can see now.[next=auto]
 			Nance: What does one's eyes seek when they re-open?
 			- truth
-				Nance: Oooh, all philosophical aren't we :D
+				Nance: Oooh, all philosophical aren't we :D[next=auto]
+				Nance: Okay then.
+				Nance: Gotta ask you the million dollar question now.[next=auto]
 			- the waves
-				Nance: We have lots of that around here.[wait=0.7]I don't think you'll get bored of them soon.
+				Nance: We have lots of that around here.[wait=0.7]I don't think you'll get bored of them soon.[next=auto]
+				Nance: Gotta ask you the million dollar question now though.[next=auto]
 			- you
 				Nance: That[wait=0.7] was smooth.[wait=1] not gonna lie :)[do GameState.nance_flirted += 1][next=auto]
 				Nance: You have to be brave enough to ask though.

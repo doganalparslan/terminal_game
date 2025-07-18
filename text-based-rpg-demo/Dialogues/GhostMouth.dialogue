@@ -13,7 +13,8 @@ match Global.active_color #probably a copy paste for all images
 GhostMouth: No wires. No interference. Just pure voice transmission.[next=auto]
 do Global.create_empty_lines("GhostMouth", false)
 GhostMouth: GhostMouth™ utilizes a minimally invasive procedure to install a precision microphone at the base of your skull,[next=auto]
-GhostMouth: enabling seamless, wireless communication wherever you go!
+GhostMouth: enabling seamless, wireless communication wherever you go![next=auto]
+GhostMouth: Because privacy is your right![next=auto]
 do Global.create_empty_lines("GhostMouth", true)
 
 computer: comp. repetitive transmission.

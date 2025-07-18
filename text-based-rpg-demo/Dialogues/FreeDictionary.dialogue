@@ -1,6 +1,6 @@
 ~ start
 set GameState.has_met_dictionary = true
-set GameState.dictionary_frequency_given = false
+set GameState.dictionary_frequency_given = 2
 match Global.active_color #probably a copy paste for all images
 	when green
 		FreeDictionary:    [wait=1.3][next=auto][img=13%,13%, color=WEB_GREEN]res://fd_png_ver-2.png[/img]
@@ -29,9 +29,7 @@ FreeDictionary: [if GameState.never_see_line == true] never see this line [/if]
 	FreeDictionary: [speed=3]The intentional and public refusal to obey certain laws, demands, or commands of a government or occupying power, usually as a form of non-violent protest or resistance.[next=auto]
 	FreeDictionary: [i]Also known as[/i]: peaceful resistance, non-violent protest, and other similar terms.
 - Corp-Aristos
-	FreeDictionary: Corp-aristos[wait=0.5] [i](plural)[/i][wait=0.5] or [wait=0.5]corp-aristo [wait=0.5][i](singular)[/i][next=auto]
-	FreeDictionary: [speed=3]Refers to the elite class of corporate aristocrats who control major mega-corporations, wielding vast economic and political power. They shape policies, influence markets, and maintain dominance through networks of influence and wealth.[next=auto]
-	FreeDictionary: [i]Also known as[/i]: corporate oligarchs, mega-corp lords, and other similiar high-tier executive names.
+	=> corp_aristos
 - Decentralized
 	FreeDictionary: Decentralized[wait=0.5][i](adjective)[/i][next=auto]
 	FreeDictionary: [speed=3]Describes a system without a single point of control or failure. In a decentralized network, authority, data, and trust are distributed across many nodes. Resisting surveillance, censorship, and collapse. Favored by [u]cypherpunks[/u], mesh builders, and distrustful [u]technomads[/u].[next=auto]
@@ -77,11 +75,25 @@ FreeDictionary: [if GameState.never_see_line == true] never see this line [/if]
 	FreeDictionary: [speed=3]Refers to a neuro-electronic inhibition device that restricts a subject’s access to certain thoughts, memories, or learned skills. Often imposed as a form of control, punishment, or sabotage. The lock prevents activation of targeted neural pathways and enforces compliance by inducing seizures in the subject individual upon attempted access.[next=auto]
 	FreeDictionary: [i]Also known as[/i]: cognitive block, neural inhibitor, mem-shunt, blackout switch.
 
+- corp-aristo
+	=> corp_aristos
+
+- ice-breaker
+	FreeDictionary: Ice-breaker [wait=0.5][i](noun, slang)[/i][next=auto]
+	FreeDictionary: [speed=3]A person who specializes in breaking through digital defenses, especially [u]ICE[/u] (Intrusion Countermeasures Electronics). An ice-breaker is a hacker skilled in defeating security systems, opening locked networks, or bypassing virtual barriers. Often works freelance or as part of a group.[next=auto]
+	FreeDictionary: [i]Also known as[/i]: breaker, cracker, hacker, net-saboteur, and other similar terms.
+
 => type_term
 
 
 ~ LoRa
-	FreeDictionary: Long Range[wait=0.5][i](proper noun)[/i][wait=0.5] or [wait=0.5]LoRa[wait=0.5] [i](short-form)[/i][next=auto]
-	FreeDictionary: [speed=3]A low-power, long-range wireless communication protocol, foundational to mesh-works such as Radiotext. It allows devices to transmit small packets of data over vast distances, through obstacles, bypassing traditional infrastructure. Favored by mesh builders for its robust, off-grid capabilities, enabling communication where the 'old net' fails.[next=auto]
-	FreeDictionary: [i]See also[/i]: [u]Radiotext[/u], mesh, [u]long range[/u], wideband.
+FreeDictionary: Long Range[wait=0.5][i](proper noun)[/i][wait=0.5] or [wait=0.5]LoRa[wait=0.5] [i](short-form)[/i][next=auto]
+FreeDictionary: [speed=3]A low-power, long-range wireless communication protocol, foundational to mesh-works such as Radiotext. It allows devices to transmit small packets of data over vast distances, through obstacles, bypassing traditional infrastructure. Favored by mesh builders for its robust, off-grid capabilities, enabling communication where the 'old net' fails.[next=auto]
+FreeDictionary: [i]See also[/i]: [u]Radiotext[/u], mesh, [u]long range[/u], wideband.
+=> END
+
+~ corp_aristos
+FreeDictionary: Corp-aristos[wait=0.5] [i](plural)[/i][wait=0.5] or [wait=0.5]corp-aristo [wait=0.5][i](singular)[/i][next=auto]
+FreeDictionary: [speed=3]Refers to the elite class of corporate aristocrats who control major mega-corporations, wielding vast economic and political power. They shape policies, influence markets, and maintain dominance through networks of influence and wealth.[next=auto]
+FreeDictionary: [i]Also known as[/i]: corporate oligarchs, mega-corp lords, and other similiar high-tier executive names.
 => END

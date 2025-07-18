@@ -188,9 +188,8 @@ func create_empty_lines(chat_name: String,should: bool):
 	tab_container.get_node(chat_name).should_create_empty_lines = should
 
 
-func set_line_editable(is_editable: bool):
-	get_current_chat().line_edit.editable = is_editable
-
+func set_line_editable(chat_name: String, is_editable: bool):
+	tab_container.get_node(chat_name).line_edit.editable = is_editable
 
 
 func tab_is_offline(this_chat: String, offline: bool):
@@ -203,6 +202,35 @@ func returning_message(returning_chat: String):
 	var game_node = tab_container.get_node(returning_chat)
 	game_node.typing_sound_manager.notification_sound()
 	game_node._on_line_edit_text_submitted("")
+
+
+func spesific_message(chat_id: String , message: String):
+	if message == "":
+		await get_tree().create_timer(0.2).timeout
+	else:
+		pass
+	get_chat_named(chat_id)._on_line_edit_text_submitted(message)
+
+
+
+func go_to_this_line(desired_chat: String, id: String):
+	var tab = get_chat_named(desired_chat)
+	var input_resp = tab.history_rows.get_child(tab.history_rows.get_child_count() - 3)
+	var refreshed_line = await DialogueManager.get_next_dialogue_line(tab.dialogue, id)
+	input_resp.response.dialogue_line = refreshed_line
+	input_resp.response.skip_typing()  # or skip_typing()
+
+	tab.dialogue_line = refreshed_line
+
+	# Use the same allowed-response filtering as in your submit function
+	var bits := []
+	for resp in refreshed_line.responses:
+		if not resp.is_allowed:
+			continue
+		bits.append(resp.text)
+	tab.line_edit.create_placeholder_text(0, " / ".join(bits))
+
+
 
 
 #var one_time: bool = false

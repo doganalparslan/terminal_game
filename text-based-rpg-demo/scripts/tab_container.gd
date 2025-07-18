@@ -12,6 +12,9 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
+	Global.active_tab = get_child(current_tab)
+	call_deferred("_grab_focus_line_edit")
+	
 	if Input.is_action_just_pressed("tab"):
 		infinite_next_tab()
 	if Input.is_action_just_pressed("right"):
@@ -20,9 +23,27 @@ func _process(_delta: float) -> void:
 		previous_tab()
 		
 
+
+
 func _on_tab_changed(_tab: int) -> void:
+	if Global.get_current_chat().name == "Computer":
+		Global.go_to_this_line("Computer", "31")
 	Global.active_tab = get_child(current_tab)
 	call_deferred("_grab_focus_line_edit")
+	
+
+
+func _on_tab_clicked(tab: int) -> void:
+	Global.active_tab = get_child(current_tab)
+	call_deferred("_grab_focus_line_edit")
+
+func _on_tab_selected(tab: int) -> void:
+	Global.active_tab = get_child(current_tab)
+	call_deferred("_grab_focus_line_edit")
+
+
+
+
 
 func _grab_focus_line_edit():
 	Global.active_tab.line_edit.grab_focus()

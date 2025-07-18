@@ -80,7 +80,7 @@ chrome: you seem to done it
 - how do you know
 chrome: [if GameState.chrome_prog == 1]i told u, [/if]im in ur terminal[next=auto]
 chrome: [glitch duration=2]see me[/glitch][next=auto]
-
+~ debug
 do Global.create_empty_lines("chrome",false)
 chrome: ┌────── [pulse]Loading Image[/pulse] ──────┐ [wait=2][next=auto]
 match Global.active_color #probably a copy paste for all images
@@ -123,7 +123,7 @@ chrome: do not thank. just use it right
 chrome: i dont care about those fools now[wait=0.4],[[ jobs| ice]] low level for me[next=auto]
 chrome: anyway i am running warm over-clocked in this heat[next=auto]
 chrome: gotta put some coolant on[next=auto]
-~ debug
+
 chrome: last advice before i bounce[next=auto]
 chrome: when you connect terminals[wait=0.4] if the signal screams,[wait=0.4] disconnect.
 
@@ -141,7 +141,7 @@ while GameState.chrome_offline == true
 	do Global.dialogue_print("inside dialogue while")
 	=>< offline
 	do Global.dialogue_print("finished chrome offline tag")
-	chrome: offline now [do Global.check_created_line("chrome" ,350)]
+	chrome: [do Global.check_created_line("chrome" ,350)]
 	do Global.dialogue_print("ran the check_created_line() func")
 do Global.create_empty_lines("chrome",true)
 do Global.tab_is_offline("chrome",false)
