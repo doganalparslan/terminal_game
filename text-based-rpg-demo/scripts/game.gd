@@ -30,7 +30,9 @@ func _ready() -> void:
 	if dialogue == load("res://Dialogues/Computer.dialogue"):
 		get_child(1)._on_game_booted()
 		if GameState.debug_mode == false:
+			Global.set_line_editable("Computer", false)
 			await get_tree().create_timer(4.5).timeout
+			Global.set_line_editable("Computer", true)
 	_on_line_edit_text_submitted("")
 
 
@@ -38,10 +40,6 @@ func _ready() -> void:
 func _on_line_edit_text_submitted(new_text: String) -> void:
 	enter_pressed.emit()
 	var answer := new_text.strip_edges().to_lower().replace("?", "").replace("-", " ").replace("ı", "i")
-
-	#command_processor.parse_command(answer)
-
-	print_debug(dialogue_line.id)
 
 	GameState.lines_created += 1
 

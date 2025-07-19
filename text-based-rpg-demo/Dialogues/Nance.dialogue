@@ -4,9 +4,9 @@
 ~ start
 set has_met_nance = true
 Nance: [wait=3]Hello there cowboy...[wait=1][speed=1.5] wasn't sure you would jack in.
-- hello?
 - debug [if GameState.debug_mode == true]
 	=> debug
+- hello?
 Nance: [speed=1.2]Didn't your mama tell you [i]"not to"[/i] stick other people's drives in your pc?[wait=1][next=auto]
 Nance: [speed=1.1]Especially those you've met on the lone alleys.[wait=1][next=auto]
 Nance: Why did you plug it anyway?

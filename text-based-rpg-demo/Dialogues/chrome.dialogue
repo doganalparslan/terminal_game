@@ -117,7 +117,7 @@ chrome: do not thank. just use it right
 - you in Syndicate?
 - know Nance?
 	chrome: yeah we go back. but haven't talked forever[next=auto]
-	chrome: she needed me for syndicate businnes, i helped.[wait=0.4] cracked the ice[next=auto]
+	chrome: she needed me for syndicate business, i helped.[wait=0.4] cracked the ice[next=auto]
 	chrome: couldnt get along after that[next=auto]
 
 chrome: i dont care about those fools now[wait=0.4],[[ jobs| ice]] low level for me[next=auto]

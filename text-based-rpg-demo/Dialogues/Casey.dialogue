@@ -51,7 +51,7 @@ Casey: Forget all that now, what do you think about the entrance? Was it too des
 
 Casey: This passage is going to be the intro of my book[wait=1], so it's important that it's catchy.[next=auto]
 Casey: Gotta hook the reader[wait=0.5][speed=1.5] right into it.[next=auto]
-Casey: Thats mainly why I am here.[wait=1] Talking about writing and[wait=0.5] a bit of a civil disobedience.[next=auto]
+Casey: That's mainly why I am here.[wait=1] Talking about writing and[wait=0.5] a bit of a civil disobedience.[next=auto]
 => tell_me_about_yourself
 Casey: I can show more of it.[wait=1] What I wrote I mean.[wait=1] If you'd like?[next=auto]
 - yeah sure
@@ -81,7 +81,7 @@ Casey: You tell me about yourself[if GameState.casey_prog == 1] then[/if].
 		- is this illegal
 			Casey: It wasn't initially.[wait=0.5] Even the big corps were advertising and stuff.[wait=1] You can still come across the dead channels.[next=auto]
 			~ debug
-			Casey: Look I understood that you are new to this but how could you not know these?[wait=1] Doesn't [u]internet-people[/u] tell the history behind when calling people in?
+			Casey: Look I understood that you are new to this but how could you not know these?[wait=1] Don't [u]internet-people[/u] tell the history behind when calling people in?
 			- it was Nance
 				~ it_was_nance
 				set casey_talked_about_nance = true
@@ -100,7 +100,7 @@ Casey: You tell me about yourself[if GameState.casey_prog == 1] then[/if].
 				=>< free_dictionary
 				=> going_away
 			- internet people? [if GameState.dictionary_frequency_given == 0]
-				Casey: Look you got to stop asking me this questions.[wait=1][if GameState.dictionary_frequency_given == 2] Go look at the dictionary[/if][if GameState.dictionary_frequency_given == 0] Wait here, I'm fetching you a frequency.[/if][wait=5][next=auto]
+				Casey: Look you got to stop asking me these questions.[wait=1][if GameState.dictionary_frequency_given == 2] Go look at the dictionary[/if][if GameState.dictionary_frequency_given == 0] Wait here, I'm fetching you a frequency.[/if][wait=5][next=auto]
 				if GameState.dictionary_frequency_given == 0
 					=>< free_dictionary
 				elif GameState.dictionary_frequency_given == 2
@@ -134,7 +134,7 @@ Casey: [if casey_prog == 1]So [/if]are you one of them?
 	if casey_relation > 3
 		Casey: I wasn't ready to lose another friend. Especially not to those people.
 	else
-		Casey: Those people doesn't deserve one more soul joining them.
+		Casey: Those people don't deserve one more soul joining them.
 	- didnt Nance make this
 		=> nance_didnt_build_radiotext
 - you know Nance? [if casey_prog == 1]

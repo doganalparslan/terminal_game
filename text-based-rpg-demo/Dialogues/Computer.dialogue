@@ -115,26 +115,26 @@ Computer: [if GameState.never_see_line == true] never see this line [/if]
 	- input color
 		Available colors are: red | green | blue | yellow
 		- red
-			Input color has been changed to [do Global.change_input_color(red)]red
+			Computer: Input color has been changed to [do Global.change_input_color(red)]red
 		- green
-			Input color has been changed to [do Global.change_input_color(green)]green
+			Computer: Input color has been changed to [do Global.change_input_color(green)]green
 		- blue
-			Input color has been changed to [do Global.change_input_color(blue)]blue
+			Computer: Input color has been changed to [do Global.change_input_color(blue)]blue
 		- yellow
-			Input color has been changed to [do Global.change_input_color(yellow)]yellow
+			Computer: Input color has been changed to [do Global.change_input_color(yellow)]yellow
 		- return
 			=> terminal_interface
 		=> terminal_interface
 	- system color
 		Available colors are: red | green | blue | yellow
 		- red
-			interface color changed to [do Global.change_interface_color("red")]red
+			Computer: interface color changed to [do Global.change_interface_color("red")]red
 		- green
-			interface color changed to [do Global.change_interface_color("green")]green
+			Computer: interface color changed to [do Global.change_interface_color("green")]green
 		- blue
-			interface color changed to [do Global.change_interface_color("blue")]blue
+			Computer: interface color changed to [do Global.change_interface_color("blue")]blue
 		- yellow
-			interface color changed to [do Global.change_interface_color("yellow")]yellow
+			Computer: interface color changed to [do Global.change_interface_color("yellow")]yellow
 		- return
 			=> terminal_interface
 		=> terminal_interface

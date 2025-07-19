@@ -234,7 +234,7 @@ func go_to_this_line(desired_chat: String, id: String):
 
 
 #var one_time: bool = false
-var offline_chats: Array
+var offline_chats: Array = []
 func check_created_line(chat_name: String, number_needed: int):
 	if not offline_chats.has(chat_name):
 	#if one_time == false:
