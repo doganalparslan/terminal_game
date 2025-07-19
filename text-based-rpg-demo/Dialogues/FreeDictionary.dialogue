@@ -29,7 +29,7 @@ FreeDictionary: [if GameState.never_see_line == true] never see this line [/if]
 	FreeDictionary: [speed=3]The intentional and public refusal to obey certain laws, demands, or commands of a government or occupying power, usually as a form of non-violent protest or resistance.[next=auto]
 	FreeDictionary: [i]Also known as[/i]: peaceful resistance, non-violent protest, and other similar terms.
 - Corp-Aristos
-	=> corp_aristos
+	=>< corp_aristos
 - Decentralized
 	FreeDictionary: Decentralized[wait=0.5][i](adjective)[/i][next=auto]
 	FreeDictionary: [speed=3]Describes a system without a single point of control or failure. In a decentralized network, authority, data, and trust are distributed across many nodes. Resisting surveillance, censorship, and collapse. Favored by [u]cypherpunks[/u], mesh builders, and distrustful [u]technomads[/u].[next=auto]

@@ -83,8 +83,8 @@ Nance: So how was it, met some new friends?
 	~ met_casey
 	Nance: Yeah[wait=0.7] the writer man.[wait=0.7] How did you find him?
 	- he was interesting
-		Nance: He can be a way to escape sometimes.[0.7] Creates vivid images with his words.
-		- got history? [if GameState.nance_flirted > 0]
+		Nance: He can be a way to escape sometimes.[wait=0.7] Creates vivid images with his words.
+		- got history?
 			do GameState.nance_flirted += 1
 			Nance: Why?[wait=0.7] you curious?
 			- maybe
