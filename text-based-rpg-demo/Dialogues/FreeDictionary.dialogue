@@ -31,7 +31,7 @@ FreeDictionary: [if GameState.never_see_line == true] never see this line [/if]
 - Corp-Aristos
 	=>< corp_aristos
 - Decentralized
-	FreeDictionary: Decentralized[wait=0.5][i](adjective)[/i][next=auto]
+	FreeDictionary: Decentralized [wait=0.5][i](adjective)[/i][next=auto]
 	FreeDictionary: [speed=3]Describes a system without a single point of control or failure. In a decentralized network, authority, data, and trust are distributed across many nodes. Resisting surveillance, censorship, and collapse. Favored by [u]cypherpunks[/u], mesh builders, and distrustful [u]technomads[/u].[next=auto]
 	FreeDictionary: [i]Opposite of[/i]: centralized, federated, controlled.
 - E2E
@@ -47,13 +47,13 @@ FreeDictionary: [if GameState.never_see_line == true] never see this line [/if]
 	FreeDictionary: [speed=3]Stands for Intrusion Countermeasures Electronics. Refers to digital security programs, firewalls, and defensive [u]construct[/u]s designed to detect, delay, or destroy unauthorized access attempts. Often encountered in corporate nets or locked data vaults.[next=auto]
 	FreeDictionary: [i]Also known as[/i]: black ICE (lethal), white ICE (passive), gatekeeper code, or simply “the wall”.
 - Internet-People
-	FreeDictionary: Internet People[wait=0.5] [i](plural)[/i][wait=0.5] or [wait=0.5]Internet Person [wait=0.5][i](singular)[/i][next=auto]
+	FreeDictionary: Internet People [wait=0.5][i](plural)[/i][wait=0.5] or [wait=0.5]Internet Person [wait=0.5][i](singular)[/i][next=auto]
 	FreeDictionary: [speed=3]Means an individual who creates, shares, or manipulates content across the network, whose identity and influence exist primarily within the net. Anyone who broadcasts, streams, or shares digital content to a wide audience via the internet is considered an Internet Person.[next=auto]
 	FreeDictionary: [i]Also known as[/i]: net-people, net-peeps, influencers, and other similar terms.
 - Long-Range
 	=>< LoRa
 - Technomads
-	FreeDictionary: Technomads[wait=0.5] [i](plural)[/i][wait=0.5] or [wait=0.5]technomad [wait=0.5][i](singular)[/i][next=auto]
+	FreeDictionary: Technomads [wait=0.5][i](plural)[/i][wait=0.5] or [wait=0.5]technomad [wait=0.5][i](singular)[/i][next=auto]
 	FreeDictionary: [speed=3]Nomadic individuals who travel the digital and physical frontiers, often living off-grid and relying on portable technology to survive.[next=auto]
 	FreeDictionary: [i]Also known as[/i]: digital drifters, cyber nomads, and data wanderers.
 - chrome
@@ -76,7 +76,7 @@ FreeDictionary: [if GameState.never_see_line == true] never see this line [/if]
 	FreeDictionary: [i]Also known as[/i]: cognitive block, neural inhibitor, mem-shunt, blackout switch.
 
 - corp-aristo
-	=> corp_aristos
+	=>< corp_aristos
 
 - ice-breaker
 	FreeDictionary: Ice-breaker [wait=0.5][i](noun, slang)[/i][next=auto]
@@ -87,13 +87,13 @@ FreeDictionary: [if GameState.never_see_line == true] never see this line [/if]
 
 
 ~ LoRa
-FreeDictionary: Long Range[wait=0.5][i](proper noun)[/i][wait=0.5] or [wait=0.5]LoRa[wait=0.5] [i](short-form)[/i][next=auto]
+FreeDictionary: Long Range [wait=0.5][i](proper noun)[/i][wait=0.5] or [wait=0.5]LoRa[wait=0.5] [i](short-form)[/i][next=auto]
 FreeDictionary: [speed=3]A low-power, long-range wireless communication protocol, foundational to mesh-works such as Radiotext. It allows devices to transmit small packets of data over vast distances, through obstacles, bypassing traditional infrastructure. Favored by mesh builders for its robust, off-grid capabilities, enabling communication where the 'old net' fails.[next=auto]
 FreeDictionary: [i]See also[/i]: [u]Radiotext[/u], mesh, [u]long range[/u], wideband.
 => END
 
 ~ corp_aristos
-FreeDictionary: Corp-aristos[wait=0.5] [i](plural)[/i][wait=0.5] or [wait=0.5]corp-aristo [wait=0.5][i](singular)[/i][next=auto]
+FreeDictionary: Corp-aristos [wait=0.5][i](plural)[/i][wait=0.5] or [wait=0.5]corp-aristo [wait=0.5][i](singular)[/i][next=auto]
 FreeDictionary: [speed=3]Refers to the elite class of corporate aristocrats who control major mega-corporations, wielding vast economic and political power. They shape policies, influence markets, and maintain dominance through networks of influence and wealth.[next=auto]
 FreeDictionary: [i]Also known as[/i]: corporate oligarchs, mega-corp lords, and other similiar high-tier executive names.
 => END

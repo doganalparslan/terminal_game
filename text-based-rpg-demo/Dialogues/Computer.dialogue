@@ -102,7 +102,7 @@ Computer: [if GameState.never_see_line == true] never see this line [/if]
 	~ terminal_interface
 	Computer: Available terminal tweaks: font size | input color | system color
 	- font size
-		Computer: Choose a size: [font_size=30]small[/font_size] | [font_size=55]Medium[/font_size] | [font_size=70]Medium[/font_size]
+		Computer: Choose a size: [font_size=30]small[/font_size] | [font_size=55]Medium[/font_size] | [font_size=70]BIG[/font_size]
 		- small
 			Computer: Font size has been set to[do Global.change_font_size(30)] small
 		- medium
