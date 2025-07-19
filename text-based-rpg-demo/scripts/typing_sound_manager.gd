@@ -70,7 +70,7 @@ func notification_sound():
 
 # Musics ----------------------------------
 func play_music():
-	music.stream = load("res://sounds/emre_ilk_music_taslak.wav")
+	music.stream = load("res://sounds/Emre_demo_final_ver.wav")
 	pc_sound.volume_db = -7
 	music.play()
 	
