@@ -41,6 +41,9 @@ func _on_tab_selected(tab: int) -> void:
 	Global.active_tab = get_child(current_tab)
 	call_deferred("_grab_focus_line_edit")
 
+func _on_focus_entered() -> void:
+	Global.active_tab = get_child(current_tab)
+	call_deferred("_grab_focus_line_edit")
 
 
 
