@@ -64,6 +64,10 @@ FreeDictionary: [if GameState.never_see_line == true] never see this line [/if]
 	FreeDictionary: Cypherpunk [wait=0.5][i](proper noun)[/i][next=auto]
 	FreeDictionary: [speed=3]A movement or an individual who advocates for the widespread use of strong cryptography and privacy enhancing technologies, viewing them as essential tools for social and political change. Cypherpunks committed to defending privacy and personal freedom with cryptographic tools, decentralized communication, often expressing a deep distrust of centralized authority and corporate control over information streams.[next=auto]
 	FreeDictionary: [i]See also[/i]: decentralized, E2E, Chirp Syndicate.
+- Cypherpunk
+	FreeDictionary: Cypherpunk [wait=0.5][i](proper noun)[/i][next=auto]
+	FreeDictionary: [speed=3]A movement or an individual who advocates for the widespread use of strong cryptography and privacy enhancing technologies, viewing them as essential tools for social and political change. Cypherpunks committed to defending privacy and personal freedom with cryptographic tools, decentralized communication, often expressing a deep distrust of centralized authority and corporate control over information streams.[next=auto]
+	FreeDictionary: [i]See also[/i]: decentralized, E2E, Chirp Syndicate.
 - LoRa
 	=>< LoRa
 - Construct

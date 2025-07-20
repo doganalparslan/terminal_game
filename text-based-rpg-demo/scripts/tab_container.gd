@@ -13,7 +13,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	Global.active_tab = get_child(current_tab)
-	call_deferred("_grab_focus_line_edit")
+	#call_deferred("_grab_focus_line_edit")
 	
 	if Input.is_action_just_pressed("tab"):
 		infinite_next_tab()

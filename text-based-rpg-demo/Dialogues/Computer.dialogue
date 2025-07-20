@@ -21,7 +21,7 @@ Computer: Awaiting input...
 Computer: Available Commands:[next=auto]
 
 
-Computer: Connect[if GameState.has_met_nance] Random[/if] | Change Audio | Terminal Interface
+Computer: Connect[if GameState.has_met_nance] Random[/if] | Change Audio | Terminal Interface[next=auto]
 
 #- refresh term [if GameState.debug_mode == true]
 #	=> commands

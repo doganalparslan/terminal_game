@@ -81,7 +81,7 @@ Nance: I'm back.[next=auto]
 Nance: So how was it, met some new friends?
 - met CASEY [if GameState.has_met_casey == true]
 	~ met_casey
-	Nance: Yeah[wait=0.7] the writer man.[wait=0.7] How did you find him?
+	Nance: Yeah[wait=0.7] the writer fella.[wait=0.7] How did you find him?
 	- he was interesting
 		Nance: He can be a way to escape sometimes.[wait=0.7] Creates vivid images with his words.
 		- got history?
