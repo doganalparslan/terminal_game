@@ -1,6 +1,6 @@
 extends Node
 
-var debug_mode: bool = true
+var debug_mode: bool = false
 var demo_ended: bool = false
 
 #func _ready() -> void:
