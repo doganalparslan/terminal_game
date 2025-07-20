@@ -14,6 +14,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	Global.active_tab = get_child(current_tab)
 	#call_deferred("_grab_focus_line_edit")
+	#print(FOCUS_NONE)
 	
 	if Input.is_action_just_pressed("tab"):
 		infinite_next_tab()
@@ -34,16 +35,27 @@ func _on_tab_changed(_tab: int) -> void:
 
 
 func _on_tab_clicked(tab: int) -> void:
+	print("TAB CLICKED")
 	Global.active_tab = get_child(current_tab)
 	call_deferred("_grab_focus_line_edit")
 
 func _on_tab_selected(tab: int) -> void:
+	print("TAB SELECTED")
 	Global.active_tab = get_child(current_tab)
 	call_deferred("_grab_focus_line_edit")
 
 func _on_focus_entered() -> void:
+	print("FOCUS ENTERED")
 	Global.active_tab = get_child(current_tab)
 	call_deferred("_grab_focus_line_edit")
+
+func _on_gui_input(event: InputEvent) -> void:
+	print("GUI INPUT")
+	Global.active_tab = get_child(current_tab)
+	#release_focus()
+	call_deferred("_grab_focus_line_edit")
+
+
 
 
 

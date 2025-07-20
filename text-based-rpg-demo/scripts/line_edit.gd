@@ -66,9 +66,11 @@ func _physics_process(_delta: float) -> void:
 #
 #
 #
-#func _on_focus_exited() -> void:
-	#DisplayServer.virtual_keyboard_hide()
-	
-	
-	
-	
+func _on_focus_exited() -> void:
+	print("_on_focus_exited")
+	call_deferred("_grab_focus_line_edit")
+
+
+
+func _grab_focus_line_edit():
+	Global.active_tab.line_edit.grab_focus()
