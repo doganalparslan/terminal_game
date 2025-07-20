@@ -31,7 +31,6 @@ func _on_tab_changed(_tab: int) -> void:
 		Global.go_to_this_line("Computer", "31")
 	Global.active_tab = get_child(current_tab)
 	call_deferred("_grab_focus_line_edit")
-	
 
 
 func _on_tab_clicked(tab: int) -> void:
@@ -48,13 +47,6 @@ func _on_focus_entered() -> void:
 	print("FOCUS ENTERED")
 	Global.active_tab = get_child(current_tab)
 	call_deferred("_grab_focus_line_edit")
-
-func _on_gui_input(event: InputEvent) -> void:
-	print("GUI INPUT")
-	Global.active_tab = get_child(current_tab)
-	#release_focus()
-	call_deferred("_grab_focus_line_edit")
-
 
 
 
