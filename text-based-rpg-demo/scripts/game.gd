@@ -101,8 +101,6 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 	
 	
 	line_edit_to_end()
-	if Global.active_tab == self:
-		line_edit.grab_focus()
 
 
 
