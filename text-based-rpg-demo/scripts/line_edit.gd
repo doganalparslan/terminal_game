@@ -55,22 +55,25 @@ func _on_text_changed(new_text: String) -> void:
 
 
 # Forces caret to be positioned after the last character always
-func _physics_process(_delta: float) -> void:
-	caret_column = get_text().length()
+#func _physics_process(_delta: float) -> void:
+	#caret_column = get_text().length()
 
 
 
 #---------------------------------------------------------MOBILE KEYBOARD
 #func _on_focus_entered() -> void:
 	#DisplayServer.virtual_keyboard_show("")
+
+
+#func _on_focus_exited() -> void:
+	#print_debug("_on_focus_exited")
+	#if get_window().has_focus() :
+		#print_debug("game_window has focus")
+		#call_deferred("_grab_focus_line_edit")
+	#else:
+		#print_debug("game_window lost focus")
 #
 #
 #
-func _on_focus_exited() -> void:
-	print("_on_focus_exited")
-	call_deferred("_grab_focus_line_edit")
-
-
-
-func _grab_focus_line_edit():
-	Global.active_tab.line_edit.grab_focus()
+#func _grab_focus_line_edit():
+	#Global.active_tab.line_edit.grab_focus()
